@@ -19,6 +19,10 @@ permalink: /
 
 ## > network protocols
 
+<div class="mobile-only">
+    <p>We help improve network activity analytics based on network protocols: protocol detection, structure verification, and extracting the most significant fields needed for analysis. Field values play an important role in traffic classification, and the list of extracted values affects the classification type: Internet service, cyber attack, network problems, potential data leakage, etc.</p>
+</div>
+
 <div class="desktop-only">
   <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
     <tbody>
@@ -36,6 +40,10 @@ permalink: /
 </div>
 
 ## > internet services
+
+<div class="mobile-only">
+    <p>We solve problems with the classification of Internet services (YouTube, WhatsApp, Telegram, etc.) and the determination of the nature of traffic (audio, video, chat, etc.). We maintain and update the database of signatures, IP addresses, CDN, and classification methods.</p>
+</div>
 
 <div class="desktop-only">
   <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
@@ -55,6 +63,10 @@ permalink: /
 
 ## > ml/ai
 
+<div class="mobile-only">
+    <p>We process traffic and extract the maximum possible number of fields/properties/metrics, after which we generate a granular dataset for training your AI systems. The set of produced information is constantly updated with the release of new product versions, which expand the list of supported protocols, fields, and metadata.</p>
+</div>
+
 <div class="desktop-only">
   <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
     <tbody>
@@ -72,6 +84,10 @@ permalink: /
 </div>
 
 ## > ipdr
+
+<div class="mobile-only">
+    <p>The ability to independently configure events for traffic processing. The event processing module generates records with a pre-configured set of properties and sends them to the server for subsequent processing/analysis.</p>
+</div>
 
 <div class="desktop-only">
   <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
