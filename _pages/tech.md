@@ -14,6 +14,7 @@ permalink: /tech/
 
 ### # {{ site.data.release.json.version.version.data }}
 
+<!--
 \# [requirements](/tech/requirements)
 \# [dependencies](/tech/dependencies)
 \# [protocols](/tech/protocols)
@@ -21,6 +22,8 @@ permalink: /tech/
 \# [metadata](/tech/metadata)
 \# [extensions](/tech/extensions)
 \# [performance](/tech/performance)
-\# [changelog](/tech/changelog)
-\# [roadmap](/tech/roadmap)
+-->
+\# [specification](/assets/txt/tech.txt)
+\# [changelog](/assets/txt/changelog.txt)
+\# [roadmap](/assets/txt/roadmap.txt)
 \# [faq](/tech/faq)
