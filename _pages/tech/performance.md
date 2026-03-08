@@ -110,6 +110,8 @@ total: [{{ performance_files.size }} items]
 {% unless forloop.last %}<hr>{% endunless %}
 {% endfor %}
 
+<hr>
+
 ## # scheme
 
 ```bash
@@ -127,6 +129,8 @@ total: [{{ performance_files.size }} items]
 +--------------+
 ```
 
+<hr>
+
 ## # ram-disk
 
 ```bash
@@ -135,12 +139,18 @@ df -h /dev/shm
 cp ~/pcap/work_pcap_session/apple_devices.pcap /dev/shm/
 ```
 
+<hr>
+
 ## # os
 
 ```bash
 .uname -a
-Linux sl-dev 6.8.0-100-generic #100-Ubuntu SMP PREEMPT_DYNAMIC Tue Jan 13 16:40:06 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+Linux sl-dev 6.8.0-100-generic #100-Ubuntu
+SMP PREEMPT_DYNAMIC Tue Jan 13 16:40:06
+UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
 ```
+
+<hr>
 
 ## # hardware
 
@@ -171,9 +181,7 @@ Vendor ID:                   GenuineIntel
     Socket(s):               1
     Stepping:                0
     BogoMIPS:                5999.99
-    Flags:                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm a
-                             bm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vp
-                             opcntdq la57 rdpid fsrm md_clear arch_capabilities
+    Flags:                   ...
 Virtualization features:     
   Hypervisor vendor:         KVM
   Virtualization type:       full
@@ -192,43 +200,26 @@ Vulnerabilities:
   L1tf:                      Not affected
   Mds:                       Not affected
   Meltdown:                  Not affected
-  Mmio stale data:           Mitigation; Clear CPU buffers; SMT Host state unknown
+  Mmio stale data:           ...
   Reg file data sampling:    Not affected
   Retbleed:                  Not affected
   Spec rstack overflow:      Not affected
-  Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
-  Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
-  Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop
-  Srbds:                     Not affected
-  Tsa:                       Not affected
-  Tsx async abort:           Not affected
-  Vmscape:                   Not affected
+  ...
 ```
 
 ```bash
 hwinfo --short
 
 cpu:
-                       Intel Xeon Processor (Icelake), 3000 MHz
-                       Intel Xeon Processor (Icelake), 3000 MHz
-                       Intel Xeon Processor (Icelake), 3000 MHz
-                       Intel Xeon Processor (Icelake), 3000 MHz
-
-...
-
-storage:
-                       Virtio Storage 0
-network:
-                       Virtio Ethernet Card 0
-network interface:
-  eth0                 Ethernet network interface
-  lo                   Loopback network interface
+	Intel Xeon Processor (Icelake), 3000 MHz
+	Intel Xeon Processor (Icelake), 3000 MHz
+	Intel Xeon Processor (Icelake), 3000 MHz
+	Intel Xeon Processor (Icelake), 3000 MHz
 
 ...
 
 memory:
-                       Main Memory
-
+	Main Memory
 ...
 ```
 
