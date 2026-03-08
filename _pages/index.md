@@ -71,11 +71,11 @@ permalink: /
   <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
     <tbody>
       <tr>
-        <td style="width: 200px; height: 200px; vertical-align: middle; text-align: center;">
+        <td style="width: 25%; height: 200px; vertical-align: middle; text-align: center;">
             <img src="/assets/dc_engine/img/ml_ai.png" alt="DC Engine" 
                  style="max-width: 100%; height: auto; display: inline-block;" />
         </td>
-        <td style="width: 70%; vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
+        <td style="width: 75%; vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
             <p>We process traffic and extract the maximum possible number of fields/properties/metrics, after which we generate a granular dataset for training your AI systems. The set of produced information is constantly updated with the release of new product versions, which expand the list of supported protocols, fields, and metadata.</p>
         </td>
       </tr>
