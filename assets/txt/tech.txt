@@ -7,79 +7,102 @@
 
 Table of Contents
 
-   1.  Version and Dependencies ........................................  1
-   2.  Requirements ....................................................  2
+   1.  Requirements ....................................................  1
+   2.  Version and Dependencies ........................................  2
    3.  Configuration Summary ...........................................  3
-   4.  Protocols .......................................................  4
-       4.1  Built-in Protocols .........................................  4
-       4.2  Configuration-Defined Protocols ............................  5
-   5.  Protocol Fields .................................................  6
-       5.1   arp .................................................  5
-       5.2   bittorrent ..........................................  5
-       5.3   bittorrent_dht ......................................  5
-       5.4   bittorrent_tracker ..................................  5
-       5.5   bittorrent_utp ......................................  5
-       5.6   dns .................................................  5
-       5.7   dropbox_lan_sync ....................................  5
-       5.8   dropbox_lan_sync_discovery ..........................  5
-       5.9   dtls ................................................  5
-       5.10  ethernet ............................................  5
-       5.11  ftp .................................................  5
-       5.12  gre .................................................  5
-       5.13  gtp .................................................  5
-       5.14  http ................................................  5
-       5.15  http2 ...............................................  5
-       5.16  icmp ................................................  5
-       5.17  icmpv6 ..............................................  5
-       5.18  igmp ................................................  5
-       5.19  imap ................................................  5
-       5.20  ipv4 ................................................  5
-       5.21  ipv6 ................................................  5
-       5.22  isakmp ..............................................  5
-       5.23  l2tp ................................................  5
-       5.24  mdns ................................................  5
-       5.25  ntp .................................................  5
-       5.26  openvpn .............................................  5
-       5.27  ospf ................................................  5
-       5.28  payload .............................................  5
-       5.29  pop3 ................................................  5
-       5.30  ppp .................................................  5
-       5.31  pppoe ...............................................  5
-       5.32  pptp ................................................  5
-       5.33  quic ................................................  5
-       5.34  rarp ................................................  5
-       5.35  rtcp ................................................  5
-       5.36  rtp .................................................  5
-       5.37  sftp ................................................  5
-       5.38  sip .................................................  5
-       5.39  smtp ................................................  5
-       5.40  socks ...............................................  5
-       5.41  srtcp ...............................................  5
-       5.42  srtp ................................................  5
-       5.43  ssdp ................................................  5
-       5.44  ssh .................................................  5
-       5.45  stun ................................................  5
-       5.46  tcp .................................................  5
-       5.47  telnet ..............................................  5
-       5.48  teredo ..............................................  5
-       5.49  tls .................................................  5
-       5.50  udp .................................................  5
-       5.51  vlan_c_tag ..........................................  5
-       5.52  websocket ...........................................  5
-       5.53  wireguard ...........................................  5
-   6.  Extensions ......................................................  7
-   7.  Classification ..................................................  8
-       7.1  Categories .................................................  8
-       7.2  Metadata Fields ............................................  9
-       7.3  Workflow Types .............................................  9
-   8.  Services ........................................................ 10
-   9.  Decoders ....................................................... 11
-  10.  Info Tables .................................................... 12
-  11.  Performance ..................................................... 13
+   4.  Protocols ...........................................................  4
+       4.1  Built-in Protocols .............................................  4
+       4.2  Configuration Protocols ........................................  4
+       4.3  Fields .........................................................  4
+           4.3.1   arp ...........................................  4
+           4.3.2   bittorrent ....................................  4
+           4.3.3   bittorrent_dht ................................  4
+           4.3.4   bittorrent_tracker ............................  4
+           4.3.5   bittorrent_utp ................................  4
+           4.3.6   dns ...........................................  4
+           4.3.7   dropbox_lan_sync ..............................  4
+           4.3.8   dropbox_lan_sync_discovery ....................  4
+           4.3.9   dtls ..........................................  4
+           4.3.10  ethernet ......................................  4
+           4.3.11  ftp ...........................................  4
+           4.3.12  gre ...........................................  4
+           4.3.13  gtp ...........................................  4
+           4.3.14  http ..........................................  4
+           4.3.15  http2 .........................................  4
+           4.3.16  icmp ..........................................  4
+           4.3.17  icmpv6 ........................................  4
+           4.3.18  igmp ..........................................  4
+           4.3.19  imap ..........................................  4
+           4.3.20  ipv4 ..........................................  4
+           4.3.21  ipv6 ..........................................  4
+           4.3.22  isakmp ........................................  4
+           4.3.23  l2tp ..........................................  4
+           4.3.24  mdns ..........................................  4
+           4.3.25  ntp ...........................................  4
+           4.3.26  openvpn .......................................  4
+           4.3.27  ospf ..........................................  4
+           4.3.28  payload .......................................  4
+           4.3.29  pop3 ..........................................  4
+           4.3.30  ppp ...........................................  4
+           4.3.31  pppoe .........................................  4
+           4.3.32  pptp ..........................................  4
+           4.3.33  quic ..........................................  4
+           4.3.34  rarp ..........................................  4
+           4.3.35  rtcp ..........................................  4
+           4.3.36  rtp ...........................................  4
+           4.3.37  sftp ..........................................  4
+           4.3.38  sip ...........................................  4
+           4.3.39  smtp ..........................................  4
+           4.3.40  socks .........................................  4
+           4.3.41  srtcp .........................................  4
+           4.3.42  srtp ..........................................  4
+           4.3.43  ssdp ..........................................  4
+           4.3.44  ssh ...........................................  4
+           4.3.45  stun ..........................................  4
+           4.3.46  tcp ...........................................  4
+           4.3.47  telnet ........................................  4
+           4.3.48  teredo ........................................  4
+           4.3.49  tls ...........................................  4
+           4.3.50  udp ...........................................  4
+           4.3.51  vlan_c_tag ....................................  4
+           4.3.52  websocket .....................................  4
+           4.3.53  wireguard .....................................  4
+       4.4  Decoders .......................................................  4
+       4.5  Info Tables ....................................................  4
+   5.  Extensions ......................................................  5
+   6.  Classification ..................................................  6
+       6.1  Categories .................................................  6
+       6.2  Workflow ...................................................  6
+       6.3  Metadata ...................................................  6
+       6.4  Services ...................................................  6
+   7.  Performance .....................................................  7
 
 ================================================================================
 
-1.  Version and Dependencies
+1.  Requirements
+
+────────────────────────────────────────────────────────────────────────────────
+
+   os
+   
+   os          | status
+   ------------|-------
+   unix-like   | +
+   macos       | +
+   windows     | +
+   
+   dev
+   
+   name        | description
+   ------------|------------
+   compiler    | clang
+   language    | c++
+   glibc       | 2.39
+   standard    | c++17
+   build       | cmake
+
+
+2.  Version and Dependencies
 
 ────────────────────────────────────────────────────────────────────────────────
 
@@ -101,29 +124,6 @@ Table of Contents
    flow                   1.13.1+96fbded
    global                 1.13.1+48215b6
    dcengine               1.13.10+87734b8
-
-
-2.  Requirements
-
-────────────────────────────────────────────────────────────────────────────────
-
-   os
-   
-   os          | status
-   ------------|-------
-   unix-like   | +
-   macos       | +
-   windows     | +
-   
-   dev
-   
-   name        | description
-   ------------|------------
-   compiler    | clang
-   language    | c++
-   glibc       | 2.39
-   standard    | c++17
-   build       | cmake
 
 
 3.  Configuration Summary
@@ -433,7 +433,7 @@ Table of Contents
       patterns  : -
 
 
-4.2  Configuration-Defined Protocols
+4.2  Configuration Protocols
 
    the following protocol tags extend built-in detection with
    classifier-defined entries. all entries are marked [cfg].
@@ -491,14 +491,12 @@ Table of Contents
       description : SRTP Over DTLS.
 
 
-5.  Protocol Fields
-
-────────────────────────────────────────────────────────────────────────────────
+4.3  Fields
 
    each protocol exposes a set of typed fields for packet inspection.
    fields marked (*) may appear more than once per packet.
 
-   5.1  arp
+   4.3.1  arp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -598,7 +596,7 @@ Table of Contents
       desc     : The unmapped data which is following after ARP header.
 
 
-   5.2  bittorrent
+   4.3.2  bittorrent
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -633,7 +631,7 @@ Table of Contents
       desc     : The payload data length.
 
 
-   5.3  bittorrent_dht
+   4.3.3  bittorrent_dht
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -740,7 +738,7 @@ Table of Contents
       desc     : The node6 port.
 
 
-   5.4  bittorrent_tracker
+   4.3.4  bittorrent_tracker
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -775,7 +773,7 @@ Table of Contents
       desc     : The payload data length.
 
 
-   5.5  bittorrent_utp
+   4.3.5  bittorrent_utp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -810,7 +808,7 @@ Table of Contents
       desc     : The payload data length.
 
 
-   5.6  dns
+   4.3.6  dns
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -1388,7 +1386,7 @@ Table of Contents
       desc     : The IPv6 address that clients MAY use to reach the service.
 
 
-   5.7  dropbox_lan_sync
+   4.3.7  dropbox_lan_sync
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -1447,7 +1445,7 @@ Table of Contents
       desc     : The payload data.
 
 
-   5.8  dropbox_lan_sync_discovery
+   4.3.8  dropbox_lan_sync_discovery
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -1489,7 +1487,7 @@ Table of Contents
                  'version', 'displayname', 'port', 'namespaces' fields).
 
 
-   5.9  dtls
+   4.3.9  dtls
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -2678,7 +2676,7 @@ Table of Contents
                  'explicit_prime' or 'explicit_char2' curve_type.
 
 
-   5.10  ethernet
+   4.3.10  ethernet
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -2733,7 +2731,7 @@ Table of Contents
                  IEEE802.3 length Field. 0x0101-0x01FF - experimental.
 
 
-   5.11  ftp
+   4.3.11  ftp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -2835,7 +2833,7 @@ Table of Contents
       desc     : Not dissected data.
 
 
-   5.12  gre
+   4.3.12  gre
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -2915,7 +2913,7 @@ Table of Contents
                  MUST be transmitted as zero.
 
 
-   5.13  gtp
+   4.3.13  gtp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -3049,7 +3047,7 @@ Table of Contents
       desc     : Undissected data section.
 
 
-   5.14  http
+   4.3.14  http
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -3567,7 +3565,7 @@ Table of Contents
                  type numbers).
 
 
-   5.15  http2
+   4.3.15  http2
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -4021,7 +4019,7 @@ Table of Contents
       desc     : A field block fragment.
 
 
-   5.17  icmp
+   4.3.17  icmp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -4088,7 +4086,7 @@ Table of Contents
       desc     : The ICMP message data.
 
 
-   5.18  icmpv6
+   4.3.18  icmpv6
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -4155,7 +4153,7 @@ Table of Contents
       desc     : The ICMP message data.
 
 
-   5.19  igmp
+   4.3.19  igmp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -4196,7 +4194,7 @@ Table of Contents
       desc     : Type of message.
 
 
-   5.20  imap
+   4.3.20  imap
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -4231,7 +4229,7 @@ Table of Contents
       desc     : The payload data length.
 
 
-   5.21  ipv4
+   4.3.21  ipv4
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -4381,7 +4379,7 @@ Table of Contents
       desc     : The options section.
 
 
-   5.22  ipv6
+   4.3.22  ipv6
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -4724,7 +4722,7 @@ Table of Contents
       desc     : The data section of shim extension.
 
 
-   5.23  isakmp
+   4.3.23  isakmp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -4826,7 +4824,7 @@ Table of Contents
       desc     : The length of total message (header + payloads) in octets.
 
 
-   5.24  l2tp
+   4.3.24  l2tp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -4993,7 +4991,7 @@ Table of Contents
       desc     : The L2TP payload data.
 
 
-   5.25  mdns
+   4.3.25  mdns
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -5586,7 +5584,7 @@ Table of Contents
       desc     : The IPv6 address that clients MAY use to reach the service.
 
 
-   5.26  ntp
+   4.3.26  ntp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -5621,7 +5619,7 @@ Table of Contents
       desc     : The payload data length.
 
 
-   5.27  openvpn
+   4.3.27  openvpn
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -5761,7 +5759,7 @@ Table of Contents
       desc     : The message fragment data.
 
 
-   5.28  ospf
+   4.3.28  ospf
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -5868,7 +5866,7 @@ Table of Contents
       desc     : Undissected data section.
 
 
-   5.29  payload
+   4.3.29  payload
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -5909,7 +5907,7 @@ Table of Contents
       desc     : The payload data.
 
 
-   5.30  pop3
+   4.3.30  pop3
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -5976,7 +5974,7 @@ Table of Contents
                  status line.
 
 
-   5.31  ppp
+   4.3.31  ppp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -6029,7 +6027,7 @@ Table of Contents
       desc     : The protocol identificator.
 
 
-   5.32  pppoe
+   4.3.32  pppoe
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -6102,7 +6100,7 @@ Table of Contents
       desc     : The PPPoE payload data.
 
 
-   5.33  pptp
+   4.3.33  pptp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -6171,7 +6169,7 @@ Table of Contents
       desc     : The reserved field.
 
 
-   5.34  quic
+   4.3.34  quic
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -6746,7 +6744,7 @@ Table of Contents
                  the Error Code value.
 
 
-   5.35  rarp
+   4.3.35  rarp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -6846,7 +6844,7 @@ Table of Contents
       desc     : The unmapped data which is following after ARP header.
 
 
-   5.36  rtcp
+   4.3.36  rtcp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -7135,7 +7133,7 @@ Table of Contents
                  SRTCP.
 
 
-   5.37  rtp
+   4.3.37  rtp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -7296,7 +7294,7 @@ Table of Contents
       desc     : RTP padding length.
 
 
-   5.38  sftp
+   4.3.38  sftp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -7374,7 +7372,7 @@ Table of Contents
       desc     : The response code message.
 
 
-   5.39  sip
+   4.3.39  sip
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -7892,7 +7890,7 @@ Table of Contents
                  type numbers).
 
 
-   5.40  smtp
+   4.3.40  smtp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -7958,7 +7956,7 @@ Table of Contents
       desc     : The multiline data section that is placed after DATA command.
 
 
-   5.41  socks
+   4.3.41  socks
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -8114,7 +8112,7 @@ Table of Contents
       desc     : The user data. Socks5 and udp only.
 
 
-   5.42  srtcp
+   4.3.42  srtcp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -8403,7 +8401,7 @@ Table of Contents
                  SRTCP.
 
 
-   5.43  srtp
+   4.3.43  srtp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -8564,7 +8562,7 @@ Table of Contents
       desc     : RTP padding length.
 
 
-   5.44  ssdp
+   4.3.44  ssdp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -9082,7 +9080,7 @@ Table of Contents
                  type numbers).
 
 
-   5.45  ssh
+   4.3.45  ssh
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -9117,7 +9115,7 @@ Table of Contents
       desc     : The payload data length.
 
 
-   5.46  stun
+   4.3.46  stun
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -9215,7 +9213,7 @@ Table of Contents
                  has to be aligned for 4 bytes.
 
 
-   5.47  tcp
+   4.3.47  tcp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -9372,7 +9370,7 @@ Table of Contents
                  as a positive offset from the sequence number in this segment.
 
 
-   5.48  telnet
+   4.3.48  telnet
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -9413,7 +9411,7 @@ Table of Contents
       desc     : Stream data.
 
 
-   5.49  teredo
+   4.3.49  teredo
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -9541,7 +9539,7 @@ Table of Contents
                  the client should obtain a new key.
 
 
-   5.50  tls
+   4.3.50  tls
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -10567,7 +10565,7 @@ Table of Contents
                  'explicit_prime' or 'explicit_char2' curve_type.
 
 
-   5.51  udp
+   4.3.51  udp
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -10636,7 +10634,7 @@ Table of Contents
                  (if necessary) to make a multiple of two octets.
 
 
-   5.52  vlan_c_tag
+   4.3.52  vlan_c_tag
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -10703,7 +10701,7 @@ Table of Contents
                  IEEE802.3 length Field. 0x0101-0x01FF - experimental.
 
 
-   5.53  websocket
+   4.3.53  websocket
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -10825,7 +10823,7 @@ Table of Contents
                  data'.
 
 
-   5.54  wireguard
+   4.3.54  wireguard
    ──────────────────────────────────────────────────────────────────────────
 
       field    : root
@@ -10946,7 +10944,661 @@ Table of Contents
 
 
 
-6.  Extensions
+4.4  Decoders
+
+   decoders translate raw field values (numeric, binary sequences,
+   encoded strings, etc.) into human-readable representations. each
+   entry shows the field path, decoding logic, and an example.
+
+   field : flow.last_time
+   desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
+           1685531511.513319743]
+
+   field : flow.duration
+   desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
+           1685531511.513319743]
+
+   field : flow.start_time
+   desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
+           1685531511.513319743]
+
+   field : pkt.gtp.extension_header_length
+   desc  : Decodes the length of a GPRS Tunnelling Protocol extension header.
+           The value represents the number of 4-byte words; the total size in
+           bytes is calculated as field_value * 4. [4 <-> 16; (4) * 4]
+
+   field : pkt.rtcp.length
+   desc  : Decodes the 16-bit length field found in RTCP headers. The actual
+           size in bytes is calculated as (field_value + 1) * 4, representing
+           the total length of the packet including the header and padding. [6
+           <-> 28; (6 + 1) * 4]
+
+   field : pkt.ospf.ared_id
+   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
+           quad notation, where each byte represents a decimal value from 0 to
+           255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.teredo.origin_indication_ipv4_address
+   desc  : Decodes the 'Origin Indication' field by performing a bitwise NOT
+           (one's complement) operation on the encoded 16-bit port or address
+           fragments to retrieve the original obfuscated value. [0xF12A <->
+           0x0ED5]
+
+   field : pkt.tls.quic_transport_parameter_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.triggered_frame_type
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.stream_offset
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.retire_prior_to
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.retire_sequence_number
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.cumulative_maximum_streams
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.maximum_stream_data
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.maximum_data
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.crypto_data_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.final_size
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.reset_application_protocol_error_code
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.blocked_stream_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.stop_stream_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.ecn_ce_count
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.ect_0_count
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.ack_range_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.ack_range_count
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.largest_acknowledged
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.frame_type
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.token_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.source_connection_id_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.destination_connection_id_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.ipv4.src_ip
+   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
+           quad notation, where each byte represents a decimal value from 0 to
+           255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.ospf.router_id
+   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
+           quad notation, where each byte represents a decimal value from 0 to
+           255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.teredo.origin_indication_port
+   desc  : Decodes the 'Origin Indication' field by performing a bitwise NOT
+           (one's complement) operation on the encoded 16-bit port or address
+           fragments to retrieve the original obfuscated value. [0xF12A <->
+           0x0ED5]
+
+   field : pkt.tls.quic_transport_parameter_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.reason_phrase_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.error_code
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.stream_data_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.new_sequence_number
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.allowed_maximum_streams
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.blocked_maximum_stream_data
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.blocked_maximum_data
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.crypto_offset
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.stop_application_protocol_error_code
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.stream_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.max_data_stream_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.reset_stream_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.ect_1_count
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.gap
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.first_ack_range
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.ack_delay
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.dns.ipv4
+   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
+           quad notation, where each byte represents a decimal value from 0 to
+           255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.dns.wks_address
+   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
+           quad notation, where each byte represents a decimal value from 0 to
+           255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.dns.address
+   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
+           quad notation, where each byte represents a decimal value from 0 to
+           255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.ipv4.address
+   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
+           quad notation, where each byte represents a decimal value from 0 to
+           255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.ipv4.dst_ip
+   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
+           quad notation, where each byte represents a decimal value from 0 to
+           255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.timestamp
+   desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
+           1685531511.513319743]
+
+
+4.5  Info Tables
+
+   info tables map numeric field values to human-readable names.
+   each table is associated with a specific field path.
+
+   field : pkt.ethernet.ethernet_type
+   desc  : Link layer name table.
+
+   field : pkt.ipv4.protocol
+   desc  : The IP (v4 and v6) protocol type.
+
+   field : pkt.ipv6.next_header
+   desc  : The IP (v4 and v6) protocol type.
+
+   field : pkt.ipv6.ext_next_header
+   desc  : The IP (v4 and v6) protocol type.
+
+   field : pkt.igmp.type
+   desc  : The IGMP message type.
+
+   field : pkt.icmp.type
+   desc  : The ICMP message type.
+
+   field : pkt.icmpv6.type
+   desc  : The ICMP message type.
+
+   field : pkt.dns.rcode
+   desc  : DNS response code name table.
+
+   field : pkt.dns.opcode
+   desc  : DNS opcode name table. Opcode specifies kind of query.
+
+   field : pkt.dns.rdata_type
+   desc  : DNS RData type name table. RData type specifies the meaning of the
+           data in the rdata section.
+
+   field : pkt.dns.qtype
+   desc  : DNS qtype name table. Qtype code that specifies the type of the
+           query.
+
+   field : pkt.dns.qclass
+   desc  : DNS qclass name table. QClass code that specifies the class of the
+           query.
+
+   field : pkt.dns.rdata_class
+   desc  : DNS rdata class name table. RData class specifies the meaning of the
+           data in the rdata section.
+
+   field : pkt.dns.svc_param_key
+   desc  : DNS svc parameter key name table.
+
+   field : pkt.mdns.rcode
+   desc  : DNS response code name table.
+
+   field : pkt.mdns.opcode
+   desc  : DNS opcode name table. Opcode specifies kind of query.
+
+   field : pkt.mdns.rdata_type
+   desc  : DNS RData type name table. RData type specifies the meaning of the
+           data in the rdata section.
+
+   field : pkt.mdns.qtype
+   desc  : DNS qtype name table. Qtype code that specifies the type of the
+           query.
+
+   field : pkt.mdns.qclass
+   desc  : MDNS qclass name table. QClass code that specifies the class of the
+           query.
+
+   field : pkt.mdns.rdata_class
+   desc  : MDNS qclass name table. QClass code that specifies the class of the
+           query.
+
+   field : pkt.tls.record_protocol_version
+   desc  : TLS protocol version name table.
+
+   field : pkt.tls.client_version
+   desc  : TLS protocol version name table.
+
+   field : pkt.tls.server_version
+   desc  : TLS protocol version name table.
+
+   field : pkt.tls.supported_version
+   desc  : TLS protocol version name table.
+
+   field : pkt.tls.record_content_type
+   desc  : TLS record content type name table.
+
+   field : pkt.tls.alert_level
+   desc  : TLS alert level name table.
+
+   field : pkt.tls.alert_description
+   desc  : TLS alert description name table.
+
+   field : pkt.tls.request_update
+   desc  : TLS request update name table.
+
+   field : pkt.tls.heartbeat_message_type
+   desc  : TLS heartbeat message type name table.
+
+   field : pkt.tls.change_cipher_spec_type
+   desc  : TLS change cipher spec type name table.
+
+   field : pkt.tls.handshake_type
+   desc  : TLS handshake type name table.
+
+   field : pkt.tls.extension_type
+   desc  : TLS extension type name table.
+
+   field : pkt.tls.cipher_suite
+   desc  : TLS cipher suite name table.
+
+   field : pkt.tls.client_certificate_type
+   desc  : TLS client certificate type name table. Currently that field is not
+           supported.
+
+   field : pkt.tls.hash_algorithm
+   desc  : TLS hash algorithm name table.
+
+   field : pkt.tls.signature_algorithm
+   desc  : TLS hash signature name table.
+
+   field : pkt.tls.signature_and_hash_algorithm
+   desc  : TLS signature and hash algorithm pair name table. That field have
+           different meaning for tl1.2 and tls1.3. For tls1.2 see
+           'hash_algorithm' and 'signature_algorithm' pair, for tls1.3 that
+           field is the same as 'signature_scheme'. If tls context is defined
+           and tls1.3 is set - 'signature_scheme' field is presented.
+
+   field : pkt.tls.signature_scheme
+   desc  : TLS signature scheme name table.
+
+   field : pkt.tls.compression_method
+   desc  : TLS compression method name table.
+
+   field : pkt.tls.server_name_type
+   desc  : TLS server type name table.
+
+   field : pkt.tls.ecdh_basis
+   desc  : The type of the elliptic curve. The field is presented only for ecdh
+           and ecdhe algorithms.
+
+   field : pkt.tls.curve_type
+   desc  : The basis type. The field is presented only for ecdh and ecdhe
+           algorithms.
+
+   field : pkt.tls.quic_transport_parameter_id
+   desc  : The quic transport parameter identificators which are transmitted in
+           tls extension.
+
+   field : pkt.tls.connection_id_usage
+   desc  : Connection id usage text name table.
+
+   field : pkt.tls.srtp_protection_profile
+   desc  : Tls use srtp profile set.
+
+   field : pkt.tls.supported_group
+   desc  : Tls supported group identificator (elliptic curve).
+
+   field : pkt.tls.ec_point_format
+   desc  : Tls EC point format identificator.
+
+   field : pkt.dtls.record_protocol_version
+   desc  : TLS protocol version name table.
+
+   field : pkt.dtls.client_version
+   desc  : TLS protocol version name table.
+
+   field : pkt.dtls.server_version
+   desc  : TLS protocol version name table.
+
+   field : pkt.dtls.supported_version
+   desc  : TLS protocol version name table.
+
+   field : pkt.dtls.record_content_type
+   desc  : TLS record content type name table.
+
+   field : pkt.dtls.alert_level
+   desc  : TLS alert level name table.
+
+   field : pkt.dtls.alert_description
+   desc  : TLS alert description name table.
+
+   field : pkt.dtls.request_update
+   desc  : TLS request update name table.
+
+   field : pkt.dtls.heartbeat_message_type
+   desc  : TLS heartbeat message type name table.
+
+   field : pkt.dtls.change_cipher_spec_type
+   desc  : TLS change cipher spec type name table.
+
+   field : pkt.dtls.handshake_type
+   desc  : TLS handshake type name table.
+
+   field : pkt.dtls.extension_type
+   desc  : TLS extension type name table.
+
+   field : pkt.dtls.cipher_suite
+   desc  : TLS cipher suite name table.
+
+   field : pkt.dtls.client_certificate_type
+   desc  : TLS client certificate type name table. Currently that field is not
+           supported.
+
+   field : pkt.dtls.hash_algorithm
+   desc  : TLS hash algorithm name table.
+
+   field : pkt.dtls.signature_algorithm
+   desc  : TLS hash signature name table.
+
+   field : pkt.dtls.signature_and_hash_algorithm
+   desc  : TLS signature and hash algorithm pair name table. That field have
+           different meaning for tl1.2 and tls1.3. For tls1.2 see
+           'hash_algorithm' and 'signature_algorithm' pair, for tls1.3 that
+           field is the same as 'signature_scheme'. If tls context is defined
+           and tls1.3 is set - 'signature_scheme' field is presented.
+
+   field : pkt.dtls.signature_scheme
+   desc  : TLS signature scheme name table.
+
+   field : pkt.dtls.compression_method
+   desc  : TLS compression method name table.
+
+   field : pkt.dtls.server_name_type
+   desc  : TLS server type name table.
+
+   field : pkt.dtls.ecdh_basis
+   desc  : The type of the elliptic curve. The field is presented only for ecdh
+           and ecdhe algorithms.
+
+   field : pkt.dtls.curve_type
+   desc  : The basis type. The field is presented only for ecdh and ecdhe
+           algorithms.
+
+   field : pkt.dtls.quic_transport_parameter_id
+   desc  : The quic transport parameter identificators which are transmitted in
+           tls extension.
+
+   field : pkt.dtls.connection_id_usage
+   desc  : Connection id usage text name table.
+
+   field : pkt.quic.long_packet_type
+   desc  : The long header packet type. The packet payload structure depends on
+           this field.
+
+   field : pkt.quic.frame_type
+   desc  : The frame type field. The frame payload structure depends on this
+           field.
+
+   field : pkt.quic.error_code
+   desc  : The error codes are used in connection close frames.
+
+   field : pkt.http2.frame_type
+   desc  : The frame type name. The frame type determines the format and
+           semantics of the frame. Each frame type serves a distinct purpose in
+           the establishment and management of either the connection as a whole
+           or individual streams.
+
+   field : pkt.http2.rst_stream_error_code
+   desc  : The text description of error code that indicates why the stream is
+           being terminated.
+
+   field : pkt.http2.go_away_error_code
+   desc  : The text description of error code that contains the reason for
+           closing the connection.
+
+   field : pkt.http2.setting_identifier
+   desc  : The text name of setting identificator.
+
+   field : pkt.wireguard.message_type
+   desc  : Wireguard message type name table.
+
+   field : pkt.openvpn.opcode
+   desc  : OpenVPN message type name table.
+
+   field : pkt.socks.command_code
+   desc  : Socks (version 4) command code name table.
+
+   field : pkt.socks.method
+   desc  : Socks (version 5) method name table.
+
+   field : pkt.socks.atyp
+   desc  : Socks address type name table.
+
+   field : pkt.socks.reply
+   desc  : Socks (version 5) reply name table.
+
+   field : pkt.rtp.payload_type
+   desc  : RTP payload type name table.
+
+   field : pkt.rtcp.packet_type
+   desc  : RTCP packet type name table.
+
+   field : pkt.rtcp.sdes_type
+   desc  : RTCP SDES element type name table.
+
+   field : pkt.isakmp.payload_type
+   desc  : ISAKMP payload type name table.
+
+   field : pkt.isakmp.exchange_type
+   desc  : ISAKMP exchange type name table.
+
+   field : pkt.pptp.message_type
+   desc  : PPTP message type name table.
+
+   field : pkt.pptp.control_message_type
+   desc  : PPTP control message type name table.
+
+   field : pkt.ppp.type
+   desc  : PPP type name table.
+
+   field : pkt.ospf.type
+   desc  : The OSPF message type.
+
+   field : pkt.ospf.au_type
+   desc  : The OSPF authentication type.
+
+   field : pkt.websocket.opcode
+   desc  : Defines the interpretation of the "Payload data".
+
+   field : pkt.gtp.message_type
+   desc  : The message type name of GTP message.
+
+   field : pkt.gtp.extension_header_type
+   desc  : The type name of extension.
+
+
+5.  Extensions
 
 ────────────────────────────────────────────────────────────────────────────────
 
@@ -11142,11 +11794,11 @@ Table of Contents
                                                         calling flag.
 
 
-7.  Classification
+6.  Classification
 
 ────────────────────────────────────────────────────────────────────────────────
 
-7.1  Categories
+6.1  Categories
 
    adult  (adult)
       Adult content refers to material that is sexually explicit or intended
@@ -11479,87 +12131,7 @@ Table of Contents
       a defined order.
 
 
-7.2  Metadata Fields
-
-   tag
-      The tag which is assigned by classifier extension.
-
-   tag_type
-      The type of tag matching (IP, Domain, Cache, etc.).
-
-   ech
-      Encrypted Client Hello. The tag is presented only when ECH exists, but
-      SNI doesn't exist.
-
-   ftp_data
-      FTP data trasnmission.
-
-   dns_response_name
-      Processed dns response name - concatenated labels, resolving offsets,
-      etc.
-
-   ja3
-      The fingerprinting the client's TLS handshake (Client Hello).
-
-   ja3s
-      The fingerprinting the server's response (Server Hello).
-
-   ja3_hash
-      MD5 hash of JA3. Format:
-      TLSVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats.
-
-   ja3_md5
-      MD5 hash of JA3. Format:
-      TLSVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats.
-
-   ja3s_md5
-      MD5 hash of JA3S. Format: TLSVersion,Cipher,Extensions.
-
-   http2_header
-      The http/2 protocol header block field: name:value.
-
-   http2_push_promise_header
-      The http/2 protocol push-promise block field: name:value.
-
-   http2_continuation_header
-      The http/2 protocol continuation block field: name:value.
-
-   http_authorization_credentials
-      Base64 decoded value of Proxy-Authorization header value.
-
-   tls_certificate_common_name
-      The CommonName certificate field.
-
-   tls_certificate_general_dns_name
-      The dNSName certificate field. Belongs to extension section.
-
-   protocol_path
-      Protocol path string (hierarchical chain of protocol that are used in a
-      session).
-
-   bitrate
-      The bitrate is a measure of how much data is transferred over a network
-      in a given period of time. Measured in bits per second (bps).
-
-   average_packet_size
-      Average packet size of processed packets.
-
-   inter_arrival_time
-      Inter-arrival Time is the difference in time between the arrival of two
-      consecutive packets at a receiver. Measured in nanoseconds. For one flow
-      packet avg iat is 0.
-
-   flow_start_time
-      Timestamp of the first flow packet..
-
-   flow_last_activity_time
-      Timestamp of the last flow packet.
-
-   flow_duration
-      The flow duration time.
-
-
-7.3  Workflow Types
+6.2  Workflow
 
    generic  (generic)
       Connection establishing with remote server/service.
@@ -11640,9 +12212,87 @@ Table of Contents
       transmission of voice signals over copper or fiber-optic cables.
 
 
-8.  Services
+6.3  Metadata
 
-────────────────────────────────────────────────────────────────────────────────
+   tag
+      The tag which is assigned by classifier extension.
+
+   tag_type
+      The type of tag matching (IP, Domain, Cache, etc.).
+
+   ech
+      Encrypted Client Hello. The tag is presented only when ECH exists, but
+      SNI doesn't exist.
+
+   ftp_data
+      FTP data trasnmission.
+
+   dns_response_name
+      Processed dns response name - concatenated labels, resolving offsets,
+      etc.
+
+   ja3
+      The fingerprinting the client's TLS handshake (Client Hello).
+
+   ja3s
+      The fingerprinting the server's response (Server Hello).
+
+   ja3_hash
+      MD5 hash of JA3. Format:
+      TLSVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats.
+
+   ja3_md5
+      MD5 hash of JA3. Format:
+      TLSVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats.
+
+   ja3s_md5
+      MD5 hash of JA3S. Format: TLSVersion,Cipher,Extensions.
+
+   http2_header
+      The http/2 protocol header block field: name:value.
+
+   http2_push_promise_header
+      The http/2 protocol push-promise block field: name:value.
+
+   http2_continuation_header
+      The http/2 protocol continuation block field: name:value.
+
+   http_authorization_credentials
+      Base64 decoded value of Proxy-Authorization header value.
+
+   tls_certificate_common_name
+      The CommonName certificate field.
+
+   tls_certificate_general_dns_name
+      The dNSName certificate field. Belongs to extension section.
+
+   protocol_path
+      Protocol path string (hierarchical chain of protocol that are used in a
+      session).
+
+   bitrate
+      The bitrate is a measure of how much data is transferred over a network
+      in a given period of time. Measured in bits per second (bps).
+
+   average_packet_size
+      Average packet size of processed packets.
+
+   inter_arrival_time
+      Inter-arrival Time is the difference in time between the arrival of two
+      consecutive packets at a receiver. Measured in nanoseconds. For one flow
+      packet avg iat is 0.
+
+   flow_start_time
+      Timestamp of the first flow packet..
+
+   flow_last_activity_time
+      Timestamp of the last flow packet.
+
+   flow_duration
+      The flow duration time.
+
+
+6.4  Services
 
    services are tags that do not fall under protocol, metadata, or
    helper categories. they represent real-world internet applications
@@ -15889,665 +16539,7 @@ Table of Contents
 
 
 
-9.  Decoders
-
-────────────────────────────────────────────────────────────────────────────────
-
-   decoders translate raw field values (numeric, binary sequences,
-   encoded strings, etc.) into human-readable representations. each
-   entry shows the field path, decoding logic, and an example.
-
-   field : flow.last_time
-   desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
-           1685531511.513319743]
-
-   field : flow.duration
-   desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
-           1685531511.513319743]
-
-   field : flow.start_time
-   desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
-           1685531511.513319743]
-
-   field : pkt.gtp.extension_header_length
-   desc  : Decodes the length of a GPRS Tunnelling Protocol extension header.
-           The value represents the number of 4-byte words; the total size in
-           bytes is calculated as field_value * 4. [4 <-> 16; (4) * 4]
-
-   field : pkt.rtcp.length
-   desc  : Decodes the 16-bit length field found in RTCP headers. The actual
-           size in bytes is calculated as (field_value + 1) * 4, representing
-           the total length of the packet including the header and padding. [6
-           <-> 28; (6 + 1) * 4]
-
-   field : pkt.ospf.ared_id
-   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
-           quad notation, where each byte represents a decimal value from 0 to
-           255. [0x7F000001 <-> 127.0.0.1]
-
-   field : pkt.teredo.origin_indication_ipv4_address
-   desc  : Decodes the 'Origin Indication' field by performing a bitwise NOT
-           (one's complement) operation on the encoded 16-bit port or address
-           fragments to retrieve the original obfuscated value. [0xF12A <->
-           0x0ED5]
-
-   field : pkt.tls.quic_transport_parameter_id
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.triggered_frame_type
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.stream_offset
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.retire_prior_to
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.retire_sequence_number
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.cumulative_maximum_streams
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.maximum_stream_data
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.maximum_data
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.crypto_data_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.final_size
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.reset_application_protocol_error_code
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.blocked_stream_id
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.stop_stream_id
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.ecn_ce_count
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.ect_0_count
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.ack_range_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.ack_range_count
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.largest_acknowledged
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.frame_type
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.token_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.source_connection_id_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.destination_connection_id_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.ipv4.src_ip
-   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
-           quad notation, where each byte represents a decimal value from 0 to
-           255. [0x7F000001 <-> 127.0.0.1]
-
-   field : pkt.ospf.router_id
-   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
-           quad notation, where each byte represents a decimal value from 0 to
-           255. [0x7F000001 <-> 127.0.0.1]
-
-   field : pkt.teredo.origin_indication_port
-   desc  : Decodes the 'Origin Indication' field by performing a bitwise NOT
-           (one's complement) operation on the encoded 16-bit port or address
-           fragments to retrieve the original obfuscated value. [0xF12A <->
-           0x0ED5]
-
-   field : pkt.tls.quic_transport_parameter_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.reason_phrase_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.error_code
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.stream_data_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.new_sequence_number
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.allowed_maximum_streams
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.blocked_maximum_stream_data
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.blocked_maximum_data
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.crypto_offset
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.stop_application_protocol_error_code
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.stream_id
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.max_data_stream_id
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.reset_stream_id
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.ect_1_count
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.gap
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.first_ack_range
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.ack_delay
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.dns.ipv4
-   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
-           quad notation, where each byte represents a decimal value from 0 to
-           255. [0x7F000001 <-> 127.0.0.1]
-
-   field : pkt.dns.wks_address
-   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
-           quad notation, where each byte represents a decimal value from 0 to
-           255. [0x7F000001 <-> 127.0.0.1]
-
-   field : pkt.dns.address
-   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
-           quad notation, where each byte represents a decimal value from 0 to
-           255. [0x7F000001 <-> 127.0.0.1]
-
-   field : pkt.ipv4.address
-   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
-           quad notation, where each byte represents a decimal value from 0 to
-           255. [0x7F000001 <-> 127.0.0.1]
-
-   field : pkt.ipv4.dst_ip
-   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard dotted-
-           quad notation, where each byte represents a decimal value from 0 to
-           255. [0x7F000001 <-> 127.0.0.1]
-
-   field : pkt.timestamp
-   desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
-           1685531511.513319743]
-
-
-10. Info Tables
-
-────────────────────────────────────────────────────────────────────────────────
-
-   info tables map numeric field values to human-readable names.
-   each table is associated with a specific field path.
-
-   field : pkt.ethernet.ethernet_type
-   desc  : Link layer name table.
-
-   field : pkt.ipv4.protocol
-   desc  : The IP (v4 and v6) protocol type.
-
-   field : pkt.ipv6.next_header
-   desc  : The IP (v4 and v6) protocol type.
-
-   field : pkt.ipv6.ext_next_header
-   desc  : The IP (v4 and v6) protocol type.
-
-   field : pkt.igmp.type
-   desc  : The IGMP message type.
-
-   field : pkt.icmp.type
-   desc  : The ICMP message type.
-
-   field : pkt.icmpv6.type
-   desc  : The ICMP message type.
-
-   field : pkt.dns.rcode
-   desc  : DNS response code name table.
-
-   field : pkt.dns.opcode
-   desc  : DNS opcode name table. Opcode specifies kind of query.
-
-   field : pkt.dns.rdata_type
-   desc  : DNS RData type name table. RData type specifies the meaning of the
-           data in the rdata section.
-
-   field : pkt.dns.qtype
-   desc  : DNS qtype name table. Qtype code that specifies the type of the
-           query.
-
-   field : pkt.dns.qclass
-   desc  : DNS qclass name table. QClass code that specifies the class of the
-           query.
-
-   field : pkt.dns.rdata_class
-   desc  : DNS rdata class name table. RData class specifies the meaning of the
-           data in the rdata section.
-
-   field : pkt.dns.svc_param_key
-   desc  : DNS svc parameter key name table.
-
-   field : pkt.mdns.rcode
-   desc  : DNS response code name table.
-
-   field : pkt.mdns.opcode
-   desc  : DNS opcode name table. Opcode specifies kind of query.
-
-   field : pkt.mdns.rdata_type
-   desc  : DNS RData type name table. RData type specifies the meaning of the
-           data in the rdata section.
-
-   field : pkt.mdns.qtype
-   desc  : DNS qtype name table. Qtype code that specifies the type of the
-           query.
-
-   field : pkt.mdns.qclass
-   desc  : MDNS qclass name table. QClass code that specifies the class of the
-           query.
-
-   field : pkt.mdns.rdata_class
-   desc  : MDNS qclass name table. QClass code that specifies the class of the
-           query.
-
-   field : pkt.tls.record_protocol_version
-   desc  : TLS protocol version name table.
-
-   field : pkt.tls.client_version
-   desc  : TLS protocol version name table.
-
-   field : pkt.tls.server_version
-   desc  : TLS protocol version name table.
-
-   field : pkt.tls.supported_version
-   desc  : TLS protocol version name table.
-
-   field : pkt.tls.record_content_type
-   desc  : TLS record content type name table.
-
-   field : pkt.tls.alert_level
-   desc  : TLS alert level name table.
-
-   field : pkt.tls.alert_description
-   desc  : TLS alert description name table.
-
-   field : pkt.tls.request_update
-   desc  : TLS request update name table.
-
-   field : pkt.tls.heartbeat_message_type
-   desc  : TLS heartbeat message type name table.
-
-   field : pkt.tls.change_cipher_spec_type
-   desc  : TLS change cipher spec type name table.
-
-   field : pkt.tls.handshake_type
-   desc  : TLS handshake type name table.
-
-   field : pkt.tls.extension_type
-   desc  : TLS extension type name table.
-
-   field : pkt.tls.cipher_suite
-   desc  : TLS cipher suite name table.
-
-   field : pkt.tls.client_certificate_type
-   desc  : TLS client certificate type name table. Currently that field is not
-           supported.
-
-   field : pkt.tls.hash_algorithm
-   desc  : TLS hash algorithm name table.
-
-   field : pkt.tls.signature_algorithm
-   desc  : TLS hash signature name table.
-
-   field : pkt.tls.signature_and_hash_algorithm
-   desc  : TLS signature and hash algorithm pair name table. That field have
-           different meaning for tl1.2 and tls1.3. For tls1.2 see
-           'hash_algorithm' and 'signature_algorithm' pair, for tls1.3 that
-           field is the same as 'signature_scheme'. If tls context is defined
-           and tls1.3 is set - 'signature_scheme' field is presented.
-
-   field : pkt.tls.signature_scheme
-   desc  : TLS signature scheme name table.
-
-   field : pkt.tls.compression_method
-   desc  : TLS compression method name table.
-
-   field : pkt.tls.server_name_type
-   desc  : TLS server type name table.
-
-   field : pkt.tls.ecdh_basis
-   desc  : The type of the elliptic curve. The field is presented only for ecdh
-           and ecdhe algorithms.
-
-   field : pkt.tls.curve_type
-   desc  : The basis type. The field is presented only for ecdh and ecdhe
-           algorithms.
-
-   field : pkt.tls.quic_transport_parameter_id
-   desc  : The quic transport parameter identificators which are transmitted in
-           tls extension.
-
-   field : pkt.tls.connection_id_usage
-   desc  : Connection id usage text name table.
-
-   field : pkt.tls.srtp_protection_profile
-   desc  : Tls use srtp profile set.
-
-   field : pkt.tls.supported_group
-   desc  : Tls supported group identificator (elliptic curve).
-
-   field : pkt.tls.ec_point_format
-   desc  : Tls EC point format identificator.
-
-   field : pkt.dtls.record_protocol_version
-   desc  : TLS protocol version name table.
-
-   field : pkt.dtls.client_version
-   desc  : TLS protocol version name table.
-
-   field : pkt.dtls.server_version
-   desc  : TLS protocol version name table.
-
-   field : pkt.dtls.supported_version
-   desc  : TLS protocol version name table.
-
-   field : pkt.dtls.record_content_type
-   desc  : TLS record content type name table.
-
-   field : pkt.dtls.alert_level
-   desc  : TLS alert level name table.
-
-   field : pkt.dtls.alert_description
-   desc  : TLS alert description name table.
-
-   field : pkt.dtls.request_update
-   desc  : TLS request update name table.
-
-   field : pkt.dtls.heartbeat_message_type
-   desc  : TLS heartbeat message type name table.
-
-   field : pkt.dtls.change_cipher_spec_type
-   desc  : TLS change cipher spec type name table.
-
-   field : pkt.dtls.handshake_type
-   desc  : TLS handshake type name table.
-
-   field : pkt.dtls.extension_type
-   desc  : TLS extension type name table.
-
-   field : pkt.dtls.cipher_suite
-   desc  : TLS cipher suite name table.
-
-   field : pkt.dtls.client_certificate_type
-   desc  : TLS client certificate type name table. Currently that field is not
-           supported.
-
-   field : pkt.dtls.hash_algorithm
-   desc  : TLS hash algorithm name table.
-
-   field : pkt.dtls.signature_algorithm
-   desc  : TLS hash signature name table.
-
-   field : pkt.dtls.signature_and_hash_algorithm
-   desc  : TLS signature and hash algorithm pair name table. That field have
-           different meaning for tl1.2 and tls1.3. For tls1.2 see
-           'hash_algorithm' and 'signature_algorithm' pair, for tls1.3 that
-           field is the same as 'signature_scheme'. If tls context is defined
-           and tls1.3 is set - 'signature_scheme' field is presented.
-
-   field : pkt.dtls.signature_scheme
-   desc  : TLS signature scheme name table.
-
-   field : pkt.dtls.compression_method
-   desc  : TLS compression method name table.
-
-   field : pkt.dtls.server_name_type
-   desc  : TLS server type name table.
-
-   field : pkt.dtls.ecdh_basis
-   desc  : The type of the elliptic curve. The field is presented only for ecdh
-           and ecdhe algorithms.
-
-   field : pkt.dtls.curve_type
-   desc  : The basis type. The field is presented only for ecdh and ecdhe
-           algorithms.
-
-   field : pkt.dtls.quic_transport_parameter_id
-   desc  : The quic transport parameter identificators which are transmitted in
-           tls extension.
-
-   field : pkt.dtls.connection_id_usage
-   desc  : Connection id usage text name table.
-
-   field : pkt.quic.long_packet_type
-   desc  : The long header packet type. The packet payload structure depends on
-           this field.
-
-   field : pkt.quic.frame_type
-   desc  : The frame type field. The frame payload structure depends on this
-           field.
-
-   field : pkt.quic.error_code
-   desc  : The error codes are used in connection close frames.
-
-   field : pkt.http2.frame_type
-   desc  : The frame type name. The frame type determines the format and
-           semantics of the frame. Each frame type serves a distinct purpose in
-           the establishment and management of either the connection as a whole
-           or individual streams.
-
-   field : pkt.http2.rst_stream_error_code
-   desc  : The text description of error code that indicates why the stream is
-           being terminated.
-
-   field : pkt.http2.go_away_error_code
-   desc  : The text description of error code that contains the reason for
-           closing the connection.
-
-   field : pkt.http2.setting_identifier
-   desc  : The text name of setting identificator.
-
-   field : pkt.wireguard.message_type
-   desc  : Wireguard message type name table.
-
-   field : pkt.openvpn.opcode
-   desc  : OpenVPN message type name table.
-
-   field : pkt.socks.command_code
-   desc  : Socks (version 4) command code name table.
-
-   field : pkt.socks.method
-   desc  : Socks (version 5) method name table.
-
-   field : pkt.socks.atyp
-   desc  : Socks address type name table.
-
-   field : pkt.socks.reply
-   desc  : Socks (version 5) reply name table.
-
-   field : pkt.rtp.payload_type
-   desc  : RTP payload type name table.
-
-   field : pkt.rtcp.packet_type
-   desc  : RTCP packet type name table.
-
-   field : pkt.rtcp.sdes_type
-   desc  : RTCP SDES element type name table.
-
-   field : pkt.isakmp.payload_type
-   desc  : ISAKMP payload type name table.
-
-   field : pkt.isakmp.exchange_type
-   desc  : ISAKMP exchange type name table.
-
-   field : pkt.pptp.message_type
-   desc  : PPTP message type name table.
-
-   field : pkt.pptp.control_message_type
-   desc  : PPTP control message type name table.
-
-   field : pkt.ppp.type
-   desc  : PPP type name table.
-
-   field : pkt.ospf.type
-   desc  : The OSPF message type.
-
-   field : pkt.ospf.au_type
-   desc  : The OSPF authentication type.
-
-   field : pkt.websocket.opcode
-   desc  : Defines the interpretation of the "Payload data".
-
-   field : pkt.gtp.message_type
-   desc  : The message type name of GTP message.
-
-   field : pkt.gtp.extension_header_type
-   desc  : The type name of extension.
-
-
-11. Performance
+7.  Performance
 
 ────────────────────────────────────────────────────────────────────────────────
 
