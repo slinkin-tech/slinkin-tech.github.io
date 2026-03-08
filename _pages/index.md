@@ -27,7 +27,7 @@ permalink: /
   <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
     <tbody>
       <tr>
-        <td style="width: 30%; vertical-align: middle; text-align: center;">
+        <td style="width: 30%; height: 200px; vertical-align: middle; text-align: center;">
             <img src="/assets/dc_engine/img/protocols.png" alt="DC Engine" 
                  style="max-width: 100%; height: auto; display: inline-block;" />
         </td>
@@ -52,7 +52,7 @@ permalink: /
         <td style="width: 70%; vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
             <p>We solve problems with the classification of Internet services (YouTube, WhatsApp, Telegram, etc.) and the determination of the nature of traffic (audio, video, chat, etc.). We maintain and update the database of signatures, IP addresses, CDN, and classification methods.</p>
         </td>
-        <td style="width: 30%; vertical-align: middle; text-align: center;">
+        <td style="width: 30%; height: 200px; vertical-align: middle; text-align: center;">
             <img src="/assets/dc_engine/img/services.png" alt="DC Engine" 
                  style="max-width: 100%; height: auto; display: inline-block;" />
         </td>
@@ -71,7 +71,7 @@ permalink: /
   <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
     <tbody>
       <tr>
-        <td style="width: 30%; vertical-align: middle; text-align: center;">
+        <td style="width: 200px; height: 200px; vertical-align: middle; text-align: center;">
             <img src="/assets/dc_engine/img/ml_ai.png" alt="DC Engine" 
                  style="max-width: 100%; height: auto; display: inline-block;" />
         </td>
@@ -96,7 +96,7 @@ permalink: /
         <td style="width: 70%; vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
             <p>The ability to independently configure events for traffic processing. The event processing module generates records with a pre-configured set of properties and sends them to the server for subsequent processing/analysis.</p>
         </td>
-        <td style="width: 30%; vertical-align: middle; text-align: center;">
+        <td style="width: 30%; height: 200px; vertical-align: middle; text-align: center;">
             <img src="/assets/dc_engine/img/ipdr.png" alt="DC Engine" 
                  style="max-width: 100%; height: auto; display: inline-block;" />
         </td>
