@@ -109,3 +109,148 @@ total: [{{ performance_files.size }} items]
 
 {% unless forloop.last %}<hr>{% endunless %}
 {% endfor %}
+
+## # scheme
+
+```bash
++--------------+
+|  DPI Engine  |
++--------------+
+|   Worker 0   |
++------+-------+
+       |
+       v
++--------------+
+| Traffic dump |
++--------------+
+|   RAM DISK   |
++--------------+
+```
+
+## # ram-disk
+
+```bash
+df -h /dev/shm
+# sudo mount -o remount,size=24G /dev/shm
+cp ~/pcap/work_pcap_session/apple_devices.pcap /dev/shm/
+```
+
+## # os
+
+```bash
+.uname -a
+Linux sl-dev 6.8.0-100-generic #100-Ubuntu SMP PREEMPT_DYNAMIC Tue Jan 13 16:40:06 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+## # hardware
+
+```bash
+lscpu -e=CPU,CORE,SOCKET,NODE,ONLINE
+CPU CORE SOCKET NODE ONLINE
+  0    0      0    0    yes
+  1    0      0    0    yes
+  2    1      0    0    yes
+  3    1      0    0    yes
+```
+
+```bash
+lscpu
+
+Architecture:                x86_64
+  CPU op-mode(s):            32-bit, 64-bit
+  Address sizes:             40 bits physical, 57 bits virtual
+  Byte Order:                Little Endian
+CPU(s):                      4
+  On-line CPU(s) list:       0-3
+Vendor ID:                   GenuineIntel
+  Model name:                Intel Xeon Processor (Icelake)
+    CPU family:              6
+    Model:                   106
+    Thread(s) per core:      2
+    Core(s) per socket:      2
+    Socket(s):               1
+    Stepping:                0
+    BogoMIPS:                5999.99
+    Flags:                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm a
+                             bm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 wbnoinvd arat avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vp
+                             opcntdq la57 rdpid fsrm md_clear arch_capabilities
+Virtualization features:     
+  Hypervisor vendor:         KVM
+  Virtualization type:       full
+Caches (sum of all):         
+  L1d:                       128 KiB (4 instances)
+  L1i:                       128 KiB (4 instances)
+  L2:                        8 MiB (2 instances)
+  L3:                        16 MiB (1 instance)
+NUMA:                        
+  NUMA node(s):              1
+  NUMA node0 CPU(s):         0-3
+Vulnerabilities:             
+  Gather data sampling:      Not affected
+  Indirect target selection: Vulnerable
+  Itlb multihit:             Not affected
+  L1tf:                      Not affected
+  Mds:                       Not affected
+  Meltdown:                  Not affected
+  Mmio stale data:           Mitigation; Clear CPU buffers; SMT Host state unknown
+  Reg file data sampling:    Not affected
+  Retbleed:                  Not affected
+  Spec rstack overflow:      Not affected
+  Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+  Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop
+  Srbds:                     Not affected
+  Tsa:                       Not affected
+  Tsx async abort:           Not affected
+  Vmscape:                   Not affected
+```
+
+```bash
+hwinfo --short
+
+cpu:
+                       Intel Xeon Processor (Icelake), 3000 MHz
+                       Intel Xeon Processor (Icelake), 3000 MHz
+                       Intel Xeon Processor (Icelake), 3000 MHz
+                       Intel Xeon Processor (Icelake), 3000 MHz
+
+...
+
+storage:
+                       Virtio Storage 0
+network:
+                       Virtio Ethernet Card 0
+network interface:
+  eth0                 Ethernet network interface
+  lo                   Loopback network interface
+
+...
+
+memory:
+                       Main Memory
+
+...
+```
+
+## # test-notes
+
+- Release build
+- Mobile traffic
+- RAM disk usage. pcap dump is placed in `/dev/shm/` to avoid disk read speed limitations
+- NUMA is not used
+- Trace is turned off
+- One worker thread with CPU affinity (CPU pinning) usage
+- [tcmalloc](https://github.com/google/tcmalloc) is used
+
+
+## # results-notes
+
+- Hardware characteristics: CPU (Clock Speed, Core, Cache, Vector Processor, etc.), RAM, Type
+- Allocator library usage [tcmalloc](https://github.com/google/tcmalloc)
+- NUMA memory usage
+- Packet capturing library
+- Offload flows on NIC
+- Trace configuration (State, Journal Levels)
+- Service configuration (Domain names, IP CIDRs, Cache usage)
+- Traffic profile
+- Packet encapsulation
