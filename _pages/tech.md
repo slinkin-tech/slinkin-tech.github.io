@@ -24,6 +24,7 @@ permalink: /tech/
 \# [performance](/tech/performance)
 -->
 \# [specification](/assets/txt/tech.txt)
+\# [documentation (on request)](#)
 \# [changelog](/assets/txt/changelog.txt)
 \# [roadmap](/assets/txt/roadmap.txt)
 \# [faq](/tech/faq)
