@@ -73,7 +73,7 @@ permalink: /
       <tr>
         <td style="width: 25%; height: 200px; vertical-align: middle; text-align: center;">
             <img src="/assets/dc_engine/img/ml_ai.png" alt="DC Engine" 
-                 style="max-width: 100%; height: auto; display: inline-block;" />
+                 style="border-radius: 25px; max-width: 100%; height: auto; display: inline-block;" />
         </td>
         <td style="width: 75%; vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
             <p>We process traffic and extract the maximum possible number of fields/properties/metrics, after which we generate a granular dataset for training your AI systems. The set of produced information is constantly updated with the release of new product versions, which expand the list of supported protocols, fields, and metadata.</p>
