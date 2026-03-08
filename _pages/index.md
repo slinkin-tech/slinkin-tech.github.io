@@ -23,13 +23,12 @@ permalink: /
   <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
     <tbody>
       <tr>
-        <td style="width: 50%; vertical-align: middle; text-align: center;">
+        <td style="width: 30%; vertical-align: middle; text-align: center;">
             <img src="/assets/dc_engine/img/protocols.png" alt="DC Engine" 
                  style="max-width: 100%; height: auto; display: inline-block;" />
         </td>
         <td style="vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
-            <p>We help improve network activity analytics based on network protocols: protocol detection, structure verification, and extracting the most significant fields needed for analysis. Field values play an important role in traffic classification, and the list of extracted values affects the classification type: Internet service, cyber attack, network problems, potential data leakage, etc.
-            </p>
+            <p>We help improve network activity analytics based on network protocols: protocol detection, structure verification, and extracting the most significant fields needed for analysis. Field values play an important role in traffic classification, and the list of extracted values affects the classification type: Internet service, cyber attack, network problems, potential data leakage, etc.</p>
         </td>
       </tr>
     </tbody>
@@ -38,12 +37,54 @@ permalink: /
 
 ## > internet services
 
-We solve problems with the classification of Internet services (YouTube, WhatsApp, Telegram, etc.) and the determination of the nature of traffic (audio, video, chat, etc.). We maintain and update the database of signatures, IP addresses, CDN, and classification methods.
+<div class="desktop-only">
+  <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+    <tbody>
+      <tr>
+        <td style="width: 30%; vertical-align: middle; text-align: center;">
+            <img src="/assets/dc_engine/img/services.png" alt="DC Engine" 
+                 style="max-width: 100%; height: auto; display: inline-block;" />
+        </td>
+        <td style="vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
+            <p>We solve problems with the classification of Internet services (YouTube, WhatsApp, Telegram, etc.) and the determination of the nature of traffic (audio, video, chat, etc.). We maintain and update the database of signatures, IP addresses, CDN, and classification methods.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## > ml/ai
 
-We process traffic and extract the maximum possible number of fields/properties/metrics, after which we generate a granular dataset for training your AI systems. The set of produced information is constantly updated with the release of new product versions, which expand the list of supported protocols, fields, and metadata.
+<div class="desktop-only">
+  <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+    <tbody>
+      <tr>
+        <td style="width: 30%; vertical-align: middle; text-align: center;">
+            <img src="/assets/dc_engine/img/ml_ai.png" alt="DC Engine" 
+                 style="max-width: 100%; height: auto; display: inline-block;" />
+        </td>
+        <td style="vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
+            <p>We process traffic and extract the maximum possible number of fields/properties/metrics, after which we generate a granular dataset for training your AI systems. The set of produced information is constantly updated with the release of new product versions, which expand the list of supported protocols, fields, and metadata.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## > ipdr
 
-The ability to independently configure events for traffic processing. The event processing module generates records with a pre-configured set of properties and sends them to the server for subsequent processing/analysis.
+<div class="desktop-only">
+  <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+    <tbody>
+      <tr>
+        <td style="width: 30%; vertical-align: middle; text-align: center;">
+            <img src="/assets/dc_engine/img/ipdr.png" alt="DC Engine" 
+                 style="max-width: 100%; height: auto; display: inline-block;" />
+        </td>
+        <td style="vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
+            <p>The ability to independently configure events for traffic processing. The event processing module generates records with a pre-configured set of properties and sends them to the server for subsequent processing/analysis.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
