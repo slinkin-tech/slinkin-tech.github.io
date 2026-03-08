@@ -12,6 +12,12 @@ permalink: /dc-engine/
 
 ## > dc-engine
 
+{% assign stats = site.data.json.stat %}
+{% assign protocols_count = stats.protocols.count %}
+{% assign attributes_count = stats.protocol_fields.total %}
+{% assign metadata_count = stats.metadata.count %}
+{% assign services_count = stats.services.count %}
+
 {% include dc-engine.html %}
 
 ---

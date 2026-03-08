@@ -12,17 +12,6 @@ permalink: /tech/
 
 ## > tech
 
-<!--
-### # {{ site.data.release.json.version.version.data }}
-
-\# [requirements](/tech/requirements)
-\# [dependencies](/tech/dependencies)
-\# [protocols](/tech/protocols)
-\# [services](/tech/services)
-\# [metadata](/tech/metadata)
-\# [extensions](/tech/extensions)
-\# [performance](/tech/performance)
--->
 \# [specification](/assets/txt/tech.txt)
 \# [documentation \[on request\]](#)
 \# [changelog](/assets/txt/changelog.txt)
