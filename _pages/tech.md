@@ -12,9 +12,9 @@ permalink: /tech/
 
 ## > tech
 
+<!--
 ### # {{ site.data.release.json.version.version.data }}
 
-<!--
 \# [requirements](/tech/requirements)
 \# [dependencies](/tech/dependencies)
 \# [protocols](/tech/protocols)
