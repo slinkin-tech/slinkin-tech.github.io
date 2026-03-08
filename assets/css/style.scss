@@ -17,6 +17,10 @@ img {
   height: auto;
 }
 
+main td img {
+  display: inline-block;
+}
+
 main, .container {
   text-align: left;        /* ← was two conflicting rules; justify then left. Left wins, so just use left */
   max-width: 800px;        /* ← merged the two separate "main, .container" blocks into one */
