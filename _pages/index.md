@@ -71,7 +71,7 @@ permalink: /
   <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
     <tbody>
       <tr>
-        <td style="width: 25%; height: 200px; vertical-align: middle; text-align: center;">
+        <td style="width: 25%; vertical-align: middle; text-align: center;">
             <img src="/assets/dc_engine/img/ml_ai.png" alt="DC Engine" 
                  style="max-width: 100%; height: auto; display: inline-block;" />
         </td>
