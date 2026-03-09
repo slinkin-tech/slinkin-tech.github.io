@@ -12,7 +12,7 @@ permalink: /tech/
 
 ## > tech
 
-\# [specification](/assets/txt/tech.txt)
+\# [specification](/assets/txt/tech_specification.txt)
 \# [documentation \[on request\]](#)
 \# [changelog](/assets/txt/changelog.txt)
 \# [roadmap](/assets/txt/roadmap.txt)
