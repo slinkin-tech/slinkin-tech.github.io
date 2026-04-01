@@ -3,7 +3,7 @@ title: /about
 description: Development team specializing in network traffic analysis, with an emphasis on performance and flexibility.
 keywords: slinkin, slinkin technologies, slinkin tech
 layout: page
-permalink: /about
+permalink: /about/
 ---
 
 <!--
@@ -12,7 +12,8 @@ permalink: /about
 
 ## > about
 
-<img src="/assets/img/logo_black.png" width="200" alt="Slinkin Technologies">
+<center><img src="/assets/img/logo_black.png" width="200" alt="Slinkin Technologies"></center>
+<br>
 
 Slinkin Technologies is an independent team of networking experts. We combine deep engineering expertise with an agile approach to deliver high-performance, flexible solutions for traffic analysis, balancing, and modification.
 
@@ -43,7 +44,6 @@ Even though our products function deep within network infrastructures, we take e
 
 # > contact
 
-&nbsp;
 Contact us by email <a href="mailto:info@slinkin.tech?subject=Website request&body=Hello!">info@slinkin.tech</a> or use the form bellow:
 
 <form>

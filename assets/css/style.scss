@@ -1,26 +1,52 @@
 ---
 ---
-/* Image fit fix for the container */
-.container img,
-article img,
-main img {
-  max-width: 100% !important;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
 }
 
-/* Optional: Constrain content width */
-main, .container, article {
-  max-width: 700px;
+/* Image fit fix for the container */
+main img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img {
+  height: auto;
+}
+
+main td img {
+  display: inline-block;
+}
+
+main, .container {
+  text-align: left;        /* ← was two conflicting rules; justify then left. Left wins, so just use left */
+  max-width: 800px;        /* ← merged the two separate "main, .container" blocks into one */
   margin: 0 auto;
-  box-sizing: border-box;
+}
+
+table {
+  text-align: left;        /* ← table separated out from main/.container */
+  table-layout: fixed;     /* ← only makes sense on table, not on main/.container */
+  width: 100%;             /* ← needed for table-layout: fixed to work */
+}
+
+p {
+  margin-top: 15px;        /* ← p separated out; no need to repeat main/.container here */
+  margin-bottom: 15px;
+}
+
+.back-link-container {
+  display: block;
+  text-align: right !important;
+  width: 100%;
+  margin-top: 5px;
 }
 
 .mobile-only { display: none; }
 
-/* If the width less than 768px (standard for mobile/laptops) */
 @media screen and (max-width: 767px) {
   .mobile-only { display: block; }
   .desktop-only { display: none; }

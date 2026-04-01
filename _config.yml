@@ -2,7 +2,13 @@ title: "slinkin-tech"
 description: "Network software: network traffic analysis, internet service classification, metadata extraction"
 keywords: dpi, deep packet inspection, traffic classification, nta, network traffic analyzer, integration solution, network monitor, dpi framework, dpi library, dpi engine, industrial dpi, sl dc engine, dc engine
 baseurl: ""
-url: "https://txt.slinkin.tech"
+url: "https://slinkin.tech"
+
+#
+
+include:
+  - _pages
+  - _pages/tech/
 
 #
 
@@ -12,21 +18,20 @@ defaults:
     values:
       image: "/assets/img/logo.png"
 
-#
-
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 logo: assets/img/favicon.png
 #
 
 header_pages:
-  - index.md
-  - dc_engine.md
-  - blog.md
-  - about.md
-  - portal.md
+  - _pages/index.md
+  - _pages/dc_engine.md
+  - _pages/blog.md
+  - _pages/about.md
+  - _pages/tech.md
 
 #
 
@@ -35,9 +40,7 @@ style: light # dark (default), light, hacker, or nord
 disable_google_fonts: true
 
 #
-#footer: '© 2020-2026 slinkin-tech: <a href="https://slinkin.tech/">website</a>, <a href="mailto:info@slinkin.tech">email</a>, <a href="/privacy-policy">privacy-policy</a>'
-#footer: '© 2020-2026 slinkin-tech: <a href="mailto:info@slinkin.tech">email</a>, <a href="/privacy-policy">privacy-policy</a>'
-footer: '© 2020-2026 slinkin-tech: <a href="mailto:info@slinkin.tech">email</a>, <a href="https://wiki.slinkin.tech">portal</a>'
+footer: '© 2020-2026 slinkin-tech: <a href="mailto:info@slinkin.tech">email</a>, <a href="/tech">tech</a>'
 
 # Build settings
 markdown: kramdown
