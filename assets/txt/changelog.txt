@@ -5,6 +5,33 @@ DC Engine - Changelog
 2026
 ================================================================================
 
+v1.13.11 [31.03.2026]
+--------------------------------------------------------------------------------
+* DNS double dissection fix
+* Refactoring console output table view
+* Add CSV output format
+* API function: IPv6 layer length detection
+* Domain Lookup Table refactoring; Performance improvements
+* Flow pool
+* Session Context Pool
+* Reassembler pool
+* Cache table reserve configuration
+* Fix mpsc_queue, spmc_queue and spsc_queue implementation
+* TOR (web resources and exit nodes) service
+* TLS dissection critical bug fux
+* STUN detection critical bug fix
+* Fix QUIC protocol processing (padding ignoring)
+* Improve benchmark tests quality (flow/cache release iterations, statistic enhancements:
+  pool usage, cache and pool max usage, etc.)
+* Classifier extension session context nullptr critical bug fix
+* Fix DNS over TCP dns cache behavior (dns cache processing after assembling)
+* Fix FaceTime classification
+* Flow tag and session tag expression configuration via tag name
+* Update service signatures: megafon, amazon_aws, apple, apple_updates, digital_ocean,
+  discord, facebook, facebook_cdn, facetime, github, icloud_private_relay, instagram, meta,
+  netflix, roblox, teamviwer, tor, twitter, vultr, youtube, google_cloud, kingsoft, ms365,
+  ms_azure, ms_sharepoint, teamviewer
+
 v1.13.10 [03.03.2026]
 --------------------------------------------------------------------------------
 * New API functions: getFlowSize and getSessionSize
