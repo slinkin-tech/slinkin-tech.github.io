@@ -1,8 +1,8 @@
 ================================================================================
                                    DC Engine
                               Technical Reference
-                            Version v1.13.11+3975220
-                                   01.04.2026
+                            Version v1.13.12+511c79e
+                                   15.04.2026
 ================================================================================
 
 Table of Contents
@@ -107,7 +107,7 @@ Table of Contents
 ────────────────────────────────────────────────────────────────────────────────
 
    product  : dc engine
-   release  : v1.13.11+3975220
+   release  : v1.13.12+511c79e
 
    dependencies
 
@@ -118,12 +118,6 @@ Table of Contents
    re2                    9.0.0
    openssl                3.2.1
    tcmalloc               2.17.2
-   common                 3.5.2+837550a
-   configuration          1.5.2+6a2889f
-   packet                 2.11.2+bfc2d76
-   flow                   1.13.2+712044b
-   global                 1.13.2+cd23e03
-   dcengine               1.13.11+3975220
 
 
 3.  Configuration Summary
@@ -137,9 +131,9 @@ Table of Contents
    expressions                                   17
    classifier tags                              553
    no-offload protocols                           6
-   domains                                   62,877
-   ipv4 cidr entries                        404,935
-   ipv6 cidr entries                        627,762
+   domains                                   62,886
+   ipv4 cidr entries                        405,078
+   ipv6 cidr entries                        627,757
    ipv4 socket entries                            0
    ipv6 socket entries                            0
    dns cache tags                                 1
@@ -16700,7 +16694,7 @@ Table of Contents
    test: mobile traffic — no encapsulation
    ··········································································
    flow count                : 2,364,140
-   duration                  : 114 s  (114,598 ms)
+   duration                  : 118 s  (118,967 ms)
    packet count              : 20,000,000
    error traces              : 0
    critical traces           : 0
@@ -16708,23 +16702,27 @@ Table of Contents
    max reassembler pool usage: 25,857
    max flow pool usage       : 122,858
    max session pool usage    : pool is turned off
+   max dns cache usage       : 12,139
+   max session cache usage   : 0
+   max ftp cache usage       : 0
+   max sip cache usage       : 0
 
    engine performance
-      packets / sec  :     174,521.738  pps
-      throughput     :         972.695  mbps
-      throughput     :        0.972695  gbps
+      packets / sec  :     168,113.587  pps
+      throughput     :         936.979  mbps
+      throughput     :        0.936979  gbps
       total packets  :      20,000,000
       total bytes    :  13,933,720,300
 
    offload performance
-      packets / sec  :     174,521.738  pps
-      throughput     :         972.695  mbps
-      throughput     :        0.972695  gbps
+      packets / sec  :     168,113.587  pps
+      throughput     :         936.979  mbps
+      throughput     :        0.936979  gbps
 
    test: mobile traffic — gtp-u encapsulation
    ··········································································
    flow count                : 2,410,914
-   duration                  : 161 s  (161,502 ms)
+   duration                  : 167 s  (167,366 ms)
    packet count              : 20,000,000
    error traces              : 0
    critical traces           : 0
@@ -16732,18 +16730,22 @@ Table of Contents
    max reassembler pool usage: 27,910
    max flow pool usage       : 124,996
    max session pool usage    : pool is turned off
+   max dns cache usage       : 12,139
+   max session cache usage   : 0
+   max ftp cache usage       : 0
+   max sip cache usage       : 0
 
    engine performance
-      packets / sec  :     123,837.236  pps
-      throughput     :         744.332  mbps
-      throughput     :        0.744332  gbps
+      packets / sec  :     119,498.576  pps
+      throughput     :         718.254  mbps
+      throughput     :        0.718254  gbps
       total packets  :      20,000,000
       total bytes    :  15,026,410,500
 
    offload performance
-      packets / sec  :     123,837.236  pps
-      throughput     :         744.332  mbps
-      throughput     :        0.744332  gbps
+      packets / sec  :     119,498.576  pps
+      throughput     :         718.254  mbps
+      throughput     :        0.718254  gbps
 
 
 ================================================================================

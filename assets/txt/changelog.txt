@@ -5,6 +5,15 @@ DC Engine - Changelog
 2026
 ================================================================================
 
+v1.13.12 [14.04.2026]
+--------------------------------------------------------------------------------
+* Update signatures: apple (+ new Apple CDN domains), icloud, apple_updates, appstore,
+  apple_pay, amazon_aws, digital_ocean, disney_plus, facebook, github, google_cloud,
+  icloud_private_relay, meta, netflix, teamviewer, tor, vultr, webex
+* Apple services classification improvements (official signatures)
+* Fix extern std containers defintions to avoid false positive sanitizer leak reports
+* Fix OpenSSL memory leak
+
 v1.13.11 [31.03.2026]
 --------------------------------------------------------------------------------
 * DNS double dissection fix
