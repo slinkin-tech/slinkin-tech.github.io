@@ -24,6 +24,7 @@ plugins:
   - jekyll-sitemap
 
 logo: assets/img/favicon.png
+
 #
 
 header_pages:
@@ -40,6 +41,7 @@ style: light # dark (default), light, hacker, or nord
 disable_google_fonts: true
 
 #
+
 footer: '© 2020-2026 slinkin-tech: <a href="mailto:info@slinkin.tech">email</a>, <a href="/tech">tech</a>'
 
 # Build settings
