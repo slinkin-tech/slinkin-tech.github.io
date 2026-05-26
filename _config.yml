@@ -42,7 +42,7 @@ disable_google_fonts: true
 
 #
 
-footer: '© 2020-2026 slinkin-tech: <a href="mailto:info@slinkin.tech">email</a>, <a href="/tech">tech</a>'
+footer: '© 2020-{{ "now" | date: "%Y" }} slinkin-tech: <a href="mailto:info@slinkin.tech">email</a>, <a href="/tech">tech</a>'
 
 # Build settings
 markdown: kramdown
