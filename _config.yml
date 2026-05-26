@@ -40,10 +40,6 @@ style: light # dark (default), light, hacker, or nord
 #listen_for_clients_preferred_style: true
 disable_google_fonts: true
 
-#
-
-footer: '© 2020-{{ "now" | date: "%Y" }} slinkin-tech: <a href="mailto:info@slinkin.tech">email</a>, <a href="/tech">tech</a>'
-
 # Build settings
 markdown: kramdown
 remote_theme: b2a3e8/jekyll-theme-console
