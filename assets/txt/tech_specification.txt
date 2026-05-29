@@ -1,8 +1,8 @@
 ================================================================================
                                    DC Engine
                               Technical Reference
-                            Version v1.13.12+511c79e
-                                   15.04.2026
+                            Version v1.13.13+9cc2014
+                                   29.05.2026
 ================================================================================
 
 Table of Contents
@@ -107,17 +107,15 @@ Table of Contents
 ────────────────────────────────────────────────────────────────────────────────
 
    product  : dc engine
-   release  : v1.13.12+511c79e
+   release  : v1.13.13+9cc2014
 
    dependencies
 
    name                   version
    ---------------------- ------------------------------
    pcap                   libpcap version 1.10.4 (with TPACKET_V3)
-   nlohmann_json          3.12.0
-   re2                    9.0.0
-   openssl                3.2.1
-   tcmalloc               2.17.2
+   nlohman_json           3.12.0
+   pcre2                  10.47
 
 
 3.  Configuration Summary
@@ -126,14 +124,14 @@ Table of Contents
 
    parameter                                  value
    ----------------------------------- ------------
-   active tags                                  565
-   inactive tags                                  1
-   expressions                                   17
-   classifier tags                              553
+   active tags                                  570
+   inactive tags                                  2
+   expressions                                   24
+   classifier tags                              555
    no-offload protocols                           6
    domains                                   62,886
-   ipv4 cidr entries                        405,078
-   ipv6 cidr entries                        627,757
+   ipv4 cidr entries                        405,746
+   ipv6 cidr entries                        628,115
    ipv4 socket entries                            0
    ipv6 socket entries                            0
    dns cache tags                                 1
@@ -9091,6 +9089,36 @@ Table of Contents
       multiple : false
       desc     : The payload data length.
 
+      field    : channel_number
+      type     : uint16
+      length   : 2
+      multiple : false
+      desc     : The field that specifies the number of the channel to which the
+                 data is associated, used for multiplexing several data streams
+                 over a single allocation.
+
+      field    : data_length
+      type     : uint16
+      length   : 2
+      multiple : false
+      desc     : The field indicating the length, in bytes, of the value in the
+                 Data field, excluding any padding added to align the attribute.
+
+      field    : session_id
+      type     : uint64
+      length   : 8
+      multiple : false
+      desc     : The unique identifier for the given allocation and stream on
+                 the TURN server, typically used in Multiplexed TURN messages.
+
+      field    : data
+      type     : byte-sequence
+      length   : variable
+      multiple : false
+      desc     : The variable-length attribute that carries the actual
+                 application-layer data (such as audio or video) to be relayed
+                 between the protocol client and the peer.
+
       field    : header
       type     : byte-sequence
       length   : variable
@@ -10892,11 +10920,11 @@ Table of Contents
    encoded strings, etc.) into human-readable representations. each
    entry shows the field path, decoding logic, and an example.
 
-   field : flow.last_time
+   field : flow.duration
    desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
            1685531511.513319743]
 
-   field : flow.duration
+   field : flow.last_time
    desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
            1685531511.513319743]
 
@@ -10904,29 +10932,30 @@ Table of Contents
    desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
            1685531511.513319743]
 
-   field : pkt.gtp.extension_header_length
-   desc  : Decodes the length of a GPRS Tunnelling Protocol extension header.
-           The value represents the number of 4-byte words; the total size in
-           bytes is calculated as field_value * 4. [4 <-> 16; (4) * 4]
-
-   field : pkt.rtcp.length
-   desc  : Decodes the 16-bit length field found in RTCP headers. The actual
-           size in bytes is calculated as (field_value + 1) * 4, representing
-           the total length of the packet including the header and padding. [6
-           <-> 28; (6 + 1) * 4]
-
-   field : pkt.ospf.ared_id
+   field : pkt.ospf.router_id
    desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
            dotted-quad notation, where each byte represents a decimal value
            from 0 to 255. [0x7F000001 <-> 127.0.0.1]
 
-   field : pkt.teredo.origin_indication_ipv4_address
+   field : pkt.teredo.origin_indication_port
    desc  : Decodes the 'Origin Indication' field by performing a bitwise NOT
            (one's complement) operation on the encoded 16-bit port or address
            fragments to retrieve the original obfuscated value. [0xF12A <->
            0x0ED5]
 
+   field : pkt.tls.quic_transport_parameter_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
    field : pkt.tls.quic_transport_parameter_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.reason_phrase_length
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -10938,13 +10967,31 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
+   field : pkt.quic.error_code
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.stream_data_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
    field : pkt.quic.stream_offset
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.retire_prior_to
+   field : pkt.rtcp.length
+   desc  : Decodes the 16-bit length field found in RTCP headers. The actual
+           size in bytes is calculated as (field_value + 1) * 4, representing
+           the total length of the packet including the header and padding. [6
+           <-> 28; (6 + 1) * 4]
+
+   field : pkt.quic.new_sequence_number
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -10956,7 +11003,13 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.cumulative_maximum_streams
+   field : pkt.quic.allowed_maximum_streams
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.blocked_maximum_stream_data
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -10980,7 +11033,7 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.final_size
+   field : pkt.quic.stop_application_protocol_error_code
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -10992,19 +11045,13 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.blocked_stream_id
+   field : pkt.quic.final_size
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.stop_stream_id
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.ecn_ce_count
+   field : pkt.quic.ect_1_count
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -11016,7 +11063,43 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
+   field : pkt.quic.crypto_offset
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
    field : pkt.quic.ack_range_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.blocked_stream_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.gap
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.stop_stream_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.first_ack_range
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.stream_id
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -11028,13 +11111,48 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
+   field : pkt.quic.ecn_ce_count
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.ack_delay
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.gtp.extension_header_length
+   desc  : Decodes the length of a GPRS Tunnelling Protocol extension header.
+           The value represents the number of 4-byte words; the total size in
+           bytes is calculated as field_value * 4. [4 <-> 16; (4) * 4]
+
+   field : pkt.quic.max_data_stream_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
    field : pkt.quic.largest_acknowledged
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
+   field : pkt.quic.reset_stream_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
    field : pkt.quic.frame_type
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.length
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -11058,125 +11176,7 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.ipv4.src_ip
-   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
-           dotted-quad notation, where each byte represents a decimal value
-           from 0 to 255. [0x7F000001 <-> 127.0.0.1]
-
-   field : pkt.ospf.router_id
-   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
-           dotted-quad notation, where each byte represents a decimal value
-           from 0 to 255. [0x7F000001 <-> 127.0.0.1]
-
-   field : pkt.teredo.origin_indication_port
-   desc  : Decodes the 'Origin Indication' field by performing a bitwise NOT
-           (one's complement) operation on the encoded 16-bit port or address
-           fragments to retrieve the original obfuscated value. [0xF12A <->
-           0x0ED5]
-
-   field : pkt.tls.quic_transport_parameter_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.reason_phrase_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.error_code
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.stream_data_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.new_sequence_number
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.allowed_maximum_streams
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.blocked_maximum_stream_data
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
    field : pkt.quic.blocked_maximum_data
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.crypto_offset
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.stop_application_protocol_error_code
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.stream_id
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.max_data_stream_id
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.reset_stream_id
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.ect_1_count
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.gap
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.first_ack_range
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.ack_delay
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.length
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -11187,10 +11187,28 @@ Table of Contents
            dotted-quad notation, where each byte represents a decimal value
            from 0 to 255. [0x7F000001 <-> 127.0.0.1]
 
+   field : pkt.quic.cumulative_maximum_streams
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
    field : pkt.dns.wks_address
    desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
            dotted-quad notation, where each byte represents a decimal value
            from 0 to 255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.teredo.origin_indication_ipv4_address
+   desc  : Decodes the 'Origin Indication' field by performing a bitwise NOT
+           (one's complement) operation on the encoded 16-bit port or address
+           fragments to retrieve the original obfuscated value. [0xF12A <->
+           0x0ED5]
+
+   field : pkt.quic.retire_prior_to
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
 
    field : pkt.dns.address
    desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
@@ -11203,6 +11221,16 @@ Table of Contents
            from 0 to 255. [0x7F000001 <-> 127.0.0.1]
 
    field : pkt.ipv4.dst_ip
+   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
+           dotted-quad notation, where each byte represents a decimal value
+           from 0 to 255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.ipv4.src_ip
+   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
+           dotted-quad notation, where each byte represents a decimal value
+           from 0 to 255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.ospf.ared_id
    desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
            dotted-quad notation, where each byte represents a decimal value
            from 0 to 255. [0x7F000001 <-> 127.0.0.1]
@@ -11731,6 +11759,15 @@ Table of Contents
       The extension extracts additional information from SIP session and then
       classifies the child RTP/SRTP and RTCP/SRTCP flows assigning them tags
       of parent session.
+
+      field                          type               description
+      ------------------------------ ------------------ -----------
+      is_processed                   uint8              The extension function
+                                                        calling flag.
+
+   rtc_media
+      The extension classifies media type of the session based on
+      STUN/DTLS/RTP protocols: audio/video
 
       field                          type               description
       ------------------------------ ------------------ -----------
@@ -13823,8 +13860,15 @@ Table of Contents
       description : Discourse is an open-source discussion and forum platform.
 
 
-   gaming [15 items]
+   gaming [16 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   among_us
+      name        : among us
+      categories  : gaming
+      workflow    : none
+      description : Amazon Web Services (AWS) is a comprehensive and widely
+                    adopted cloud computing platform offered by Amazon.
 
    chess_com
       name        : chess com
@@ -14570,8 +14614,20 @@ Table of Contents
                     live chats.
 
 
-   metadata [2 items]
+   metadata [6 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   audio
+      name        : audio
+      categories  : metadata, workflow
+      workflow    : none
+      description : Audio call.
+
+   call
+      name        : call
+      categories  : metadata, workflow
+      workflow    : none
+      description : Audio/Video call.
 
    ech
       name        : ech
@@ -14585,6 +14641,21 @@ Table of Contents
       categories  : metadata
       workflow    : none
       description : FTP data trasnmission.
+
+   video
+      name        : video
+      categories  : metadata, workflow
+      workflow    : none
+      description : Video call.
+
+   webrtc
+      name        : webrtc
+      categories  : metadata
+      workflow    : none
+      description : WebRTC (Web Real-Time Communication) is a free,
+                    open-source project enabling web browsers and mobile
+                    applications to support real-time audio, video, and data
+                    communication directly between peers (P2P).
 
 
    music [12 items]
@@ -15234,9 +15305,9 @@ Table of Contents
 
    ftps
       name        : ftps
-      categories  : protocol, network service, mail
+      categories  : protocol, network service
       workflow    : none
-      description : Secured SMTPS.
+      description : Secured FTP.
 
    imaps
       name        : imaps
@@ -15246,7 +15317,7 @@ Table of Contents
 
    nntps
       name        : nntps
-      categories  : protocol, network service, mail
+      categories  : protocol, network service
       workflow    : none
       description : Secured NNTP.
 
@@ -15266,7 +15337,7 @@ Table of Contents
       name        : smtps
       categories  : protocol, network service, mail
       workflow    : none
-      description : Secured SMTPS.
+      description : Secured SMTP.
 
    srtp_over_dtls
       name        : srtp over dtls
@@ -16576,18 +16647,41 @@ Table of Contents
 
    traffic scheme
 
-      +--------------+
-      |  DPI Engine  |
-      +--------------+
-      |   Worker 0   |
-      +------+-------+
-             |
-             v
-      +--------------+
-      | Traffic dump |
-      +--------------+
-      |   RAM DISK   |
-      +--------------+
+      +-------------+  +-------------+  +-------------+  +-------------+
+      |  General    |  |  Service    |  |  DNS cache  |  | Session     |
+      |  Protocol   |  |  workflows  |  |  query +    |  | cache       |
+      |  .pcap ...  |  |  .pcap ...  |  |  answer ... |  |  .pcap ...  |
+      +------┬------+  +------┬------+  +------┬------+  +------┬------+
+             |                |                |                |
+             +----------------┴----------------┴----------------+
+                                      |
+                                      v
+       +-------------------------------------------------------------+
+       |              Cycle  ×  N   until packet limit               |
+       |                                                             |
+       |   +-------------+    +-------------+    +-------------+     |
+       |   |  Patch raw  |---▶|  Feed to    |---▶|   Release   |     |
+       |   |    bytes    |    |   engine    |    |    flows    |     |
+       |   +-------------+    +-------------+    +------┬------+     |
+       |                                                |            |
+       |   <---------------- ipIncrement++ -------------+            |
+       +-------------------------------------------------------------+
+                                     |
+                                     v
+      
+                           IP increment [per cycle]
+      ------------------------------------------------------------------
+          All traffic             DnsCache             SessionCache
+        +--------------+      +---------------+      +--------------+
+        | Subscriber   |      |  DNS answer   |      |  TLS Session |
+        | IP addresses |      |  IP addresses |      |  ID          |
+        |              |      |               |      |              |
+        |  src/dst.    |      | All A records |      |  last 4 bytes|
+        |  + 1         |      | + 1           |      |  + 1         |
+        +--------------+      +---------------+      +--------------+
+      
+      Each cycle simulates a new unique subscriber.
+      Flows never collide across cycles.
 
    operating system
 
@@ -16659,93 +16753,72 @@ Table of Contents
       	Main Memory
       ...
 
-   ram disk
-
-      df -h /dev/shm
-
    test notes
 
+      * No encapsulation
+      * IPv4 only
       * Release build
       * Mobile traffic
-      * RAM disk usage. pcap dump is placed in `/dev/shm/` to avoid disk read 
-        speed limitations
+      * Packets are loaded to RAM
       * NUMA is not used
       * Trace is turned off
       * One worker thread with CPU affinity (CPU pinning) usage
       * tcmalloc (https://github.com/google/tcmalloc) is used
 
-   results notes
-
-      * Hardware characteristics: CPU (Clock Speed, Core, Cache, Vector 
-        Processor, etc.), RAM, Type
-      * Allocator library usage tcmalloc (https://github.com/google/tcmalloc)
-      * NUMA memory usage
-      * Packet capturing library
-      * Offload flows on NIC
-      * Trace configuration (State, Journal Levels)
-      * Service configuration (Domain names, IP CIDRs, Cache usage)
-      * Traffic profile
-      * Packet encapsulation
-
    benchmark results
    ──────────────────────────────────────────────────────────────────────────
 
    benchmarks are based on the configuration summarised in section 3.
-   test: mobile traffic — no encapsulation
+   test: traffic — no encapsulation
    ··········································································
-   flow count                : 2,364,140
-   duration                  : 118 s  (118,967 ms)
-   packet count              : 20,000,000
+   flow count                : 778,500
+   duration                  : 52 s  (52,407 ms)
+   packet count              : 20,002,260
    error traces              : 0
    critical traces           : 0
    max layer pool usage      : no measurement
-   max reassembler pool usage: 25,857
-   max flow pool usage       : 122,858
-   max session pool usage    : pool is turned off
-   max dns cache usage       : 12,139
+   max reassembler pool usage: 4,945
+   max flow pool usage       : 79,083
+   max session pool usage    : 52,724
+   max dns cache usage       : 36,099
    max session cache usage   : 0
    max ftp cache usage       : 0
    max sip cache usage       : 0
 
    engine performance
-      packets / sec  :     168,113.587  pps
-      throughput     :         936.979  mbps
-      throughput     :        0.936979  gbps
-      total packets  :      20,000,000
-      total bytes    :  13,933,720,300
+      packets / sec  :     381,665.318  pps
+      throughput     :         924.077  mbps
+      throughput     :        0.924077  gbps
+      total packets  :      20,002,260
+      total bytes    :   6,053,610,810
 
-   offload performance
-      packets / sec  :     168,113.587  pps
-      throughput     :         936.979  mbps
-      throughput     :        0.936979  gbps
+   top 10 tags (by bytes)
+      name                              packets        bytes
+      ---------------------------- ------------ ------------
+      apple_push_notification         1,763,399  756,842,384
+      yandex_cloud                    2,174,721  721,734,396
+      google                          1,409,409  524,190,645
+      apple                             809,640  502,210,350
+      wikipedia                         570,900  493,709,130
+      youtube                           372,591  152,565,339
+      apple_updates                     171,270  115,109,010
+      telegram                          480,819  102,434,145
+      dropbox                            72,660   92,859,480
+      cloudflare                         72,660   92,859,480
 
-   test: mobile traffic — gtp-u encapsulation
-   ··········································································
-   flow count                : 2,410,914
-   duration                  : 167 s  (167,366 ms)
-   packet count              : 20,000,000
-   error traces              : 0
-   critical traces           : 0
-   max layer pool usage      : no measurement
-   max reassembler pool usage: 27,910
-   max flow pool usage       : 124,996
-   max session pool usage    : pool is turned off
-   max dns cache usage       : 12,139
-   max session cache usage   : 0
-   max ftp cache usage       : 0
-   max sip cache usage       : 0
-
-   engine performance
-      packets / sec  :     119,498.576  pps
-      throughput     :         718.254  mbps
-      throughput     :        0.718254  gbps
-      total packets  :      20,000,000
-      total bytes    :  15,026,410,500
-
-   offload performance
-      packets / sec  :     119,498.576  pps
-      throughput     :         718.254  mbps
-      throughput     :        0.718254  gbps
+   top 10 protocols (by bytes)
+      name                              packets        bytes
+      ---------------------------- ------------ ------------
+      tls                             6,913,080 2,914,008,540
+      payload                         3,025,758 1,194,403,056
+      wireguard                       2,184,990  725,894,160
+      openvpn                         4,556,820  630,071,190
+      rtp                             2,184,990  432,290,670
+      http                              129,750   45,272,370
+      dns                               394,440   37,020,270
+      stun                              259,500   32,613,960
+      ssh                               124,560   17,370,930
+      dtls                               36,330    7,151,820
 
 
 ================================================================================

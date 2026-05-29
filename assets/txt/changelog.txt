@@ -5,13 +5,44 @@ DC Engine - Changelog
 2026
 ================================================================================
 
+v1.13.13 [29.05.2026]
+--------------------------------------------------------------------------------
+* Update signatures: zoom, twitter, tor, roblox, netflix, ms_sharepoint, ms365,
+  meta, icloud_private_relay, google_cloud, github, facebook, disney_plus,
+  discord, digital_ocean, apple, amazon_aws, kingsoft, vkontakte, vultr, webex
+* OpenSSL dependency is removed
+* New metadata: webrtc
+* New service: among_us
+* dnscrypt classification improvements
+* amazon_video classification improvements
+* kakaotalk classification improvements
+* telegram classification improvements
+* Improve RTP detection
+* STUN reclassification to RTP
+* Fix multithreaded processing examples
+* Workflow classification: whatsApp (call, audio, video),
+  telegram (call, audio, video),
+  ms_teams (call, audio, video), kakaotalk (call, audio),
+  signal (call, audio, video), facetime (call, audio, video),
+  facebook (call, audio, video), google_meet (call, audio, video),
+  viber (call), zoom (call)
+* MS_TURN STUN protocol detection and dissection
+* New rtc_media extension: audio/video classification
+* Fix RTP detection logic (counter interpretation)
+* Add checksums for binaries
+* Replace re2 with pcre2
+* Improve benchmark approach
+
+
 v1.13.12 [14.04.2026]
 --------------------------------------------------------------------------------
-* Update signatures: apple (+ new Apple CDN domains), icloud, apple_updates, appstore,
-  apple_pay, amazon_aws, digital_ocean, disney_plus, facebook, github, google_cloud,
-  icloud_private_relay, meta, netflix, teamviewer, tor, vultr, webex
+* Update signatures: apple (+ new Apple CDN domains), icloud, apple_updates,
+  appstore, apple_pay, amazon_aws, digital_ocean, disney_plus, facebook, github,
+  google_cloud, icloud_private_relay, meta, netflix, teamviewer, tor, vultr,
+  webex
 * Apple services classification improvements (official signatures)
-* Fix extern std containers defintions to avoid false positive sanitizer leak reports
+* Fix extern std containers defintions to avoid false positive sanitizer leak
+  reports
 * Fix OpenSSL memory leak
 
 v1.13.11 [31.03.2026]
@@ -30,16 +61,17 @@ v1.13.11 [31.03.2026]
 * TLS dissection critical bug fux
 * STUN detection critical bug fix
 * Fix QUIC protocol processing (padding ignoring)
-* Improve benchmark tests quality (flow/cache release iterations, statistic enhancements:
-  pool usage, cache and pool max usage, etc.)
+* Improve benchmark tests quality (flow/cache release iterations,
+  statistic enhancements: pool usage, cache and pool max usage, etc.)
 * Classifier extension session context nullptr critical bug fix
 * Fix DNS over TCP dns cache behavior (dns cache processing after assembling)
 * Fix FaceTime classification
 * Flow tag and session tag expression configuration via tag name
-* Update service signatures: megafon, amazon_aws, apple, apple_updates, digital_ocean,
-  discord, facebook, facebook_cdn, facetime, github, icloud_private_relay, instagram, meta,
-  netflix, roblox, teamviwer, tor, twitter, vultr, youtube, google_cloud, kingsoft, ms365,
-  ms_azure, ms_sharepoint, teamviewer
+* Update service signatures: megafon, amazon_aws, apple, apple_updates,
+  digital_ocean, discord, facebook, facebook_cdn, facetime, github,
+  icloud_private_relay, instagram, meta, netflix, roblox, teamviwer, tor, twitter,
+  vultr, youtube, google_cloud, kingsoft, ms365, ms_azure, ms_sharepoint,
+  teamviewer
 
 v1.13.10 [03.03.2026]
 --------------------------------------------------------------------------------
@@ -50,7 +82,7 @@ v1.13.10 [03.03.2026]
 
 v1.13.9 [26.02.2026]
 --------------------------------------------------------------------------------
-* Downgrade standard C++20 -> C++17
+* Decrease standard C++20 -> C++17
 * Remove spdlog and Trace library dependency and provide callback mechanism for
   trace events
 * Update C API and packet_processor examples
@@ -85,13 +117,13 @@ v1.13.7 [18.01.2026]
 v1.13.6 [18.12.2025]
 --------------------------------------------------------------------------------
 * Update service signatures: webex, vultr, meta, icloud_private_relay, facebook,
-  apple, amazon_aws, discord, disney_plus, facebook, github, icloud_private_relay,
-  kingsoft, meta, netflix, roblox, vultr
+  apple, amazon_aws, discord, disney_plus, facebook, github,
+  icloud_private_relay, kingsoft, meta, netflix, roblox, vultr
 * Calculation of JA4+ and JA4s+ hashes
 * New TLS dissection fields: signature_algorithms extension rfc5246
 * Fix flow releasing problem
-* 350 new services: alibaba, alibaba_cloud, bytedance, huawei, huawei_cloud, ibm,
-  ibm_cloud, tencent_cloud, atlassian, adobe, adobe_ads, adobe_connect,
+* 350 new services: alibaba, alibaba_cloud, bytedance, huawei, huawei_cloud,
+  ibm, ibm_cloud, tencent_cloud, atlassian, adobe, adobe_ads, adobe_connect,
   adobe_fonts, aliexpress, checkpoint, veeam, amd, auth0, baidu, behance,
   bestbuy, bigcommerce, bing, bitdefender, bootstrap, brave_browser, canva,
   cisco, comcast, costco, cyberghostvpn, docusign, digg, doordash, epic_games,
