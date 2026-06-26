@@ -1,8 +1,8 @@
 ================================================================================
                                    DC Engine
                               Technical Reference
-                            Version v1.13.13+9cc2014
-                                   29.05.2026
+                            Version v1.13.14+3300cee
+                                   26.06.2026
 ================================================================================
 
 Table of Contents
@@ -107,7 +107,7 @@ Table of Contents
 ────────────────────────────────────────────────────────────────────────────────
 
    product  : dc engine
-   release  : v1.13.13+9cc2014
+   release  : v1.13.14+3300cee
 
    dependencies
 
@@ -129,9 +129,9 @@ Table of Contents
    expressions                                   24
    classifier tags                              555
    no-offload protocols                           6
-   domains                                   62,886
-   ipv4 cidr entries                        405,746
-   ipv6 cidr entries                        628,115
+   domains                                   62,888
+   ipv4 cidr entries                        406,290
+   ipv6 cidr entries                        628,521
    ipv4 socket entries                            0
    ipv6 socket entries                            0
    dns cache tags                                 1
@@ -10932,22 +10932,11 @@ Table of Contents
    desc  : Timestamp number representation to string. [0x64772B771E98A33F <->
            1685531511.513319743]
 
-   field : pkt.ospf.router_id
-   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
-           dotted-quad notation, where each byte represents a decimal value
-           from 0 to 255. [0x7F000001 <-> 127.0.0.1]
-
    field : pkt.teredo.origin_indication_port
    desc  : Decodes the 'Origin Indication' field by performing a bitwise NOT
            (one's complement) operation on the encoded 16-bit port or address
            fragments to retrieve the original obfuscated value. [0xF12A <->
            0x0ED5]
-
-   field : pkt.tls.quic_transport_parameter_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
 
    field : pkt.tls.quic_transport_parameter_id
    desc  : Decodes a value encoded using the QUIC variable-length format. The
@@ -10955,13 +10944,13 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.reason_phrase_length
+   field : pkt.quic.triggered_frame_type
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.triggered_frame_type
+   field : pkt.tls.quic_transport_parameter_length
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -10985,11 +10974,23 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.rtcp.length
-   desc  : Decodes the 16-bit length field found in RTCP headers. The actual
-           size in bytes is calculated as (field_value + 1) * 4, representing
-           the total length of the packet including the header and padding. [6
-           <-> 28; (6 + 1) * 4]
+   field : pkt.teredo.origin_indication_ipv4_address
+   desc  : Decodes the 'Origin Indication' field by performing a bitwise NOT
+           (one's complement) operation on the encoded 16-bit port or address
+           fragments to retrieve the original obfuscated value. [0xF12A <->
+           0x0ED5]
+
+   field : pkt.quic.reason_phrase_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.retire_prior_to
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
 
    field : pkt.quic.new_sequence_number
    desc  : Decodes a value encoded using the QUIC variable-length format. The
@@ -11009,13 +11010,25 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
+   field : pkt.quic.cumulative_maximum_streams
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.rtcp.length
+   desc  : Decodes the 16-bit length field found in RTCP headers. The actual
+           size in bytes is calculated as (field_value + 1) * 4, representing
+           the total length of the packet including the header and padding. [6
+           <-> 28; (6 + 1) * 4]
+
    field : pkt.quic.blocked_maximum_stream_data
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.maximum_stream_data
+   field : pkt.quic.blocked_maximum_data
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -11033,55 +11046,13 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.stop_application_protocol_error_code
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.reset_application_protocol_error_code
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.final_size
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.ect_1_count
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.ect_0_count
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
    field : pkt.quic.crypto_offset
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.ack_range_length
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.blocked_stream_id
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.gap
+   field : pkt.quic.max_data_stream_id
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -11093,7 +11064,7 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.first_ack_range
+   field : pkt.quic.ecn_ce_count
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -11105,13 +11076,54 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
+   field : pkt.quic.ack_range_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.final_size
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.gap
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.reset_application_protocol_error_code
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.quic.first_ack_range
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
+   field : pkt.gtp.extension_header_length
+   desc  : Decodes the length of a GPRS Tunnelling Protocol extension header.
+           The value represents the number of 4-byte words; the total size in
+           bytes is calculated as field_value * 4. [4 <-> 16; (4) * 4]
+
+   field : pkt.quic.reset_stream_id
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
    field : pkt.quic.ack_range_count
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.ecn_ce_count
+   field : pkt.quic.blocked_stream_id
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -11123,24 +11135,13 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.gtp.extension_header_length
-   desc  : Decodes the length of a GPRS Tunnelling Protocol extension header.
-           The value represents the number of 4-byte words; the total size in
-           bytes is calculated as field_value * 4. [4 <-> 16; (4) * 4]
-
-   field : pkt.quic.max_data_stream_id
+   field : pkt.quic.ect_1_count
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
    field : pkt.quic.largest_acknowledged
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
-   field : pkt.quic.reset_stream_id
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -11170,13 +11171,13 @@ Table of Contents
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.destination_connection_id_length
+   field : pkt.quic.stop_application_protocol_error_code
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
            integer value. [0x44d1 <-> 1233]
 
-   field : pkt.quic.blocked_maximum_data
+   field : pkt.quic.ect_0_count
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -11187,7 +11188,7 @@ Table of Contents
            dotted-quad notation, where each byte represents a decimal value
            from 0 to 255. [0x7F000001 <-> 127.0.0.1]
 
-   field : pkt.quic.cumulative_maximum_streams
+   field : pkt.quic.maximum_stream_data
    desc  : Decodes a value encoded using the QUIC variable-length format. The
            two most significant bits of the first byte determine the total
            length (1, 2, 4, or 8 bytes), and the remaining bits represent the
@@ -11198,19 +11199,12 @@ Table of Contents
            dotted-quad notation, where each byte represents a decimal value
            from 0 to 255. [0x7F000001 <-> 127.0.0.1]
 
-   field : pkt.teredo.origin_indication_ipv4_address
-   desc  : Decodes the 'Origin Indication' field by performing a bitwise NOT
-           (one's complement) operation on the encoded 16-bit port or address
-           fragments to retrieve the original obfuscated value. [0xF12A <->
-           0x0ED5]
-
-   field : pkt.quic.retire_prior_to
-   desc  : Decodes a value encoded using the QUIC variable-length format. The
-           two most significant bits of the first byte determine the total
-           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
-           integer value. [0x44d1 <-> 1233]
-
    field : pkt.dns.address
+   desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
+           dotted-quad notation, where each byte represents a decimal value
+           from 0 to 255. [0x7F000001 <-> 127.0.0.1]
+
+   field : pkt.ospf.ared_id
    desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
            dotted-quad notation, where each byte represents a decimal value
            from 0 to 255. [0x7F000001 <-> 127.0.0.1]
@@ -11225,12 +11219,18 @@ Table of Contents
            dotted-quad notation, where each byte represents a decimal value
            from 0 to 255. [0x7F000001 <-> 127.0.0.1]
 
+   field : pkt.quic.destination_connection_id_length
+   desc  : Decodes a value encoded using the QUIC variable-length format. The
+           two most significant bits of the first byte determine the total
+           length (1, 2, 4, or 8 bytes), and the remaining bits represent the
+           integer value. [0x44d1 <-> 1233]
+
    field : pkt.ipv4.src_ip
    desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
            dotted-quad notation, where each byte represents a decimal value
            from 0 to 255. [0x7F000001 <-> 127.0.0.1]
 
-   field : pkt.ospf.ared_id
+   field : pkt.ospf.router_id
    desc  : Decodes a 4-byte (32-bit) unsigned integer into the standard
            dotted-quad notation, where each byte represents a decimal value
            from 0 to 255. [0x7F000001 <-> 127.0.0.1]
@@ -11675,7 +11675,7 @@ Table of Contents
                                                         data transmission.
 
    tree
-      Decodes HTTP/2 headers (HPACK).
+      Builds a chain of protocols.
 
       field                          type               description
       ------------------------------ ------------------ -----------
@@ -11683,7 +11683,7 @@ Table of Contents
                                                         calling flag.
 
    http2_field_block
-      Builds a chain of protocols.
+      Decodes HTTP/2 headers (HPACK).
 
       field                          type               description
       ------------------------------ ------------------ -----------
@@ -16763,7 +16763,8 @@ Table of Contents
       * NUMA is not used
       * Trace is turned off
       * One worker thread with CPU affinity (CPU pinning) usage
-      * tcmalloc (https://github.com/google/tcmalloc) is used
+      * tcmalloc is not used (https://github.com/google/tcmalloc), but it 
+        might increase performance
 
    benchmark results
    ──────────────────────────────────────────────────────────────────────────
@@ -16771,54 +16772,54 @@ Table of Contents
    benchmarks are based on the configuration summarised in section 3.
    test: traffic — no encapsulation
    ··········································································
-   flow count                : 778,500
-   duration                  : 52 s  (52,407 ms)
-   packet count              : 20,002,260
+   flow count                : 1,488,948
+   duration                  : 116 s  (116,478 ms)
+   packet count              : 40,000,666
    error traces              : 0
    critical traces           : 0
    max layer pool usage      : no measurement
-   max reassembler pool usage: 4,945
-   max flow pool usage       : 79,083
-   max session pool usage    : 52,724
-   max dns cache usage       : 36,099
+   max reassembler pool usage: 5,572
+   max flow pool usage       : 70,221
+   max session pool usage    : 45,925
+   max dns cache usage       : 27,084
    max session cache usage   : 0
    max ftp cache usage       : 0
    max sip cache usage       : 0
 
    engine performance
-      packets / sec  :     381,665.318  pps
-      throughput     :         924.077  mbps
-      throughput     :        0.924077  gbps
-      total packets  :      20,002,260
-      total bytes    :   6,053,610,810
+      packets / sec  :     343,415.820  pps
+      throughput     :         874.411  mbps
+      throughput     :        0.874411  gbps
+      total packets  :      40,000,666
+      total bytes    :  12,731,295,704
 
    top 10 tags (by bytes)
       name                              packets        bytes
       ---------------------------- ------------ ------------
-      apple_push_notification         1,763,399  756,842,384
-      yandex_cloud                    2,174,721  721,734,396
-      google                          1,409,409  524,190,645
-      apple                             809,640  502,210,350
-      wikipedia                         570,900  493,709,130
-      youtube                           372,591  152,565,339
-      apple_updates                     171,270  115,109,010
-      telegram                          480,819  102,434,145
-      dropbox                            72,660   92,859,480
-      cloudflare                         72,660   92,859,480
+      wikipedia                       2,212,760 1,913,574,732
+      yandex_cloud                    4,225,616 1,403,186,600
+      google                          2,899,960 1,109,255,769
+      apple                           1,569,048  973,262,370
+      youtube                           965,103  437,521,555
+      google_cloud                      864,988  304,153,920
+      apple_updates                     331,914  223,076,382
+      telegram                        1,046,032  217,715,468
+      dropbox                           140,812  179,957,736
+      cloudflare                        140,812  179,957,736
 
    top 10 protocols (by bytes)
       name                              packets        bytes
       ---------------------------- ------------ ------------
-      tls                             6,913,080 2,914,008,540
-      payload                         3,025,758 1,194,403,056
-      wireguard                       2,184,990  725,894,160
-      openvpn                         4,556,820  630,071,190
-      rtp                             2,184,990  432,290,670
-      http                              129,750   45,272,370
-      dns                               394,440   37,020,270
-      stun                              259,500   32,613,960
-      ssh                               124,560   17,370,930
-      dtls                               36,330    7,151,820
+      tls                            14,594,158 6,642,685,404
+      payload                         5,834,714 2,307,956,688
+      wireguard                       4,234,418 1,406,752,112
+      openvpn                         8,830,924 1,221,051,258
+      rtp                             4,234,418  837,760,994
+      http                              251,450   87,735,934
+      dns                               804,640   75,937,900
+      stun                              502,900   63,204,472
+      ssh                               241,392   33,664,126
+      dtls                               70,406   13,859,924
 
 
 ================================================================================

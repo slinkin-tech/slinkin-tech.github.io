@@ -5,6 +5,20 @@ DC Engine - Changelog
 2026
 ================================================================================
 
+v1.13.14 [26.06.2026]
+--------------------------------------------------------------------------------
+* Update signatures: amazon_aws, apple, digital_ocean, discord, disney_plus,
+  facebook, github, google, google_cloud, icloud_private_relay, kingsoft,
+  meta, netflix, roblox, teamviewer, tor, twitter, vultr, webex
+* LRU cache implementation for cache tables
+* Remove exception using
+* Improve session flags setup
+* Introduce new tag mask mechanism to control classification pipeline
+* Memory allocation adapter; registering own new/delete functions
+* Regex adapter; registering own regex functions
+* Small bug fixes and internal improvements
+
+
 v1.13.13 [29.05.2026]
 --------------------------------------------------------------------------------
 * Update signatures: zoom, twitter, tor, roblox, netflix, ms_sharepoint, ms365,
