@@ -1,25 +1,5 @@
 {
-   "workflow" : {
-      "items" : [
-         "audio",
-         "chat",
-         "file_transfer",
-         "generic",
-         "incoming_audio",
-         "incoming_file_transfer",
-         "incoming_landline",
-         "incoming_video",
-         "landline",
-         "outgoing_audio",
-         "outgoing_file_transfer",
-         "outgoing_landline",
-         "outgoing_video",
-         "video"
-      ],
-      "count" : 14
-   },
    "metadata" : {
-      "count" : 23,
       "items" : [
          "tag",
          "tag_type",
@@ -44,25 +24,86 @@
          "flow_start_time",
          "flow_last_activity_time",
          "flow_duration"
-      ]
-   },
-   "extensions" : {
-      "items" : [
-         "http_metadata",
-         "hostname",
-         "dns_response_name",
-         "tls_metadata",
-         "tls_certificate",
-         "ftp_cache",
-         "tree",
-         "http2_field_block",
-         "data_structure",
-         "spid",
-         "classifier",
-         "sip_cache",
-         "rtc_media"
       ],
-      "count" : 13
+      "count" : 23
+   },
+   "workflow" : {
+      "items" : [
+         "audio",
+         "chat",
+         "file_transfer",
+         "generic",
+         "incoming_audio",
+         "incoming_file_transfer",
+         "incoming_landline",
+         "incoming_video",
+         "landline",
+         "outgoing_audio",
+         "outgoing_file_transfer",
+         "outgoing_landline",
+         "outgoing_video",
+         "video"
+      ],
+      "count" : 14
+   },
+   "protocol_fields" : {
+      "per_protocol" : {
+         "ssh" : 5,
+         "smtp" : 10,
+         "sip" : 79,
+         "gre" : 11,
+         "rarp" : 15,
+         "dropbox_lan_sync_discovery" : 6,
+         "igmp" : 6,
+         "stun" : 19,
+         "icmp" : 10,
+         "quic" : 80,
+         "srtcp" : 41,
+         "rtcp" : 41,
+         "icmpv6" : 10,
+         "srtp" : 23,
+         "wireguard" : 19,
+         "http2" : 65,
+         "ipv4" : 23,
+         "dtls" : 176,
+         "bittorrent" : 5,
+         "payload" : 6,
+         "websocket" : 15,
+         "ntp" : 5,
+         "vlan_c_tag" : 10,
+         "pppoe" : 11,
+         "imap" : 5,
+         "gtp" : 21,
+         "arp" : 15,
+         "ppp" : 8,
+         "bittorrent_tracker" : 5,
+         "ospf" : 16,
+         "http3" : 0,
+         "l2tp" : 24,
+         "ethernet" : 8,
+         "isakmp" : 15,
+         "dropbox_lan_sync" : 9,
+         "dns" : 83,
+         "tcp" : 24,
+         "udp" : 10,
+         "http" : 79,
+         "ftp" : 16,
+         "teredo" : 19,
+         "ssdp" : 79,
+         "bittorrent_dht" : 17,
+         "rtp" : 23,
+         "telnet" : 6,
+         "sftp" : 12,
+         "socks" : 24,
+         "mdns" : 85,
+         "ipv6" : 47,
+         "pop3" : 10,
+         "pptp" : 10,
+         "openvpn" : 22,
+         "tls" : 152,
+         "bittorrent_utp" : 5
+      },
+      "total" : 1540
    },
    "protocols" : {
       "configuration" : {
@@ -80,6 +121,7 @@
          ],
          "count" : 10
       },
+      "count" : 64,
       "engine" : {
          "items" : [
             "arp",
@@ -138,10 +180,28 @@
             "wireguard"
          ],
          "count" : 54
-      },
-      "count" : 64
+      }
+   },
+   "extensions" : {
+      "items" : [
+         "http_metadata",
+         "hostname",
+         "dns_response_name",
+         "tls_metadata",
+         "tls_certificate",
+         "ftp_cache",
+         "tree",
+         "http2_field_block",
+         "data_structure",
+         "spid",
+         "classifier",
+         "sip_cache",
+         "rtc_media"
+      ],
+      "count" : 13
    },
    "services" : {
+      "count" : 570,
       "items" : [
          "1password",
          "2gis",
@@ -713,66 +773,6 @@
          "zscaler",
          "zvooq",
          "zynga"
-      ],
-      "count" : 570
-   },
-   "protocol_fields" : {
-      "total" : 1540,
-      "per_protocol" : {
-         "bittorrent_dht" : 17,
-         "http" : 79,
-         "smtp" : 10,
-         "rtp" : 23,
-         "dns" : 83,
-         "payload" : 6,
-         "stun" : 19,
-         "tls" : 152,
-         "ospf" : 16,
-         "ipv6" : 47,
-         "bittorrent_tracker" : 5,
-         "ipv4" : 23,
-         "gre" : 11,
-         "udp" : 10,
-         "tcp" : 24,
-         "bittorrent_utp" : 5,
-         "vlan_c_tag" : 10,
-         "srtp" : 23,
-         "isakmp" : 15,
-         "websocket" : 15,
-         "rarp" : 15,
-         "ftp" : 16,
-         "ntp" : 5,
-         "ssh" : 5,
-         "mdns" : 85,
-         "quic" : 80,
-         "telnet" : 6,
-         "wireguard" : 19,
-         "ssdp" : 79,
-         "ethernet" : 8,
-         "rtcp" : 41,
-         "arp" : 15,
-         "dropbox_lan_sync_discovery" : 6,
-         "gtp" : 21,
-         "socks" : 24,
-         "igmp" : 6,
-         "icmp" : 10,
-         "pppoe" : 11,
-         "dtls" : 176,
-         "ppp" : 8,
-         "imap" : 5,
-         "srtcp" : 41,
-         "sip" : 79,
-         "bittorrent" : 5,
-         "dropbox_lan_sync" : 9,
-         "http3" : 0,
-         "l2tp" : 24,
-         "openvpn" : 22,
-         "teredo" : 19,
-         "icmpv6" : 10,
-         "sftp" : 12,
-         "pop3" : 10,
-         "pptp" : 10,
-         "http2" : 65
-      }
+      ]
    }
 }

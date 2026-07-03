@@ -5,6 +5,14 @@ DC Engine - Changelog
 2026
 ================================================================================
 
+v1.13.15 [03.07.2026]
+--------------------------------------------------------------------------------
+* Update service signatures: amazon_aws, apple, digital_ocean, github,
+  google_cloud, icloud_private_relay, netflix, tor, twitter
+* Improve whatsapp service classification (STUN session)
+* Improve service classification (STUN session): extra attribute analysis
+* Extra IPv4 and IPv6 processing for final configuration
+
 v1.13.14 [26.06.2026]
 --------------------------------------------------------------------------------
 * Update signatures: amazon_aws, apple, digital_ocean, discord, disney_plus,

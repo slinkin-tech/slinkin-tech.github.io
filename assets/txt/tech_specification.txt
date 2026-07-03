@@ -1,8 +1,8 @@
 ================================================================================
                                    DC Engine
                               Technical Reference
-                            Version v1.13.14+3300cee
-                                   26.06.2026
+                            Version v1.13.15+5cf726e
+                                   03.07.2026
 ================================================================================
 
 Table of Contents
@@ -107,7 +107,7 @@ Table of Contents
 ────────────────────────────────────────────────────────────────────────────────
 
    product  : dc engine
-   release  : v1.13.14+3300cee
+   release  : v1.13.15+5cf726e
 
    dependencies
 
@@ -129,9 +129,9 @@ Table of Contents
    expressions                                   24
    classifier tags                              555
    no-offload protocols                           6
-   domains                                   62,888
-   ipv4 cidr entries                        406,290
-   ipv6 cidr entries                        628,521
+   domains                                   10,201
+   ipv4 cidr entries                        103,182
+   ipv6 cidr entries                        264,764
    ipv4 socket entries                            0
    ipv6 socket entries                            0
    dns cache tags                                 1
@@ -16773,7 +16773,7 @@ Table of Contents
    test: traffic — no encapsulation
    ··········································································
    flow count                : 1,488,948
-   duration                  : 116 s  (116,478 ms)
+   duration                  : 119 s  (119,398 ms)
    packet count              : 40,000,666
    error traces              : 0
    critical traces           : 0
@@ -16781,15 +16781,15 @@ Table of Contents
    max reassembler pool usage: 5,572
    max flow pool usage       : 70,221
    max session pool usage    : 45,925
-   max dns cache usage       : 27,084
+   max dns cache usage       : 27,086
    max session cache usage   : 0
    max ftp cache usage       : 0
    max sip cache usage       : 0
 
    engine performance
-      packets / sec  :     343,415.820  pps
-      throughput     :         874.411  mbps
-      throughput     :        0.874411  gbps
+      packets / sec  :     335,017.113  pps
+      throughput     :         853.026  mbps
+      throughput     :        0.853026  gbps
       total packets  :      40,000,666
       total bytes    :  12,731,295,704
 
