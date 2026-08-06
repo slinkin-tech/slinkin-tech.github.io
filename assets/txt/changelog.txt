@@ -5,6 +5,24 @@ DC Engine - Changelog
 2026
 ================================================================================
 
+v1.13.17 [06.07.2026]
+--------------------------------------------------------------------------------
+* Update service signatures: amazon_aws, apple, disney_plus, dropbox, facebook,
+  github, icloud_private_relay, kingsoft, google, meta, netflix, telegram, tor,
+  twitter, vultr, webex, line, teamviewer
+* Improve service signature update mechanism: ASN IPs processing and filtering
+* Line call classification
+* Fix compile-expression behavior: tag name searching
+* Introduce one more test level for engine classification purposes
+* Fix ms_teams and whatsapp calls classification overlapping
+
+v1.13.16 [10.07.2026]
+--------------------------------------------------------------------------------
+* Update service signatures: amazon_aws, apple, disney_plus, facebook, github,
+  icloud_private_relay, meta, netflix, roblox, teamviewer, tor, twitter,
+  vultr, webex
+* Provide more detailed support guide
+
 v1.13.15 [03.07.2026]
 --------------------------------------------------------------------------------
 * Update service signatures: amazon_aws, apple, digital_ocean, github,
