@@ -1,8 +1,8 @@
 ================================================================================
                                    DC Engine
                               Technical Reference
-                            Version v1.13.16+eabb9a2
-                                   10.07.2026
+                            Version v1.13.17+0509025
+                                   06.08.2026
 ================================================================================
 
 Table of Contents
@@ -107,7 +107,7 @@ Table of Contents
 ────────────────────────────────────────────────────────────────────────────────
 
    product  : dc engine
-   release  : v1.13.16+eabb9a2
+   release  : v1.13.17+0509025
 
    dependencies
 
@@ -130,8 +130,8 @@ Table of Contents
    classifier tags                              555
    no-offload protocols                           6
    domains                                   10,201
-   ipv4 cidr entries                        103,269
-   ipv6 cidr entries                        264,720
+   ipv4 cidr entries                        106,860
+   ipv6 cidr entries                        267,599
    ipv4 socket entries                            0
    ipv6 socket entries                            0
    dns cache tags                                 1
@@ -16773,7 +16773,7 @@ Table of Contents
    test: traffic — no encapsulation
    ··········································································
    flow count                : 1,488,948
-   duration                  : 116 s  (116,962 ms)
+   duration                  : 120 s  (120,221 ms)
    packet count              : 40,000,666
    error traces              : 0
    critical traces           : 0
@@ -16781,31 +16781,31 @@ Table of Contents
    max reassembler pool usage: 5,572
    max flow pool usage       : 70,221
    max session pool usage    : 45,925
-   max dns cache usage       : 27,086
+   max dns cache usage       : 27,081
    max session cache usage   : 0
    max ftp cache usage       : 0
    max sip cache usage       : 0
 
    engine performance
-      packets / sec  :     341,994.554  pps
-      throughput     :         870.792  mbps
-      throughput     :        0.870792  gbps
+      packets / sec  :     332,723.478  pps
+      throughput     :         847.186  mbps
+      throughput     :        0.847186  gbps
       total packets  :      40,000,666
       total bytes    :  12,731,295,704
 
    top 10 tags (by bytes)
       name                              packets        bytes
       ---------------------------- ------------ ------------
+      apple                           4,952,509 2,413,427,397
       wikipedia                       2,212,760 1,913,574,732
+      facetime                        3,705,521 1,493,104,044
       yandex_cloud                    4,225,616 1,403,186,600
-      google                          2,899,960 1,109,255,769
-      apple                           1,569,048  973,262,370
+      google                          2,919,232 1,110,412,089
       youtube                           965,103  437,521,555
       google_cloud                      864,988  304,153,920
       apple_updates                     331,914  223,076,382
       telegram                        1,046,032  217,715,468
       dropbox                           140,812  179,957,736
-      cloudflare                        140,812  179,957,736
 
    top 10 protocols (by bytes)
       name                              packets        bytes
