@@ -19,7 +19,11 @@ Slinkin Technologies is an independent team of networking experts. We combine de
 
 Even though our products function deep within network infrastructures, we take extra pride in making our complex tools as intuitive, reliable, and user-friendly as possible.
 
-![Logo](/assets/img/logo_bimi_tiny_ps.svg "Logo")
+---
+
+# > logo
+
+[Logo](/assets/img/logo_bimi_tiny_ps.svg)
 
 <!--
 <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
