@@ -19,6 +19,11 @@ Slinkin Technologies is an independent team of networking experts. We combine de
 
 Even though our products function deep within network infrastructures, we take extra pride in making our complex tools as intuitive, reliable, and user-friendly as possible.
 
+---
+
+# > logo
+
+[Logo](/assets/img/logo_bimi_tiny_ps.svg)
 
 <!--
 <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
@@ -57,7 +62,7 @@ Contact us by email <a href="mailto:info@slinkin.tech?subject=Website request&bo
         <option value="feedback">> feedback</option>
     </select>
     ---
-    <textarea rows="10" id="message" name="message" placeholder="message:" autocomplete="off"></textarea>
+    <textarea rows="10" id="message" name="message" placeholder="text your message here" autocomplete="off"></textarea>
     <input type="submit" value="[ submit ]">
 </form>
 
