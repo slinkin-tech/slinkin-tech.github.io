@@ -24,19 +24,31 @@ permalink: /dc-engine/
 
 ## > functionality
 
-## > functionality
+<!--
 
 <div class="packages-grid" markdown="1">
 
 | | |
 | :--- | :--- |
-| <img src="/assets/icons/detect.svg" width="32" height="32" style="float: left; margin-right: 12px;" /> **protocol detection** <br><br> identifying network protocols, extracting fields, decoding values. | <img src="/assets/icons/classify.svg" width="32" height="32" style="float: left; margin-right: 12px;" /> **internet services classification** <br><br> classification of services and workflow definition (audio/video/file transfer). |
-| <img src="/assets/icons/integrate.svg" width="32" height="32" style="float: left; margin-right: 12px;" /> **integration into other solutions** <br><br> ips/ids, siem, dlp, etc. | <img src="/assets/icons/log.svg" width="32" height="32" style="float: left; margin-right: 12px;" /> **network activity logging** <br><br> logging of network activity that can be used in the investigation of incidents. |
-| <img src="/assets/icons/ai.svg" width="32" height="32" style="float: left; margin-right: 12px;" /> **data collection for ai** <br><br> collecting an array of data for use in AI systems. | <img src="/assets/icons/control.svg" width="32" height="32" style="float: left; margin-right: 12px;" /> **user control** <br><br> putting users under control (saving all or selected information for certain users). |
-| <img src="/assets/icons/billing.svg" width="32" height="32" style="float: left; margin-right: 12px;" /> **collecting information for billing** <br><br> accumulation of information on streams for use in billing. | <img src="/assets/icons/hotfix.svg" width="32" height="32" style="float: left; margin-right: 12px;" /> **hotfix of new vulnerabilities** <br><br> prevention of exploitation of new vulnerabilities, before the release of official fixes. |
+| `[detect]` **protocol detection** <br><br> identifying network protocols, extracting fields, decoding values. | `[classify]` **internet services classification** <br><br> classification of services and workflow definition (audio/video/file transfer). |
+| `[integrate]` **integration into other solutions** <br><br> ips/ids, siem, dlp, etc. | `[log]` **network activity logging** <br><br> logging of network activity that can be used in the investigation of incidents. |
+| `[ai]` **data collection for ai** <br><br> collecting an array of data for use in AI systems. | `[control]` **user control** <br><br> putting users under control (saving all or selected information for certain users). |
+| `[billing]` **collecting information for billing** <br><br> accumulation of information on streams for use in billing. | `[hotfix]` **hotfix of new vulnerabilities** <br><br> prevention of exploitation of new vulnerabilities, before the release of official fixes. |
 
 </div>
 
+--->
+
+<div class="packages-grid" markdown="1">
+
+| | |
+| :--- | :--- |
+| <img src="/assets/img/icons/eye.png" width="32" height="32" style="float: left; margin-right: 12px;" /> **protocol detection** <br><br> identifying network protocols, extracting fields, decoding values. | <img src="/assets/img/icons/block.png" width="32" height="32" style="float: left; margin-right: 12px;" /> **internet services classification** <br><br> classification of services and workflow definition (audio/video/file transfer). |
+| <img src="/assets/img/icons/integration.png" width="32" height="32" style="float: left; margin-right: 12px;" /> **integration into other solutions** <br><br> ips/ids, siem, dlp, etc. | <img src="/assets/img/icons/folder.png" width="32" height="32" style="float: left; margin-right: 12px;" /> **network activity logging** <br><br> logging of network activity that can be used in the investigation of incidents. |
+| <img src="/assets/img/icons/ai.png" width="32" height="32" style="float: left; margin-right: 12px;" /> **data collection for ai** <br><br> collecting an array of data for use in AI systems. | <img src="/assets/img/icons/user.png" width="32" height="32" style="float: left; margin-right: 12px;" /> **user control** <br><br> putting users under control (saving all or selected information for certain users). |
+| <img src="/assets/img/icons/billing.png" width="32" height="32" style="float: left; margin-right: 12px;" /> **collecting information for billing** <br><br> accumulation of information on streams for use in billing. | <img src="/assets/img/icons/fire.png" width="32" height="32" style="float: left; margin-right: 12px;" /> **hotfix of new vulnerabilities** <br><br> prevention of exploitation of new vulnerabilities, before the release of official fixes. |
+
+</div>
 
 ---
 
