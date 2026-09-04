@@ -76,6 +76,8 @@ Traffic control allows you to solve problems such as load balancing in the netwo
 
 Classification tasks are typical for such areas as information security, where data is classified as malicious or malicious, system administration, where incorrect network operation is diagnosed, and in the field of mobile operators and Internet providers, where network flows are classified as popular Internet services. SL DC Engine provides functionality to classify network activity through a tagging mechanism. This means that the user can independently create any tag and describe the rule for assigning it to a packet or flow (for example, tethering, fraud, etc.). This approach implies universality in matters of classification and allows users to create their tags for any purpose.
 
+---
+
 ## > technical information
 
 Technical information is <a href="/tech">here</a>.
