@@ -74,10 +74,10 @@ This decoupled approach ensures you only license the exact functionality your in
 
 ### # dc-engine [core]
 
-- **Protocol detection**: Deep protocol analysis, field dissection, and decoding.
-- **Service classification**: Mapping traffic to internet services and types (media/files).
-- **Metadata extraction**: Extracting packet/flow data (codecs, credentials, JA4 hashes).
-- **Flow statistics**: Tracking time, bytes, packets, bitrate, and IAT metrics.
+- Protocol detection: Deep protocol analysis, field dissection, and decoding.
+- Service classification: Mapping traffic to internet services and types (media/files).
+- Metadata extraction: Extracting packet/flow data (codecs, credentials, JA4 hashes).
+- Flow statistics: Tracking time, bytes, packets, bitrate, and IAT metrics.
 
 ### # packages
 
@@ -90,6 +90,8 @@ This decoupled approach ensures you only license the exact functionality your in
 | **industrial** `[roadmap]` <br> The set of industrial protocols (detection, deep field dissection) <br> `> protocols:` todo <br> `> extensions:` no | **dlog** `[roadmap]` <br> IPDR transmission to remote service/server (NetFlow, HTTP, JSON formats) <br> `> protocols:` no <br> `> extensions:` dlog |
 
 </div>
+
+**Questions or ready to request?** Contact us at [info@slinkin.tech](mailto:info@slinkin.tech?subject=DC%20Engine%20Request) to get a proposal or tech details.
 
 ---
 
