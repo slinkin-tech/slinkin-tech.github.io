@@ -24,21 +24,6 @@ permalink: /dc-engine/
 
 ## > functionality
 
-<!--
-
-<div class="packages-grid" markdown="1">
-
-| | |
-| :--- | :--- |
-| `[detect]` **protocol detection** <br> identifying network protocols, extracting fields, decoding values. | `[classify]` **internet services classification** <br> classification of services and workflow definition (audio/video/file transfer). |
-| `[integrate]` **integration into other solutions** <br> ips/ids, siem, dlp, etc. | `[log]` **network activity logging** <br> logging of network activity that can be used in the investigation of incidents. |
-| `[ai]` **data collection for ai** <br> collecting an array of data for use in AI systems. | `[control]` **user control** <br> putting users under control (saving all or selected information for certain users). |
-| `[billing]` **collecting information for billing** <br> accumulation of information on streams for use in billing. | `[hotfix]` **hotfix of new vulnerabilities** <br> prevention of exploitation of new vulnerabilities, before the release of official fixes. |
-
-</div>
-
---->
-
 <div class="packages-grid" markdown="1">
 
 | | |
