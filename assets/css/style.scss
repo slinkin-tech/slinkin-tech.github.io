@@ -157,15 +157,24 @@ h3 + p + p {
 
 /* */
 
-/* Ensure proper alignment of floated icons inside the grid */
-.packages-grid td img {
-  display: block;
-  image-rendering: pixelated; /* Keeps pixel-art/retro icons crisp if you use them */
+/* Align table cell content structures side-by-side with images */
+.packages-grid td {
+  display: table-cell;
+  word-wrap: break-word;
 }
 
-/* Clear floating elements for subsequent layout structures */
+/* Ensure the title text baseline centers or aligns nicely to the right side of the image block */
+.packages-grid td img {
+  display: block;
+  float: left;
+  margin-bottom: 8px; /* Prevents long descriptions from overlapping the image bottom edge */
+}
+
+/* Clear layouts for floated elements inside table grids */
 .packages-grid td::after {
   content: "";
   display: table;
   clear: both;
+}
+oth;
 }
