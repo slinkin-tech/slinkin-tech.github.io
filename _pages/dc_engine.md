@@ -78,6 +78,49 @@ Classification tasks are typical for such areas as information security, where d
 
 ---
 
+## > solution packages
+
+The engine is built around a powerful core with flexible extension packages tailored for specific network analysis workflows.
+
+### [core]
+* **protocol & service** — Protocol detection, structure verification, and internet service classification.
+* **metadata extraction** — Extract packet/flow metadata (media codecs, credentials, JA3/JA3S/JA4 hashes).
+* **flow statistics** — Track time, bytes, packets, bitrate, IAT (Inter-Arrival Time), and metrics.
+
+### [packages]
+
+* #### package: service_update `[ready]`
+  * `> description:` Daily service classification configuration updates (data patterns, IPs, domains)
+  * `> extensions:` probe
+  * `> protocols:` no
+
+* #### package: workflow `[ready]`
+  * `> description:` Classification audio/video calls, chat, file transfer
+  * `> extensions:` rtc_media, spid
+  * `> protocols:` no
+
+* #### package: security `[roadmap]`
+  * `> description:` ICMP and dns tunnel detection; invalid/expired certificates; C&C/C2 servers access detection (IP; domains; JA hashes); file extraction; sensetive data leaks, ddos
+  * `> extensions:` sec, filecarver, sensdata, ddos
+  * `> protocols:` no
+
+* #### package: network `[roadmap]`
+  * `> description:` QoS estimation; network error detection (re-transmission burts, no flow activities, ping destination unreachable)
+  * `> extensions:` qos, netcon
+  * `> protocols:` modbus, dnp3, profinet
+
+* #### package: industrial `[roadmap]`
+  * `> description:` The set of industrial protocols (detection, field dissection)
+  * `> extensions:` no
+  * `> protocols:` todo
+
+* #### package: dlog `[roadmap]`
+  * `> description:` IPDR transmission to remote service/server; netflow, http, json formats
+  * `> extensions:` dlog
+  * `> protocols:` no
+
+---
+
 ## > technical information
 
 Technical information is <a href="/tech">here</a>.
