@@ -66,7 +66,16 @@ Classification tasks are typical for such areas as information security, where d
 
 ---
 
-## > packages
+## > solution
+
+### # dc-engine [core]
+
+- Protocol detection and field dissection
+- Internet service classification
+- Extract metadata for packet/flows (media codecs, credentials, JA3/JA3S/JA4 hashes, etc.)
+- Collect flow statistics: time, bytes, packets, bitrate, iat, etc.
+
+### # packages
 
 <div class="packages-grid" markdown="1">
 
