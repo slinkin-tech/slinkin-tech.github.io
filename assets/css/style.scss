@@ -163,11 +163,12 @@ h3 + p + p {
   word-wrap: break-word;
 }
 
-/* Ensure the title text baseline centers or aligns nicely to the right side of the image block */
+/* Apply consistent floating layout and margins to all cell icons */
 .packages-grid td img {
   display: block;
   float: left;
-  margin-bottom: 8px; /* Prevents long descriptions from overlapping the image bottom edge */
+  margin-right: 24px !important; /* Fixed: Adjust this value to increase/decrease the gap */
+  margin-bottom: 12px;           /* Gives spacing underneath the icon if text wraps */
 }
 
 /* Clear layouts for floated elements inside table grids */

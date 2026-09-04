@@ -30,10 +30,10 @@ permalink: /dc-engine/
 
 | | |
 | :--- | :--- |
-| `[detect]` **protocol detection** <br><br> identifying network protocols, extracting fields, decoding values. | `[classify]` **internet services classification** <br><br> classification of services and workflow definition (audio/video/file transfer). |
-| `[integrate]` **integration into other solutions** <br><br> ips/ids, siem, dlp, etc. | `[log]` **network activity logging** <br><br> logging of network activity that can be used in the investigation of incidents. |
-| `[ai]` **data collection for ai** <br><br> collecting an array of data for use in AI systems. | `[control]` **user control** <br><br> putting users under control (saving all or selected information for certain users). |
-| `[billing]` **collecting information for billing** <br><br> accumulation of information on streams for use in billing. | `[hotfix]` **hotfix of new vulnerabilities** <br><br> prevention of exploitation of new vulnerabilities, before the release of official fixes. |
+| `[detect]` **protocol detection** <br> identifying network protocols, extracting fields, decoding values. | `[classify]` **internet services classification** <br> classification of services and workflow definition (audio/video/file transfer). |
+| `[integrate]` **integration into other solutions** <br> ips/ids, siem, dlp, etc. | `[log]` **network activity logging** <br> logging of network activity that can be used in the investigation of incidents. |
+| `[ai]` **data collection for ai** <br> collecting an array of data for use in AI systems. | `[control]` **user control** <br> putting users under control (saving all or selected information for certain users). |
+| `[billing]` **collecting information for billing** <br> accumulation of information on streams for use in billing. | `[hotfix]` **hotfix of new vulnerabilities** <br> prevention of exploitation of new vulnerabilities, before the release of official fixes. |
 
 </div>
 
@@ -43,10 +43,10 @@ permalink: /dc-engine/
 
 | | |
 | :--- | :--- |
-| <img src="/assets/img/icons/eye.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **protocol detection** <br><br> identifying network protocols, extracting fields, decoding values. | <img src="/assets/img/icons/block.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **internet services classification** <br><br> classification of services and workflow definition (audio/video/file transfer). |
-| <img src="/assets/img/icons/integration.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **integration into other solutions** <br><br> ips/ids, siem, dlp, etc. | <img src="/assets/img/icons/folder.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **network activity logging** <br><br> logging of network activity that can be used in the investigation of incidents. |
-| <img src="/assets/img/icons/ai.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **data collection for ai** <br><br> collecting an array of data for use in AI systems. | <img src="/assets/img/icons/user.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **user control** <br><br> putting users under control (saving all or selected information for certain users). |
-| <img src="/assets/img/icons/billing.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **collecting information for billing** <br><br> accumulation of information on streams for use in billing. | <img src="/assets/img/icons/fire.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **hotfix of new vulnerabilities** <br><br> prevention of exploitation of new vulnerabilities, before the release of official fixes. |
+| <img src="/assets/img/icons/eye.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **protocol detection** <br> identifying network protocols, extracting fields, decoding values. | <img src="/assets/img/icons/block.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **internet services classification** <br> classification of services and workflow definition (audio/video/file transfer). |
+| <img src="/assets/img/icons/integration.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **integration into other solutions** <br> ips/ids, siem, dlp, etc. | <img src="/assets/img/icons/folder.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **network activity logging** <br> logging of network activity that can be used in the investigation of incidents. |
+| <img src="/assets/img/icons/ai.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **data collection for ai** <br> collecting an array of data for use in AI systems. | <img src="/assets/img/icons/user.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **user control** <br> putting users under control (saving all or selected information for certain users). |
+| <img src="/assets/img/icons/billing.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **collecting information for billing** <br> accumulation of information on streams for use in billing. | <img src="/assets/img/icons/fire.png" width="48" height="48" style="float: left; margin-right: 16px;" /> **hotfix of new vulnerabilities** <br> prevention of exploitation of new vulnerabilities, before the release of official fixes. |
 
 </div>
 
@@ -87,9 +87,9 @@ Classification tasks are typical for such areas as information security, where d
 
 | | |
 | :--- | :--- |
-| **service_update** `[ready]` <br><br> Daily service classification configuration updates (data patterns, IPs, domains) <br><br> `> protocols:` no <br> `> extensions:` probe | **workflow** `[ready]` <br><br> Classification audio/video calls, chat, file transfer <br><br> `> protocols:` no <br> `> extensions:` rtc_media, spid |
-| **security** `[roadmap]` <br><br> ICMP/DNS tunnel detection, invalid certs, C&C server access, file extraction, leaks, DDoS <br><br> `> protocols:` no <br> `> extensions:` sec, filecarver, sensdata, ddos | **network** `[roadmap]` <br><br> QoS estimation, error detection (re-transmissions, inactive flows, ping unreachables) <br><br> `> protocols:` modbus, dnp3, profinet <br> `> extensions:` qos, netcon |
-| **industrial** `[roadmap]` <br><br> The set of industrial protocols (detection, deep field dissection) <br><br> `> protocols:` todo <br> `> extensions:` no | **dlog** `[roadmap]` <br><br> IPDR transmission to remote service/server (NetFlow, HTTP, JSON formats) <br><br> `> protocols:` no <br> `> extensions:` dlog |
+| **service_update** `[ready]` <br> Daily service classification configuration updates (data patterns, IPs, domains) <br> `> protocols:` no <br> `> extensions:` probe | **workflow** `[ready]` <br> Classification audio/video calls, chat, file transfer <br> `> protocols:` no <br> `> extensions:` rtc_media, spid |
+| **security** `[roadmap]` <br> ICMP/DNS tunnel detection, invalid certs, C&C server access, file extraction, leaks, DDoS <br> `> protocols:` no <br> `> extensions:` sec, filecarver, sensdata, ddos | **network** `[roadmap]` <br> QoS estimation, error detection (re-transmissions, inactive flows, ping unreachables) <br> `> protocols:` modbus, dnp3, profinet <br> `> extensions:` qos, netcon |
+| **industrial** `[roadmap]` <br> The set of industrial protocols (detection, deep field dissection) <br> `> protocols:` todo <br> `> extensions:` no | **dlog** `[roadmap]` <br> IPDR transmission to remote service/server (NetFlow, HTTP, JSON formats) <br> `> protocols:` no <br> `> extensions:` dlog |
 
 </div>
 
