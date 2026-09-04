@@ -38,7 +38,7 @@ permalink: /
                  style="max-width: 100%; height: auto; display: inline-block;" />
         </td>
         <td style="vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
-            <p>We help improve network activity analytics based on network protocols: protocol detection, structure verification, and extracting the most significant fields needed for analysis. Field values play an important role in traffic classification, and the list of extracted values affects the classification type: Internet service, cyber attack, network problems, potential data leakage, etc.</p>
+            <p>We help improve network activity analytics based on network protocols: protocol detection, structure verification, and extracting the most significant fields needed for analysis. Field values play an important role in traffic classification, and the list of extracted values affects the classification type: Internet service, cyber attack, network problems, potential data leakage, etc. Protocol coverage expands continuously.</p>
         </td>
       </tr>
     </tbody>
@@ -56,7 +56,7 @@ permalink: /
     <tbody>
       <tr>
         <td style="width: 70%; vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
-            <p>We solve problems with the classification of Internet services (YouTube, WhatsApp, Telegram, etc.) and the determination of the nature of traffic (audio, video, chat, etc.). We maintain and update the database of signatures, IP addresses, CDN, and classification methods.</p>
+            <p>We solve problems with the classification of Internet services (YouTube, WhatsApp, Telegram, etc.) and the determination of the nature of traffic (audio, video, chat, etc.). We maintain and update the database of signatures, IP addresses, CDN, and classification methods. Signature database updates are delivered regularly and can be applied without rebuilding your product. Support for new services is driven by customer requests and by our own monitoring of changes in popular applications, so classification stays accurate as vendors update their protocols.</p>
         </td>
         <td style="width: 30%; height: 200px; vertical-align: middle; text-align: center;">
             <img src="/assets/dc_engine/img/services.png" alt="DC Engine" 
@@ -70,7 +70,7 @@ permalink: /
 ## > ml/ai
 
 <div class="mobile-only">
-    <p>We process traffic and extract the maximum possible number of fields/properties/metrics, after which we generate a granular dataset for training your AI systems. The set of produced information is constantly updated with the release of new product versions, which expand the list of supported protocols, fields, and metadata.</p>
+    <p>We process traffic and extract the maximum possible number of fields/properties/metrics, after which we generate a granular dataset for training your AI systems. The set of produced information is constantly updated with the release of new product versions, which expand the list of supported protocols, fields, and metadata. Datasets are exported in formats convenient for your pipeline, with per-flow and per-packet granularity. Field sets are configurable, so you collect only what your models need.</p>
 </div>
 
 <div class="desktop-only">
@@ -92,7 +92,7 @@ permalink: /
 ## > ipdr
 
 <div class="mobile-only">
-    <p>The ability to independently configure events for traffic processing. The event processing module generates records with a pre-configured set of properties and sends them to the server for subsequent processing/analysis.</p>
+    <p>The ability to independently configure events for traffic processing. The event processing module generates records with a pre-configured set of properties and sends them to the server for subsequent processing/analysis. Records can be filtered, aggregated and enriched before export, reducing the load on your storage and letting you keep only the events that matter to you.</p>
 </div>
 
 <div class="desktop-only">
