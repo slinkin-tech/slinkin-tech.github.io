@@ -39,6 +39,10 @@ p {
   text-align: justify;
 }
 
+.desktop-only table p {
+  margin-top: 0;
+}
+
 .back-link-container {
   display: block;
   text-align: right !important;
