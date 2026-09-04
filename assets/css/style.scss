@@ -154,27 +154,3 @@ h3 + p + p {
     padding-right: 0 !important;
   }
 }
-
-/* */
-
-/* Apply the same text padding to the functionality list items */
-.markdown-body ul, 
-h2 + ul {
-  padding-left: 24px;
-  padding-right: 24px;
-  list-style-type: none; /* Removes default dots to keep it clean */
-}
-
-.markdown-body ul li {
-  margin-bottom: 12px; /* Adds comfortable spacing between statements */
-  font-family: monospace;
-}
-
-/* Clear list padding on small mobile viewports */
-@media screen and (max-width: 768px) {
-  .markdown-body ul,
-  h2 + ul {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
