@@ -182,7 +182,7 @@ h3 + p + p {
 
 /* Table cells, vertical alignment, and spacing */
 .packages-grid td {
-  padding: 16px 24px !important; /* Compact top/bottom padding, spacious sides */
+  padding: 16px 24px !important; /* Compact vertical tracking, comfortable sides */
   vertical-align: top;
   width: 50%;
   box-sizing: border-box;
@@ -191,25 +191,12 @@ h3 + p + p {
   line-height: 1.5;
 }
 
-/* Desktop layout engine using Flexbox inside cell rows */
-.packages-grid tbody tr td {
-  display: inline-flex !important; /* Forces layout tracking side-by-side */
-  align-items: flex-start;
-}
-
-/* Target icons directly inside the grid cells */
+/* Align cell content structures side-by-side cleanly */
 .packages-grid td img {
-  display: block !important;
-  flex-shrink: 0 !important;
+  display: inline-block !important;
+  vertical-align: top !important;
   width: 48px !important;
   height: 48px !important;
-}
-
-/* The standalone text wrapper block */
-.packages-grid td .cell-content {
-  display: block !important;
-  margin-left: 24px !important; /* Fixed: Absolute guaranteed gap on desktop */
-  word-wrap: break-word;
 }
 
 /* Vertical border splitting the 2 columns on desktop viewports */
@@ -231,16 +218,10 @@ h3 + p + p {
 @media screen and (max-width: 768px) {
   .packages-grid table, 
   .packages-grid tbody, 
-  .packages-grid tr {
+  .packages-grid tr, 
+  .packages-grid td {
     display: block !important;
     width: 100% !important;
-  }
-  
-  .packages-grid td {
-    display: flex !important; /* Maintain stack-flex on small devices */
-    width: 100% !important;
-    border-bottom: 1px dashed #555 !important;
-    padding: 16px 0 !important;
   }
   
   /* Remove the vertical layout split on small viewports */
@@ -248,9 +229,16 @@ h3 + p + p {
     border-right: none !important;
   }
   
-  /* Reset left margins if you prefer icons centered or left-stacked on phone layouts */
-  .packages-grid td .cell-content {
-    margin-left: 16px !important; 
+  /* Apply unified stacked bottom dividers for mobile presentation */
+  .packages-grid td {
+    border-bottom: 1px dashed #555 !important;
+    padding: 16px 0 !important;
+  }
+  
+  /* Force span element width to scale properly on narrow screens */
+  .packages-grid td span {
+    width: calc(100% - 64px) !important;
+    margin-left: 16px !important;
   }
   
   /* Clear the final border at the end of the mobile stack */
