@@ -129,3 +129,28 @@ p {
     border-bottom: none !important;
   }
 }
+
+/* */
+
+/* Match content padding with packages-grid column margins */
+h3 + p {
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+/* Also apply padding to any consecutive paragraphs under the same heading */
+h3 + p + p {
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustment to clear padding on smaller mobile screens */
+@media screen and (max-width: 768px) {
+  h3 + p,
+  h3 + p + p {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
