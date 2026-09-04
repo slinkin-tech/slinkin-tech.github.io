@@ -68,15 +68,16 @@ Classification tasks are typical for such areas as information security, where d
 
 ## > solution
 
-The **DC Engine** is distributed as a modular software solution tailored to your specific network visibility, security, and performance requirements.
-Our commercial model consists of a permanent **Core** architecture combined with flexible, add-on **Extension Packages**. This decoupled approach ensures you only license the exact functionality your infrastructure demands, optimizing your Total Cost of Ownership (TCO) while allowing seamless scalability as your network evolves.
+The **DC Engine** is distributed as a modular software solution tailored to your specific network visibility, security, and performance requirements. Our commercial model consists of a permanent **Core** architecture combined with flexible, add-on **Extension Packages**.
+
+This decoupled approach ensures you only license the exact functionality your infrastructure demands, optimizing your Total Cost of Ownership (TCO) while allowing seamless scalability as your network evolves.
 
 ### # dc-engine [core]
 
-- Protocol detection and field dissection
-- Internet service classification
-- Extract metadata for packet/flows (media codecs, credentials, JA3/JA3S/JA4 hashes, etc.)
-- Collect flow statistics: time, bytes, packets, bitrate, iat, etc.
+- **Protocol detection**: Deep protocol analysis, field dissection, and decoding.
+- **Service classification**: Mapping traffic to internet services and types (media/files).
+- **Metadata extraction**: Extracting packet/flow data (codecs, credentials, JA4 hashes).
+- **Flow statistics**: Tracking time, bytes, packets, bitrate, and IAT metrics.
 
 ### # packages
 
