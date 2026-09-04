@@ -56,7 +56,7 @@ p {
 
 /* Packages grid wrapper */
 .packages-grid {
-  margin-top: 2rem;
+  margin-top: 0rem; /* Fixed: Removed large top margin gap */
 }
 
 /* Reset default Jekyll table styles for precise spacing control */
@@ -79,7 +79,7 @@ p {
 
 /* Table cells, vertical alignment, and spacing */
 .packages-grid td {
-  padding: 28px 24px !important; /* Spacing between rows and elements */
+  padding: 8px 24px !important; /* Fixed: Small top/bottom padding, generous left/right padding */
   vertical-align: top;
   width: 50%;
   box-sizing: border-box;
@@ -121,7 +121,7 @@ p {
   /* Apply unified stacked bottom dividers for mobile presentation */
   .packages-grid td {
     border-bottom: 1px dashed #555 !important;
-    padding: 24px 0 !important;
+    padding: 12px 0 !important; /* Fixed: Compact vertical padding on mobile layouts */
   }
   
   /* Clear the final border at the end of the mobile stack */
