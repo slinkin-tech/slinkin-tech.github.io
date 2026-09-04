@@ -56,7 +56,7 @@ permalink: /
     <tbody>
       <tr>
         <td style="width: 70%; vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
-            <p style="margin-left: 10px;">We solve problems with the classification of Internet services (YouTube, WhatsApp, Telegram, etc.) and the determination of the nature of traffic (audio, video, chat, etc.). We maintain and update the database of signatures, IP addresses, CDN, and classification methods. Signature database updates are delivered regularly and can be applied without rebuilding your product. Support for new services is driven by customer requests and by our own monitoring of changes in popular applications.</p>
+            <p>We solve problems with the classification of Internet services (YouTube, WhatsApp, Telegram, etc.) and the determination of the nature of traffic (audio, video, chat, etc.). We maintain and update the database of signatures, IP addresses, CDN, and classification methods. Signature database updates are delivered regularly and can be applied without rebuilding your product. Support for new services is driven by customer requests and by our own monitoring of changes in popular applications.</p>
         </td>
         <td style="width: 30%; height: 200px; vertical-align: middle; text-align: center;">
             <img src="/assets/dc_engine/img/services.png" alt="DC Engine" 
@@ -70,7 +70,7 @@ permalink: /
 ## > ml/ai
 
 <div class="mobile-only">
-    <p>We process traffic and extract the maximum possible number of fields/properties/metrics, after which we generate a granular dataset for training your AI systems. The set of produced information is constantly updated with the release of new product versions, which expand the list of supported protocols, fields, and metadata. Datasets are exported in formats convenient for your pipeline, with per-flow and per-packet granularity. Field sets are configurable, so you collect only what your models need.</p>
+    <p>We process traffic and extract the maximum possible number of fields/properties/metrics, after which we generate a granular dataset for training your AI systems. The set of produced information is constantly updated with the release of new product versions, which expand the list of supported protocols, fields, and metadata. Datasets are exported in formats convenient for your pipeline, with per-flow and per-packet granularity. Field sets are configurable.</p>
 </div>
 
 <div class="desktop-only">
@@ -82,7 +82,7 @@ permalink: /
                  style="max-width: 100%; height: auto; display: inline-block;" />
         </td>
         <td style="width: 75%; vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
-            <p>We process traffic and extract the maximum possible number of fields/properties/metrics, after which we generate a granular dataset for training your AI systems. The set of produced information is constantly updated with the release of new product versions, which expand the list of supported protocols, fields, and metadata. Datasets are exported in formats convenient for your pipeline, with per-flow and per-packet granularity. Field sets are configurable, so you collect only what your models need.</p>
+            <p>We process traffic and extract the maximum possible number of fields/properties/metrics, after which we generate a granular dataset for training your AI systems. The set of produced information is constantly updated with the release of new product versions, which expand the list of supported protocols, fields, and metadata. Datasets are exported in formats convenient for your pipeline, with per-flow and per-packet granularity. Field sets are configurable.</p>
         </td>
       </tr>
     </tbody>
