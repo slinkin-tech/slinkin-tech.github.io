@@ -80,7 +80,7 @@ Classification tasks are typical for such areas as information security, where d
 
 ### [packages]
 
-<div class="packages-grid">
+<div class="packages-grid" markdown="1">
 
 | | |
 | :--- | :--- |
@@ -89,6 +89,7 @@ Classification tasks are typical for such areas as information security, where d
 | **industrial** `[roadmap]` <br> The set of industrial protocols (detection, deep field dissection) <br> `> protocols:` todo <br> `> extensions:` no | **dlog** `[roadmap]` <br> IPDR transmission to remote service/server (NetFlow, HTTP, JSON formats) <br> `> protocols:` no <br> `> extensions:` dlog |
 
 </div>
+
 
 ---
 
