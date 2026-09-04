@@ -51,3 +51,35 @@ p {
   .mobile-only { display: block; }
   .desktop-only { display: none; }
 }
+
+/* adaptive grid for dc-engine packages */
+@media screen and (max-width: 768px) {
+  .packages-grid table, 
+  .packages-grid tbody, 
+  .packages-grid tr, 
+  .packages-grid td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  
+  .packages-grid tr {
+    border-bottom: none;
+  }
+  
+  .packages-grid td {
+    border-bottom: 1px dashed #555; /* package's delimiter for mobile devices */
+    padding: 15px 0 !important;
+  }
+  
+  .packages-grid td:last-child {
+    border-bottom: 1px dashed #555;
+  }
+}
+
+/* */
+.packages-grid td code,
+.packages-grid td {
+  font-family: monospace;
+  line-height: 1.5;
+}

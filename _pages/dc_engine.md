@@ -78,46 +78,17 @@ Classification tasks are typical for such areas as information security, where d
 
 ---
 
-## > solution packages
-
-The engine is built around a powerful core with flexible extension packages tailored for specific network analysis workflows.
-
-### [core]
-* **protocol & service** — Protocol detection, structure verification, and internet service classification.
-* **metadata extraction** — Extract packet/flow metadata (media codecs, credentials, JA3/JA3S/JA4 hashes).
-* **flow statistics** — Track time, bytes, packets, bitrate, IAT (Inter-Arrival Time), and metrics.
-
 ### [packages]
 
-* #### package: service_update `[ready]`
-  * `> description:` Daily service classification configuration updates (data patterns, IPs, domains)
-  * `> extensions:` probe
-  * `> protocols:` no
+<div class="packages-grid">
 
-* #### package: workflow `[ready]`
-  * `> description:` Classification audio/video calls, chat, file transfer
-  * `> extensions:` rtc_media, spid
-  * `> protocols:` no
+| | |
+| :--- | :--- |
+| **service_update** `[ready]` <br> Daily service classification configuration updates (data patterns, IPs, domains) <br> `> protocols:` no <br> `> extensions:` probe | **workflow** `[ready]` <br> Classification audio/video calls, chat, file transfer <br> `> protocols:` no <br> `> extensions:` rtc_media, spid |
+| **security** `[roadmap]` <br> ICMP/DNS tunnel detection, invalid certs, C&C server access, file extraction, leaks, DDoS <br> `> protocols:` no <br> `> extensions:` sec, filecarver, sensdata, ddos | **network** `[roadmap]` <br> QoS estimation, error detection (re-transmissions, inactive flows, ping unreachables) <br> `> protocols:` modbus, dnp3, profinet <br> `> extensions:` qos, netcon |
+| **industrial** `[roadmap]` <br> The set of industrial protocols (detection, deep field dissection) <br> `> protocols:` todo <br> `> extensions:` no | **dlog** `[roadmap]` <br> IPDR transmission to remote service/server (NetFlow, HTTP, JSON formats) <br> `> protocols:` no <br> `> extensions:` dlog |
 
-* #### package: security `[roadmap]`
-  * `> description:` ICMP and dns tunnel detection; invalid/expired certificates; C&C/C2 servers access detection (IP; domains; JA hashes); file extraction; sensetive data leaks, ddos
-  * `> extensions:` sec, filecarver, sensdata, ddos
-  * `> protocols:` no
-
-* #### package: network `[roadmap]`
-  * `> description:` QoS estimation; network error detection (re-transmission burts, no flow activities, ping destination unreachable)
-  * `> extensions:` qos, netcon
-  * `> protocols:` modbus, dnp3, profinet
-
-* #### package: industrial `[roadmap]`
-  * `> description:` The set of industrial protocols (detection, field dissection)
-  * `> extensions:` no
-  * `> protocols:` todo
-
-* #### package: dlog `[roadmap]`
-  * `> description:` IPDR transmission to remote service/server; netflow, http, json formats
-  * `> extensions:` dlog
-  * `> protocols:` no
+</div>
 
 ---
 
