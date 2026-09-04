@@ -52,7 +52,56 @@ p {
   .desktop-only { display: none; }
 }
 
-/* adaptive grid for dc-engine packages */
+/* */
+/* Packages grid wrapper */
+.packages-grid {
+  margin-top: 2rem;
+}
+
+/* Reset default Jekyll table styles for precise spacing control */
+.packages-grid table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  border: none !important;
+}
+
+/* Row resets */
+.packages-grid tr {
+  border: none !important;
+  background: none !important;
+}
+
+/* Table cells, vertical alignment, and spacing */
+.packages-grid td {
+  padding: 24px 20px !important; /* Increases space between rows and text elements */
+  vertical-align: top;
+  width: 50%;
+  box-sizing: border-box;
+  border: none !important;
+}
+
+/* Vertical border splitting the 2 columns on desktop viewports */
+.packages-grid td:first-child {
+  border-right: 1px dashed #555 !important;
+}
+
+/* Bottom border for rows (excludes the very last row) */
+.packages-grid tr:not(:last-child) td {
+  border-bottom: 1px dashed #555 !important;
+}
+
+/* Typography styles inside the grid */
+.packages-grid td p {
+  margin: 12px 0 16px 0 !important; /* More space after package description */
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+.packages-grid td code {
+  font-family: monospace;
+}
+
+/* Responsive breakpoint for mobile devices (768px and down) */
 @media screen and (max-width: 768px) {
   .packages-grid table, 
   .packages-grid tbody, 
@@ -60,26 +109,21 @@ p {
   .packages-grid td {
     display: block !important;
     width: 100% !important;
-    box-sizing: border-box;
   }
   
-  .packages-grid tr {
-    border-bottom: none;
+  /* Remove the vertical layout split on small viewports */
+  .packages-grid td:first-child {
+    border-right: none !important;
   }
   
+  /* Apply unified stacked bottom dividers for mobile presentation */
   .packages-grid td {
-    border-bottom: 1px dashed #555; /* package's delimiter for mobile devices */
-    padding: 15px 0 !important;
+    border-bottom: 1px dashed #555 !important;
+    padding: 20px 0 !important;
   }
   
-  .packages-grid td:last-child {
-    border-bottom: 1px dashed #555;
+  /* Clear the final border at the end of the mobile stack */
+  .packages-grid tr:last-child td:last-child {
+    border-bottom: none !important;
   }
-}
-
-/* */
-.packages-grid td code,
-.packages-grid td {
-  font-family: monospace;
-  line-height: 1.5;
 }

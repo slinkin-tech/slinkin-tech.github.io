@@ -78,18 +78,17 @@ Classification tasks are typical for such areas as information security, where d
 
 ---
 
-### [packages]
+## > packages
 
 <div class="packages-grid" markdown="1">
 
 | | |
 | :--- | :--- |
-| **service_update** `[ready]` <br> Daily service classification configuration updates (data patterns, IPs, domains) <br> `> protocols:` no <br> `> extensions:` probe | **workflow** `[ready]` <br> Classification audio/video calls, chat, file transfer <br> `> protocols:` no <br> `> extensions:` rtc_media, spid |
-| **security** `[roadmap]` <br> ICMP/DNS tunnel detection, invalid certs, C&C server access, file extraction, leaks, DDoS <br> `> protocols:` no <br> `> extensions:` sec, filecarver, sensdata, ddos | **network** `[roadmap]` <br> QoS estimation, error detection (re-transmissions, inactive flows, ping unreachables) <br> `> protocols:` modbus, dnp3, profinet <br> `> extensions:` qos, netcon |
-| **industrial** `[roadmap]` <br> The set of industrial protocols (detection, deep field dissection) <br> `> protocols:` todo <br> `> extensions:` no | **dlog** `[roadmap]` <br> IPDR transmission to remote service/server (NetFlow, HTTP, JSON formats) <br> `> protocols:` no <br> `> extensions:` dlog |
+| **service_update** `[ready]` <p>Daily service classification configuration updates (data patterns, IPs, domains)</p> `> protocols:` no <br> `> extensions:` probe | **workflow** `[ready]` <p>Classification audio/video calls, chat, file transfer</p> `> protocols:` no <br> `> extensions:` rtc_media, spid |
+| **security** `[roadmap]` <p>ICMP/DNS tunnel detection, invalid certs, C&C server access, file extraction, leaks, DDoS</p> `> protocols:` no <br> `> extensions:` sec, filecarver, sensdata, ddos | **network** `[roadmap]` <p>QoS estimation, error detection (re-transmissions, inactive flows, ping unreachables)</p> `> protocols:` modbus, dnp3, profinet <br> `> extensions:` qos, netcon |
+| **industrial** `[roadmap]` <p>The set of industrial protocols (detection, deep field dissection)</p> `> protocols:` todo <br> `> extensions:` no | **dlog** `[roadmap]` <p>IPDR transmission to remote service/server (NetFlow, HTTP, JSON formats)</p> `> protocols:` no <br> `> extensions:` dlog |
 
 </div>
-
 
 ---
 
