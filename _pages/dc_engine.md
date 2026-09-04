@@ -74,10 +74,10 @@ This decoupled approach ensures you only license the exact functionality your in
 
 ### # dc-engine [core]
 
-- Protocol detection: Deep protocol analysis, field dissection, and decoding.
-- Service classification: Mapping traffic to internet services and types (media/files).
-- Metadata extraction: Extracting packet/flow data (codecs, credentials, JA4 hashes).
-- Flow statistics: Tracking time, bytes, packets, bitrate, and IAT metrics.
+- **Protocol detection**: Deep protocol analysis, field dissection, and decoding.
+- **Service classification**: Mapping traffic to internet services and types (media/files).
+- **Metadata extraction**: Extracting packet/flow data (codecs, credentials, JA4 hashes).
+- **Flow statistics**: Tracking time, bytes, packets, bitrate, and IAT metrics.
 
 ### # packages
 
