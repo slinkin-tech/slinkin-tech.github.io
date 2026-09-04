@@ -56,7 +56,7 @@ permalink: /
     <tbody>
       <tr>
         <td style="width: 70%; vertical-align: middle; padding-right: 25px; text-align: justify; line-height: 1.5;">
-            <p>We solve problems with the classification of Internet services (YouTube, WhatsApp, Telegram, etc.) and the determination of the nature of traffic (audio, video, chat, etc.). We maintain and update the database of signatures, IP addresses, CDN, and classification methods. Signature database updates are delivered regularly and can be applied without rebuilding your product. Support for new services is driven by customer requests and by our own monitoring of changes in popular applications.</p>
+            <p style="margin-left: 10px;">We solve problems with the classification of Internet services (YouTube, WhatsApp, Telegram, etc.) and the determination of the nature of traffic (audio, video, chat, etc.). We maintain and update the database of signatures, IP addresses, CDN, and classification methods. Signature database updates are delivered regularly and can be applied without rebuilding your product. Support for new services is driven by customer requests and by our own monitoring of changes in popular applications.</p>
         </td>
         <td style="width: 30%; height: 200px; vertical-align: middle; text-align: center;">
             <img src="/assets/dc_engine/img/services.png" alt="DC Engine" 
