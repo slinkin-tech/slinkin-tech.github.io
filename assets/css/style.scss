@@ -154,3 +154,18 @@ h3 + p + p {
     padding-right: 0 !important;
   }
 }
+
+/* */
+
+/* Ensure proper alignment of floated icons inside the grid */
+.packages-grid td img {
+  display: block;
+  image-rendering: pixelated; /* Keeps pixel-art/retro icons crisp if you use them */
+}
+
+/* Clear floating elements for subsequent layout structures */
+.packages-grid td::after {
+  content: "";
+  display: table;
+  clear: both;
+}
