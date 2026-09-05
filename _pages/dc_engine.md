@@ -81,26 +81,11 @@ This decoupled approach ensures you only license the exact functionality your in
 
 ### # packages
 
-<!--
 <div class="packages-grid" markdown="1">
 
 | | |
 | :--- | :--- |
-| **service_update** `[ready]` <br> Daily service classification configuration updates (data patterns, IPs, domains) <br> `> protocols:` no <br> `> extensions:` probe | **workflow** `[ready]` <br> Classification audio/video calls, chat, file transfer <br> `> protocols:` no <br> `> extensions:` rtc_media, spid |
-| **security** `[roadmap]` <br> ICMP/DNS tunnel detection, invalid certs, C&C server access, file extraction, leaks, DDoS <br> `> protocols:` no <br> `> extensions:` sec, filecarver, sensdata, ddos | **network** `[roadmap]` <br> QoS estimation, error detection (re-transmissions, inactive flows, ping unreachables) <br> `> protocols:` modbus, dnp3, profinet <br> `> extensions:` qos, netcon |
-| **industrial** `[roadmap]` <br> The set of industrial protocols (detection, deep field dissection) <br> `> protocols:` todo <br> `> extensions:` no | **dlog** `[roadmap]` <br> IPDR transmission to remote service/server (NetFlow, HTTP, JSON formats) <br> `> protocols:` no <br> `> extensions:` dlog |
-
-</div>
-
--->
-
-### # packages
-
-<div class="packages-grid" markdown="1">
-
-| | |
-| :--- | :--- |
-| <img src="/assets/img/icons/update.png" width="48" height="48" /><span class="pkg-body">**service_update** `[ready]` <br> Daily service classification configuration updates (data patterns, IPs, domains) <br> `> protocols:` no <br> `> extensions:` probe</span> | <img src="/assets/img/icons/workflow.png" width="48" height="48" /><span class="pkg-body">**workflow** `[ready]` <br> Classification audio/video calls, chat, file transfer <br> `> protocols:` no <br> `> extensions:` rtc_media, spid</span> |
+| <img src="/assets/img/icons/update.png" width="48" height="48" /><span class="pkg-body">**service_update** <span class="tag-ready">[ready]</span> <br> Daily service classification configuration updates (data patterns, IPs, domains) <br> `> protocols:` no <br> `> extensions:` probe</span> | <img src="/assets/img/icons/workflow.png" width="48" height="48" /><span class="pkg-body">**workflow** <span class="tag-ready">[ready]</span> <br> Classification audio/video calls, chat, file transfer <br> `> protocols:` no <br> `> extensions:` rtc_media, spid</span> |
 | <img src="/assets/img/icons/shield.png" width="48" height="48" /><span class="pkg-body">**security** `[roadmap]` <br> ICMP/DNS tunnel detection, invalid certs, C&C server access, file extraction, leaks, DDoS <br> `> protocols:` no <br> `> extensions:` sec, filecarver, sensdata, ddos</span> | <img src="/assets/img/icons/network.png" width="48" height="48" /><span class="pkg-body">**network** `[roadmap]` <br> QoS estimation, error detection (re-transmissions, inactive flows, ping unreachables) <br> `> protocols:` modbus, dnp3, profinet <br> `> extensions:` qos, netcon</span> |
 | <img src="/assets/img/icons/industrial.png" width="48" height="48" /><span class="pkg-body">**industrial** `[roadmap]` <br> The set of industrial protocols (detection, deep field dissection) <br> `> protocols:` todo <br> `> extensions:` no</span> | <img src="/assets/img/icons/log.png" width="48" height="48" /><span class="pkg-body">**dlog** `[roadmap]` <br> IPDR transmission to remote service/server (NetFlow, HTTP, JSON formats) <br> `> protocols:` no <br> `> extensions:` dlog</span> |
 

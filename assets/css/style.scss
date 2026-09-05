@@ -147,6 +147,16 @@ p {
   white-space: nowrap;
 }
 
+.packages-grid .tag-ready,
+.packages-grid .tag-roadmap {
+  font-family: monospace;
+  font-size: 0.85em;
+  padding: 1px 6px;
+  border: 1px dashed;
+}
+.packages-grid .tag-ready   { color: #6ac36a; }
+.packages-grid .tag-roadmap { color: #999; }
+
 /* */
 
 /* Match content padding with packages-grid column margins */
