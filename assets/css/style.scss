@@ -204,10 +204,17 @@ h3 + p + p {
   min-width: 0;
 }
 
+/* Base: packages grid icons */
 .packages-grid td .pkg img {
   float: none !important;
   margin: 0 !important;
   flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+}
+
+/* Functionality grid icons */
+.packages-grid.functionality-grid td .pkg img {
   width: 42px;
   height: 48px;
 }

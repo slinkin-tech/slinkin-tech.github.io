@@ -24,7 +24,7 @@ permalink: /dc-engine/
 
 ## > functionality
 
-<div class="packages-grid" markdown="1">
+<div class="packages-grid functionality-grid" markdown="1">
 
 | | |
 | :--- | :--- |
