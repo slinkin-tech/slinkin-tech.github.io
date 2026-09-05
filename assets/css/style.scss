@@ -1,11 +1,6 @@
 ---
 ---
 
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
 h1, h2, h3, h4, h5, h6 {
   margin-top: 8px !important;
   margin-bottom: 8px !important;
@@ -79,7 +74,7 @@ p {
 /* Table cells, vertical alignment, and spacing */
 .packages-grid td {
   padding: 8px 24px !important; /* Fixed: Small top/bottom padding, generous left/right padding */
-  vertical-align: top;
+  vertical-align: middle;
   width: 50%;
   box-sizing: border-box;
   border: none !important;
@@ -150,6 +145,10 @@ p {
 }
 .packages-grid .tag-ready   { color: #008000; }
 .packages-grid .tag-roadmap { color: #999; }
+
+.packages-grid td .pkg {
+  height: 100%;
+}
 
 /* */
 
