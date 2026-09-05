@@ -5,7 +5,7 @@ DC Engine - Changelog
 2026
 ================================================================================
 
-v1.13.17 [06.07.2026]
+v1.13.17 [06.08.2026]
 --------------------------------------------------------------------------------
 * Update service signatures: amazon_aws, apple, disney_plus, dropbox, facebook,
   github, icloud_private_relay, kingsoft, google, meta, netflix, telegram, tor,
