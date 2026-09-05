@@ -274,7 +274,7 @@ h3 + p + p {
 .stats {
   display: grid;
   grid-template-columns: max-content max-content;
-  column-gap: 0;
+  column-gap: 1ch;
   row-gap: 2px;
   margin: 15px 0 0 0;
   font-family: monospace;
@@ -283,6 +283,7 @@ h3 + p + p {
 
 .stats dt {
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .stats dd {
@@ -290,19 +291,12 @@ h3 + p + p {
   font-variant-numeric: tabular-nums;
 }
 
-/* Colon lives with the value so both colons and digits align */
-.stats dd::before {
-  content: ": ";
-  font-weight: bold;
+.stats.links dt {
+  font-weight: normal;
 }
 
 .stats.links dd {
   color: #999;
-}
-
-.stats.links dd::before {
-  content: " — ";
-  font-weight: normal;
 }
 
 /* Intro paragraph reads better unjustified at this width */
