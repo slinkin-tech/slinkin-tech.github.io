@@ -222,3 +222,55 @@ h3 + p + p {
 @media screen and (max-width: 768px) {
   .packages-grid td .pkg { gap: 16px; }
 }
+
+/* */
+
+/* Technical advantages: image beside text */
+.advantage {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 15px 0;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+.advantage.flip {
+  flex-direction: row-reverse;
+}
+
+.advantage .adv-img {
+  flex: 0 0 260px;
+}
+
+.advantage .adv-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.advantage .adv-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.advantage .adv-text p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .advantage,
+  .advantage.flip {
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    gap: 12px;
+  }
+
+  .advantage .adv-img {
+    flex: 0 0 auto;
+  }
+}
