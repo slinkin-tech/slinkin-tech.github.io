@@ -41,68 +41,44 @@ permalink: /dc-engine/
 
 ### # integration into other software solutions
 
-<div class="advantage" markdown="1">
-<div class="adv-img" markdown="1">
-![integration](/assets/img/advantages/integration.jpg)
-</div>
-<div class="adv-text" markdown="1">
-SL DC Engine is a DPI Engine class solution and can be integrated into third-party products. DC Engine provides the ability to dissect packets, obtain protocol fields, collect statistics on network flows, and configure classification rules. DC Engine also makes it possible to expand the basic functionality through an extension mechanism that allows users to add their code to the traffic processing pipeline and use the results of its execution in classification rules.
-</div>
+<div class="advantage">
+<div class="adv-img"><img src="/assets/img/advantages/integration.jpg" alt="integration" /></div>
+<div class="adv-text"><p>SL DC Engine is a DPI Engine class solution and can be integrated into third-party products. DC Engine provides the ability to dissect packets, obtain protocol fields, collect statistics on network flows, and configure classification rules. DC Engine also makes it possible to expand the basic functionality through an extension mechanism that allows users to add their code to the traffic processing pipeline and use the results of its execution in classification rules.</p></div>
 </div>
 
 ### # detailed package analysis
 
-<div class="advantage flip" markdown="1">
-<div class="adv-img" markdown="1">
-![dissection](/assets/img/advantages/dissection.jpg)
-</div>
-<div class="adv-text" markdown="1">
-Each processed packet is divided into layers which belong to a specific protocol. SL DC Engine parses each supported protocol and maps its fields, after which their values can be obtained via the API. In addition to, the DC Engine also maintains a hierarchy of fields to provide the ability to visualize a layer's structure in detail. After processing the packet, a user can obtain information about the state of each layer, and if errors occur during the dissection process, the DC Engine will report what exactly went wrong.
-</div>
+<div class="advantage flip">
+<div class="adv-img"><img src="/assets/img/advantages/dissection.jpg" alt="dissection" /></div>
+<div class="adv-text"><p>Each processed packet is divided into layers which belong to a specific protocol. SL DC Engine parses each supported protocol and maps its fields, after which their values can be obtained via the API. In addition to, the DC Engine also maintains a hierarchy of fields to provide the ability to visualize a layer's structure in detail. After processing the packet, a user can obtain information about the state of each layer, and if errors occur during the dissection process, the DC Engine will report what exactly went wrong.</p></div>
 </div>
 
 ### # many supported protocols
 
-<div class="advantage" markdown="1">
-<div class="adv-img" markdown="1">
-![protocols](/assets/img/advantages/protocols.jpg)
-</div>
-<div class="adv-text" markdown="1">
-SL DC Engine is designed as a universal framework for processing network traffic, which does not depend on which network traffic is processed. DC Engine can process traffic from local, mobile, and industrial networks; the Internet network, and also supports protocols used by IoT devices.
-</div>
+<div class="advantage">
+<div class="adv-img"><img src="/assets/img/advantages/protocols.jpg" alt="protocols" /></div>
+<div class="adv-text"><p>SL DC Engine is designed as a universal framework for processing network traffic, which does not depend on which network traffic is processed. DC Engine can process traffic from local, mobile, and industrial networks; the Internet network, and also supports protocols used by IoT devices.</p></div>
 </div>
 
 ### # logging system
 
-<div class="advantage flip" markdown="1">
-<div class="adv-img" markdown="1">
-![logging](/assets/img/advantages/logging.jpg)
-</div>
-<div class="adv-text" markdown="1">
-One of the main elements when monitoring a network is activity logging. The DLog module is responsible for collecting logs and allows the user to configure what data should be included in each log journal. The log may include data received from custom extensions. DLog also provides the ability to set policies for log rotation. In addition, the user can configure the count of processing threads according to the characteristics of their hardware, which will increase performance.
-</div>
+<div class="advantage flip">
+<div class="adv-img"><img src="/assets/img/advantages/logging.jpg" alt="logging" /></div>
+<div class="adv-text"><p>One of the main elements when monitoring a network is activity logging. The DLog module is responsible for collecting logs and allows the user to configure what data should be included in each log journal. The log may include data received from custom extensions. DLog also provides the ability to set policies for log rotation. In addition, the user can configure the count of processing threads according to the characteristics of their hardware, which will increase performance.</p></div>
 </div>
 
 ### # traffic filtering opportunities
 
-<div class="advantage" markdown="1">
-<div class="adv-img" markdown="1">
-![filtering](/assets/img/advantages/filtering.jpg)
-</div>
-<div class="adv-text" markdown="1">
-Traffic control allows you to solve problems such as load balancing in the network, restricting access to prohibited resources, preventing malicious network activity, and assigning quotas to individual network users. These problems are common to any type of network, from local to mobile. Solving such problems allows users to comply with regulatory requirements, ensure stable network operation, and respond in time to malicious network activity, preventing its further spread.
-</div>
+<div class="advantage">
+<div class="adv-img"><img src="/assets/img/advantages/filtering.jpg" alt="filtering" /></div>
+<div class="adv-text"><p>Traffic control allows you to solve problems such as load balancing in the network, restricting access to prohibited resources, preventing malicious network activity, and assigning quotas to individual network users. These problems are common to any type of network, from local to mobile. Solving such problems allows users to comply with regulatory requirements, ensure stable network operation, and respond in time to malicious network activity, preventing its further spread.</p></div>
 </div>
 
 ### # network services classification
 
-<div class="advantage flip" markdown="1">
-<div class="adv-img" markdown="1">
-![classification](/assets/img/advantages/classification.jpg)
-</div>
-<div class="adv-text" markdown="1">
-Classification tasks are typical for such areas as information security, where data is classified as malicious or malicious, system administration, where incorrect network operation is diagnosed, and in the field of mobile operators and Internet providers, where network flows are classified as popular Internet services. SL DC Engine provides functionality to classify network activity through a tagging mechanism. This means that the user can independently create any tag and describe the rule for assigning it to a packet or flow (for example, tethering, fraud, etc.). This approach implies universality in matters of classification and allows users to create their tags for any purpose.
-</div>
+<div class="advantage flip">
+<div class="adv-img"><img src="/assets/img/advantages/classification.jpg" alt="classification" /></div>
+<div class="adv-text"><p>Classification tasks are typical for such areas as information security, where data is classified as malicious or malicious, system administration, where incorrect network operation is diagnosed, and in the field of mobile operators and Internet providers, where network flows are classified as popular Internet services. SL DC Engine provides functionality to classify network activity through a tagging mechanism. This means that the user can independently create any tag and describe the rule for assigning it to a packet or flow (for example, tethering, fraud, etc.). This approach implies universality in matters of classification and allows users to create their tags for any purpose.</p></div>
 </div>
 
 ---
