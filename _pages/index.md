@@ -28,11 +28,13 @@ permalink: /
 <div class="news">
 <p class="news-cmd">cat ~/updates</p>
 <dl class="stats news-list">
-{%- for p in site.posts limit: 2 %}
-  <dt><a href="{{ p.url }}">{{ p.slug }}</a></dt><dd class="news-date">{{ p.date | date: "%Y-%m-%d" }}</dd><dd class="news-comment"># article</dd>
-{%- endfor %}
+  <dt class="news-section"># releases</dt>
 {%- for r in site.data.json.news limit: 3 %}
-  <dt><a href="{{ r.url }}{% if r.text %}#:~:text={{ r.text }}{% endif %}">{{ r.name }}</a></dt><dd class="news-date">{{ r.date }}</dd><dd class="news-comment"># release</dd>
+  <dt><a href="{{ r.url }}">{{ r.name }}</a></dt><dd class="news-date"># {{ r.date }}</dd>
+{%- endfor %}
+  <dt class="news-section"># articles</dt>
+{%- for p in site.posts limit: 2 %}
+  <dt><a href="{{ p.url }}">{{ p.name | default: p.slug }}</a></dt><dd class="news-date"># {{ p.date | date: "%Y-%m-%d" }}</dd>
 {%- endfor %}
 </dl>
 <p class="news-more"><a href="/blog"># all updates</a></p>
