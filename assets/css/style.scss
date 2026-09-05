@@ -39,22 +39,11 @@ p {
   text-align: justify;
 }
 
-.desktop-only table p {
-  margin-top: 0;
-}
-
 .back-link-container {
   display: block;
   text-align: right !important;
   width: 100%;
   margin-top: 5px;
-}
-
-.mobile-only { display: none; }
-
-@media screen and (max-width: 767px) {
-  .mobile-only { display: block; }
-  .desktop-only { display: none; }
 }
 
 /* */
@@ -277,4 +266,46 @@ h3 + p + p {
     padding-right: 0 !important;
     gap: 12px;
   }
+}
+
+/* */
+
+/* dc-engine stats and links */
+.stats {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: 0;
+  row-gap: 2px;
+  margin: 15px 0 0 0;
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+.stats dt {
+  font-weight: bold;
+}
+
+.stats dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Colon lives with the value so both colons and digits align */
+.stats dd::before {
+  content: ": ";
+  font-weight: bold;
+}
+
+.stats.links dd {
+  color: #999;
+}
+
+.stats.links dd::before {
+  content: " — ";
+  font-weight: normal;
+}
+
+/* Intro paragraph reads better unjustified at this width */
+.feature .feature-body p.lead {
+  text-align: left;
 }
