@@ -1,0 +1,14 @@
+[
+  {
+    "name": "release_v1.13.17",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2026-06-07"
+  },
+  {
+    "name": "what_is_dpi_engine",
+    "url": "/article/2024/02/14/what-is-dpi-engine.html",
+    "comment": "new article",
+    "date": "2024-02-14"
+  }
+]

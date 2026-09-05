@@ -307,3 +307,61 @@ h3 + p + p {
 .feature .feature-body p.lead {
   text-align: left;
 }
+
+/* */
+
+/* news */
+.news {
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+.news .news-cmd {
+  font-family: monospace;
+  margin: 0;
+  text-align: left;
+}
+
+.news .news-list {
+  grid-template-columns: max-content max-content max-content;
+  column-gap: 2ch;
+  margin-top: 4px;
+}
+
+.news .news-list dt {
+  font-weight: normal;
+}
+
+.news .news-list .news-date {
+  color: #666;
+  font-variant-numeric: tabular-nums;
+}
+
+.news .news-list .news-comment {
+  color: #999;
+}
+
+.news .news-more {
+  font-family: monospace;
+  margin: 12px 0 0 0;
+  text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+  .news {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .news .news-list {
+    grid-template-columns: max-content max-content;
+    row-gap: 0;
+  }
+
+  .news .news-list .news-comment {
+    grid-column: 1 / -1;
+    padding-left: 2ch;
+    padding-bottom: 6px;
+  }
+}

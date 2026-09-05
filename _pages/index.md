@@ -23,6 +23,20 @@ permalink: /
 
 ---
 
+## > news
+
+<div class="news">
+<p class="news-cmd">cat ~/updates</p>
+<dl class="stats news-list">
+{%- for item in site.data.json.news limit: 5 %}
+  <dt><a href="{{ item.url }}">{{ item.name }}</a></dt><dd class="news-date">{{ item.date }}</dd><dd class="news-comment"># {{ item.comment }}</dd>
+{%- endfor %}
+</dl>
+<p class="news-more"><a href="/blog"># all updates</a></p>
+</div>
+
+---
+
 ## > network protocols
 
 <div class="feature plain">
