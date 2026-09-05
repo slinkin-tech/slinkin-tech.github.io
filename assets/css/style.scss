@@ -236,6 +236,16 @@ h3 + p + p {
   box-sizing: border-box;
 }
 
+/* Narrower media column (30/70) for pages with diagram-style images */
+.feature.narrow .feature-media { flex-grow: 3; }
+.feature.narrow .feature-body  { flex-grow: 7; }
+
+/* Diagrams with transparent backgrounds: no rounded corners */
+.feature.plain .feature-media img { border-radius: 0; }
+
+/* Justified body text, matching the rest of the site */
+.feature .feature-body p { text-align: justify; }
+
 .feature.flip {
   flex-direction: row-reverse;
 }
