@@ -1,9 +1,189 @@
 [
   {
+    "name": "release_v1.13.16",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2026-07-10"
+  },
+  {
     "name": "release_v1.13.17",
     "url": "/assets/txt/changelog.txt",
     "comment": "new release",
-    "date": "2026-06-07"
+    "date": "2026-07-06"
+  },
+  {
+    "name": "release_v1.13.15",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2026-07-03"
+  },
+  {
+    "name": "release_v1.13.14",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2026-06-26"
+  },
+  {
+    "name": "release_v1.13.13",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2026-05-29"
+  },
+  {
+    "name": "release_v1.13.12",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2026-04-14"
+  },
+  {
+    "name": "release_v1.13.11",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2026-03-31"
+  },
+  {
+    "name": "release_v1.13.10",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2026-03-03"
+  },
+  {
+    "name": "release_v1.13.9",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2026-02-26"
+  },
+  {
+    "name": "release_v1.13.8",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2026-01-30"
+  },
+  {
+    "name": "release_v1.13.7",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2026-01-18"
+  },
+  {
+    "name": "release_v1.13.6",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-12-18"
+  },
+  {
+    "name": "release_v1.13.1",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-12-01"
+  },
+  {
+    "name": "release_v1.13.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-11-18"
+  },
+  {
+    "name": "release_v1.12.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-11-10"
+  },
+  {
+    "name": "release_v1.11.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-11-05"
+  },
+  {
+    "name": "release_v1.10.1",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-10-18"
+  },
+  {
+    "name": "release_v1.10.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-10-12"
+  },
+  {
+    "name": "release_v1.9.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-09-21"
+  },
+  {
+    "name": "release_v1.8.1",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-09-01"
+  },
+  {
+    "name": "release_v1.8.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-07-30"
+  },
+  {
+    "name": "release_v1.7.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-07-04"
+  },
+  {
+    "name": "release_v1.6.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-06-06"
+  },
+  {
+    "name": "release_v1.5.1",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-05-21"
+  },
+  {
+    "name": "release_v1.5.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-04-10"
+  },
+  {
+    "name": "release_v1.4.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2025-03-21"
+  },
+  {
+    "name": "release_v1.3.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2024-12-20"
+  },
+  {
+    "name": "release_v1.2.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2024-10-02"
+  },
+  {
+    "name": "release_v1.1.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2024-07-31"
+  },
+  {
+    "name": "why_is_inline_traffic_monitoring_important",
+    "url": "/article/2024/03/24/why_is_inline_traffic_monitoring_important.html",
+    "comment": "new article",
+    "date": "2024-03-24"
+  },
+  {
+    "name": "release_v1.0.0",
+    "url": "/assets/txt/changelog.txt",
+    "comment": "new release",
+    "date": "2024-03-16"
   },
   {
     "name": "what_is_dpi_engine",
