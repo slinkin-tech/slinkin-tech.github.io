@@ -53,7 +53,7 @@ permalink: /dc-engine/
 <div class="feature-body"><p>Each processed packet is divided into layers which belong to a specific protocol. SL DC Engine parses each supported protocol and maps its fields, after which their values can be obtained via the API. In addition to, the DC Engine also maintains a hierarchy of fields to provide the ability to visualize a layer's structure in detail. After processing the packet, a user can obtain information about the state of each layer, and if errors occur during the dissection process, the DC Engine will report what exactly went wrong.</p></div>
 </div>
 
-### # many supported protocols
+### # broad protocol coverage
 
 <div class="feature">
 <div class="feature-media"><img src="/assets/img/advantages/protocols.png" alt="protocols" /></div>
