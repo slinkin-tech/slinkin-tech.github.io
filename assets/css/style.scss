@@ -190,18 +190,28 @@ h3 + p + p {
   word-wrap: break-word;
 }
 
-/* Apply consistent floating layout and margins to all cell icons */
-.packages-grid td img {
-  display: block;
-  float: left;
-  margin-right: 24px !important; /* Fixed: Adjust this value to increase/decrease the gap */
-  margin-bottom: 12px;           /* Gives spacing underneath the icon if text wraps */
+/* */
+
+/* Icon + text rows, icon vertically centred against its text block */
+.packages-grid td .pkg {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
-/* Clear layouts for floated elements inside table grids */
-.packages-grid td::after {
-  content: "";
-  display: table;
-  clear: both;
+.packages-grid td .pkg-body {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
+.packages-grid td .pkg img {
+  float: none !important;
+  margin: 0 !important;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+}
+
+@media screen and (max-width: 768px) {
+  .packages-grid td .pkg { gap: 16px; }
+}
