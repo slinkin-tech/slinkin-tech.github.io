@@ -135,6 +135,18 @@ p {
   }
 }
 
+/* Package cells: keep all text lines beside the icon, not wrapped under it */
+.packages-grid td .pkg-body {
+  display: block;
+  overflow: hidden; /* new block formatting context = text forms a clean column */
+}
+
+/* Status tags */
+.packages-grid td code {
+  font-family: monospace;
+  white-space: nowrap;
+}
+
 /* */
 
 /* Match content padding with packages-grid column margins */
