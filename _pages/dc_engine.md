@@ -108,7 +108,7 @@ This decoupled approach ensures you only license the exact functionality your in
 
 </div>
 
-**Questions or ready to request?** Contact us at [info@slinkin.tech](mailto:info@slinkin.tech?subject=DC%20Engine%20Request) to get a proposal or tech details.
+<p class="cta"><span class="cta-tag">[REQUEST]</span> Questions or ready to request? Contact us at <a href="mailto:info@slinkin.tech?subject=DC%20Engine%20Request">info@slinkin.tech</a> to get a proposal or tech details.</p>
 
 ---
 

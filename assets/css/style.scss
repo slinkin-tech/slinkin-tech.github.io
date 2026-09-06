@@ -343,6 +343,10 @@ h3 + p + p {
   margin-top: 0;
 }
 
+.news .news-list .news-empty {
+  color: #666;
+}
+
 .news .news-list .news-date {
   color: #999;
   font-variant-numeric: tabular-nums;
@@ -359,4 +363,29 @@ h3 + p + p {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+/* */
+
+/* call to action */
+.cta {
+  margin: 24px 0;
+  padding: 12px 16px;
+  border: 1px dashed #555;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.cta-tag {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* */
+
+/* post images */
+.post img,
+main p img {
+  margin-left: auto;
+  margin-right: auto;
 }
