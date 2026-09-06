@@ -44,3 +44,4 @@ mv -- "$OUTPUT.tmp" "$OUTPUT"
 
 printf 'wrote %s releases to %s\n' \
   "$(grep -c '"name"' "$OUTPUT")" "${OUTPUT#"$ROOT/"}"
+
