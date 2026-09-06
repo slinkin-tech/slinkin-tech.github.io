@@ -380,3 +380,12 @@ h3 + p + p {
   color: #008000;
   font-weight: bold;
 }
+
+/* */
+
+/* post images */
+.post img,
+main p img {
+  margin-left: auto;
+  margin-right: auto;
+}
