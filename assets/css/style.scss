@@ -365,10 +365,11 @@ h3 + p + p {
 
 /* call to action */
 .cta {
-  font-weight: bold;
+  margin: 24px 0;
+  padding: 12px 16px;
+  border: 1px dashed #555;
+  box-sizing: border-box;
   text-align: left;
-  margin-top: 32px;
-  margin-bottom: 32px;
 }
 
 .cta-tag {
