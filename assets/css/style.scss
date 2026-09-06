@@ -360,3 +360,38 @@ h3 + p + p {
     padding-right: 0;
   }
 }
+
+/* */
+
+/* call to action */
+.cta {
+  font-family: monospace;
+  line-height: 1.6;
+  margin: 24px 0;
+  padding: 16px 24px;
+  border: 1px dashed #555;
+  box-sizing: border-box;
+}
+
+.cta .cta-line {
+  margin: 0;
+  text-align: left;
+}
+
+.cta .cta-prompt {
+  font-weight: bold;
+}
+
+.cta .cta-comment {
+  color: #999;
+}
+
+@media screen and (max-width: 768px) {
+  .cta {
+    padding: 12px 16px;
+  }
+
+  .cta .cta-comment {
+    display: block;
+  }
+}
