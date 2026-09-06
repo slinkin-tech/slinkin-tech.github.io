@@ -30,11 +30,12 @@ permalink: /
 <dl class="stats news-list">
   <dt class="news-section"># releases</dt>
 {%- for r in site.data.json.news limit: 3 %}
-  <dt><a href="{{ r.url }}">{{ r.name }}</a></dt><dd class="news-date"># {{ r.date }}</dd>
+  {%- assign d = r.date | split: "-" %}
+  <dt><a href="{{ r.url }}">{{ r.name }}</a></dt><dd class="news-date"># {{ d[2] }}.{{ d[1] }}.{{ d[0] }}</dd>
 {%- endfor %}
   <dt class="news-section"># articles</dt>
 {%- for p in site.posts limit: 2 %}
-  <dt><a href="{{ p.url }}">{{ p.name | default: p.slug }}</a></dt><dd class="news-date"># {{ p.date | date: "%Y-%m-%d" }}</dd>
+  <dt><a href="{{ p.url }}">{{ p.name | default: p.slug }}</a></dt><dd class="news-date"># {{ p.date | date: "%d.%m.%Y" }}</dd>
 {%- endfor %}
 </dl>
 <p class="news-more"><a href="/blog"># all updates</a></p>
