@@ -4,7 +4,8 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 on:
   push:
     branches:
-
+      - main
+      - 'v[0-9]+.[0-9]+.[0-9]+'
   workflow_dispatch:
 
 permissions:
