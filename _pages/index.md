@@ -29,14 +29,32 @@ permalink: /
 <p class="news-cmd">cat ~/updates</p>
 <dl class="stats news-list">
   <dt class="news-section"># releases</dt>
-{%- for r in site.data.json.news limit: 3 %}
+{%- if site.data.json.news.size > 0 %}
+  {%- for r in site.data.json.news limit: 3 %}
   {%- assign d = r.date | split: "-" %}
   <dt><a href="{{ r.url }}">{{ r.name }}</a></dt><dd class="news-date"># {{ d[2] }}.{{ d[1] }}.{{ d[0] }}</dd>
-{%- endfor %}
-  <dt class="news-section"># articles</dt>
-{%- for p in site.posts limit: 2 %}
+  {%- endfor %}
+{%- else %}
+  <dt class="news-empty">null</dt><dd class="news-date"></dd>
+{%- endif %}
+
+  <dt class="news-section"># news</dt>
+{%- if site.categories.news.size > 0 %}
+  {%- for p in site.categories.news limit: 2 %}
   <dt><a href="{{ p.url }}">{{ p.name | default: p.slug }}</a></dt><dd class="news-date"># {{ p.date | date: "%d.%m.%Y" }}</dd>
-{%- endfor %}
+  {%- endfor %}
+{%- else %}
+  <dt class="news-empty">null</dt><dd class="news-date"></dd>
+{%- endif %}
+
+  <dt class="news-section"># articles</dt>
+{%- if site.categories.article.size > 0 %}
+  {%- for p in site.categories.article limit: 2 %}
+  <dt><a href="{{ p.url }}">{{ p.name | default: p.slug }}</a></dt><dd class="news-date"># {{ p.date | date: "%d.%m.%Y" }}</dd>
+  {%- endfor %}
+{%- else %}
+  <dt class="news-empty">null</dt><dd class="news-date"></dd>
+{%- endif %}
 </dl>
 <p class="news-more"><a href="/blog"># all updates</a></p>
 </div>
