@@ -25,6 +25,7 @@ main, .container {
   text-align: left;        /* ← was two conflicting rules; justify then left. Left wins, so just use left */
   max-width: 800px;        /* ← merged the two separate "main, .container" blocks into one */
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 table {
@@ -362,6 +363,24 @@ h3 + p + p {
   .news {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .news .news-list {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
+
+  .news .news-list dt {
+    overflow-wrap: anywhere;
+  }
+
+  .news .news-list .news-date {
+    padding-left: 2ch;
+    padding-bottom: 8px;
+  }
+
+  .news .news-list .news-date:empty {
+    padding-bottom: 0;
   }
 }
 
