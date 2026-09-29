@@ -1,8 +1,8 @@
 ================================================================================
                                    DC Engine
                               Technical Reference
-                            Version v1.13.17+0509025
-                                   06.08.2026
+                            Version v1.13.20+a2c996c
+                                   29.09.2026
 ================================================================================
 
 Table of Contents
@@ -107,7 +107,7 @@ Table of Contents
 ────────────────────────────────────────────────────────────────────────────────
 
    product  : dc engine
-   release  : v1.13.17+0509025
+   release  : v1.13.20+a2c996c
 
    dependencies
 
@@ -115,7 +115,7 @@ Table of Contents
    ---------------------- ------------------------------
    pcap                   libpcap version 1.10.4 (with TPACKET_V3)
    nlohman_json           3.12.0
-   pcre2                  10.47
+   regex                  none
 
 
 3.  Configuration Summary
@@ -124,19 +124,19 @@ Table of Contents
 
    parameter                                  value
    ----------------------------------- ------------
-   active tags                                  570
+   active tags                                1,081
    inactive tags                                  2
    expressions                                   24
-   classifier tags                              555
+   classifier tags                            1,067
    no-offload protocols                           6
-   domains                                   10,201
-   ipv4 cidr entries                        106,860
-   ipv6 cidr entries                        267,599
+   domains                                    6,886
+   ipv4 cidr entries                        110,653
+   ipv6 cidr entries                        266,638
    ipv4 socket entries                            0
    ipv6 socket entries                            0
    dns cache tags                                 1
    session cache tags                             0
-   longest domain path                            8
+   longest domain path                            7
    session storage elements                       0
 
 
@@ -300,7 +300,7 @@ Table of Contents
 
    pop3
       osi layer : application
-      ports     : tcp: 25
+      ports     : tcp: 110
       patterns  : -
 
    ppp
@@ -351,7 +351,7 @@ Table of Contents
 
    smtp
       osi layer : application
-      ports     : tcp: 587, 110
+      ports     : tcp: 25, 587
       patterns  : -
 
    socks
@@ -11649,6 +11649,10 @@ Table of Contents
       ja3s_md5                       ascii-string       MD5 hash of JA3S.
                                                         Format:TLSVersion,
                                                         Cipher,Extensions.
+      ech                            uint8              Encrypted Client Hello.
+                                                        The flag is presented
+                                                        only when ECH extension
+                                                        exists.
 
    tls_certificate
       common_name and dns_name extracting from a TLS certificate.
@@ -12280,8 +12284,47 @@ Table of Contents
    helper categories. they represent real-world internet applications
    classified by the engine, grouped by primary category.
 
-   adult [8 items]
+   adult [16 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   bongacams
+      name        : bongacams
+      categories  : adult, media
+      workflow    : none
+      description : BongaCams is an adult live webcam streaming platform.
+
+   brazzers
+      name        : brazzers
+      categories  : adult, media
+      workflow    : none
+      description : Brazzers is an adult video production studio and
+                    subscription streaming site.
+
+   chaturbate
+      name        : chaturbate
+      categories  : adult, media
+      workflow    : none
+      description : Chaturbate is an adult live webcam streaming platform.
+
+   fansly
+      name        : fansly
+      categories  : adult, social network
+      workflow    : none
+      description : Fansly is a subscription-based adult content sharing
+                    platform.
+
+   livejasmin
+      name        : livejasmin
+      categories  : adult, media
+      workflow    : none
+      description : LiveJasmin is an adult live webcam streaming platform.
+
+   nhentai
+      name        : nhentai
+      categories  : adult, media
+      workflow    : none
+      description : nhentai is an adult manga and doujinshi image hosting
+                    site.
 
    onlyfans
       name        : onlyfans
@@ -12300,6 +12343,19 @@ Table of Contents
       categories  : adult, media
       workflow    : none
       description : RedTube is an adult video streaming website.
+
+   rule34
+      name        : rule34
+      categories  : adult, media
+      workflow    : none
+      description : Rule34 and e621 are adult image board archives with
+                    tag-based search.
+
+   stripchat
+      name        : stripchat
+      categories  : adult, media
+      workflow    : none
+      description : Stripchat is an adult live webcam streaming platform.
 
    xhamster
       name        : xhamster
@@ -12332,8 +12388,22 @@ Table of Contents
       description : YouPorn is an adult video sharing website.
 
 
-   advertisement [17 items]
+   advertisement [33 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   adcolony
+      name        : adcolony
+      categories  : advertisement, mobile
+      workflow    : none
+      description : AdColony, now part of Digital Turbine, is a mobile video
+                    advertising network.
+
+   adjust
+      name        : adjust
+      categories  : advertisement, mobile
+      workflow    : none
+      description : Adjust is a mobile attribution and marketing analytics
+                    platform.
 
    adobe_ads
       name        : adobe ads
@@ -12342,12 +12412,40 @@ Table of Contents
       description : Adobe Advertising provides tools for digital ad buying,
                     optimization, and measurement.
 
+   amplitude
+      name        : amplitude
+      categories  : advertisement, web
+      workflow    : none
+      description : Amplitude is a product analytics platform for tracking
+                    user behaviour in applications.
+
+   applovin
+      name        : applovin
+      categories  : advertisement, mobile
+      workflow    : none
+      description : AppLovin is a mobile advertising and app monetization
+                    platform.
+
    appnexus
       name        : appnexus
       categories  : advertisement
       workflow    : none
       description : AppNexus is a programmatic advertising and real-time
                     bidding platform.
+
+   appsflyer
+      name        : appsflyer
+      categories  : advertisement, mobile
+      workflow    : none
+      description : AppsFlyer provides mobile attribution and marketing
+                    analytics for app publishers.
+
+   branch
+      name        : branch
+      categories  : advertisement, mobile
+      workflow    : none
+      description : Branch provides mobile deep linking and attribution
+                    infrastructure.
 
    comscore
       name        : comscore
@@ -12370,6 +12468,13 @@ Table of Contents
       description : DoubleVerify provides digital media measurement and ad
                     fraud prevention.
 
+   fullstory
+      name        : fullstory
+      categories  : advertisement, web
+      workflow    : none
+      description : FullStory records and replays user sessions for digital
+                    experience analytics.
+
    heap
       name        : heap
       categories  : advertisement
@@ -12384,12 +12489,40 @@ Table of Contents
       description : Hotjar provides website analytics through heatmaps and
                     user recordings.
 
+   index_exchange
+      name        : index exchange
+      categories  : advertisement, enterprise
+      workflow    : none
+      description : Index Exchange is a programmatic advertising exchange and
+                    supply-side platform.
+
+   ironsource
+      name        : ironsource
+      categories  : advertisement, mobile
+      workflow    : none
+      description : ironSource is a mobile app monetization and user
+                    acquisition platform, now part of Unity.
+
    liftoff
       name        : liftoff
       categories  : advertisement
       workflow    : none
       description : Liftoff is a mobile app marketing and user acquisition
                     platform.
+
+   meta_pixel
+      name        : meta pixel
+      categories  : advertisement, web
+      workflow    : none
+      description : The Meta Pixel is Facebook's website conversion tracking
+                    and retargeting script.
+
+   mixpanel
+      name        : mixpanel
+      categories  : advertisement, web
+      workflow    : none
+      description : Mixpanel is a product analytics service for measuring user
+                    interaction with applications.
 
    moloco
       name        : moloco
@@ -12412,6 +12545,13 @@ Table of Contents
       description : Nielsen provides audience measurement, analytics, and
                     media research services.
 
+   openx
+      name        : openx
+      categories  : advertisement, enterprise
+      workflow    : none
+      description : OpenX is a programmatic advertising exchange and
+                    supply-side platform.
+
    outbrain
       name        : outbrain
       categories  : advertisement, media
@@ -12419,12 +12559,40 @@ Table of Contents
       description : Outbrain provides content recommendation and native
                     advertising services.
 
+   plausible
+      name        : plausible
+      categories  : advertisement, web
+      workflow    : none
+      description : Plausible and Fathom are privacy-focused lightweight web
+                    analytics services.
+
+   pubmatic
+      name        : pubmatic
+      categories  : advertisement, enterprise
+      workflow    : none
+      description : PubMatic is a supply-side advertising platform for digital
+                    publishers.
+
    pulsepoint
       name        : pulsepoint
       categories  : advertisement, enterprise
       workflow    : none
       description : PulsePoint is a digital advertising and real-time bidding
                     platform.
+
+   rubicon
+      name        : rubicon
+      categories  : advertisement, enterprise
+      workflow    : none
+      description : Magnite, formed from Rubicon Project, is a large
+                    independent sell-side advertising platform.
+
+   segment
+      name        : segment
+      categories  : advertisement, web
+      workflow    : none
+      description : Segment is a customer data platform that routes event data
+                    to analytics and marketing tools.
 
    taboola
       name        : taboola
@@ -12455,8 +12623,23 @@ Table of Contents
                     mobile formats.
 
 
-   ai [17 items]
+   ai [35 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   anthropic
+      name        : anthropic
+      categories  : ai
+      workflow    : none
+      description : Anthropic is an AI safety and research company that's
+                    working to build reliable, interpretable, and steerable AI
+                    systems.
+
+   character_ai
+      name        : character ai
+      categories  : ai, web
+      workflow    : none
+      description : Character.AI is a service for conversing with user-created
+                    AI personas.
 
    chatgpt
       name        : chatgpt
@@ -12466,6 +12649,20 @@ Table of Contents
                     developed by OpenAI that uses natural language processing
                     to generate human-like text, hold conversations, and
                     perform various tasks in response to user prompts.
+
+   claude
+      name        : claude
+      categories  : ai
+      workflow    : none
+      description : Claude AI is an advanced conversational assistant and
+                    family of large language models developed by Anthropic.
+
+   cohere
+      name        : cohere
+      categories  : ai, web
+      workflow    : none
+      description : Cohere provides large language models and retrieval APIs
+                    for enterprise applications.
 
    cursor
       name        : cursor
@@ -12482,11 +12679,25 @@ Table of Contents
                     intelligence models, developed by a Chinese company also
                     named DeepSeek.
 
+   elevenlabs
+      name        : elevenlabs
+      categories  : ai, design
+      workflow    : none
+      description : ElevenLabs is an AI platform for speech synthesis and
+                    voice cloning.
+
    flux
       name        : flux
       categories  : ai
       workflow    : none
       description : A leading AI model for image generation
+
+   github_copilot
+      name        : github copilot
+      categories  : ai, code
+      workflow    : none
+      description : GitHub Copilot is an AI pair-programming assistant
+                    integrated into code editors.
 
    google_gemini
       name        : google gemini
@@ -12497,11 +12708,25 @@ Table of Contents
                     uses them to understand, generate, and combine different
                     types of data like text, images, audio, video, and code.
 
+   groq
+      name        : groq
+      categories  : ai, web
+      workflow    : none
+      description : Groq provides high-throughput language model inference on
+                    custom accelerator hardware.
+
    hailuoai
       name        : hailuoai
       categories  : ai
       workflow    : none
       description : A Chinese AI platform offering chat and creation tools.
+
+   hugging_face
+      name        : hugging face
+      categories  : ai, web
+      workflow    : none
+      description : Hugging Face is a platform for hosting and distributing
+                    machine learning models and datasets.
 
    hunyuan
       name        : hunyuan
@@ -12530,6 +12755,13 @@ Table of Contents
       description : A platform for AI-powered image generation and real-time
                     design.
 
+   lm_studio
+      name        : lm studio
+      categories  : ai, code
+      workflow    : none
+      description : LM Studio is a desktop application for running local large
+                    language models.
+
    luma
       name        : luma
       categories  : ai
@@ -12537,12 +12769,40 @@ Table of Contents
       description : A company specializing in AI for 3D scene generation and
                     visualization.
 
+   microsoft_copilot
+      name        : microsoft copilot
+      categories  : ai, web
+      workflow    : none
+      description : Microsoft Copilot is Microsoft's AI assistant integrated
+                    across Windows, Bing, and Microsoft 365.
+
+   mistral
+      name        : mistral
+      categories  : ai, web
+      workflow    : none
+      description : Mistral AI is a French developer of open-weight and
+                    commercial large language models.
+
+   perplexity
+      name        : perplexity
+      categories  : ai, web
+      workflow    : none
+      description : Perplexity is an AI-powered answer engine combining web
+                    search with language model synthesis.
+
    pika
       name        : pika
       categories  : ai
       workflow    : none
       description : An AI platform known for generating and editing videos
                     from text or image prompts.
+
+   replicate
+      name        : replicate
+      categories  : ai, web
+      workflow    : none
+      description : Replicate is a platform for running and hosting machine
+                    learning models via API.
 
    runway_gen
       name        : runway gen
@@ -12562,6 +12822,34 @@ Table of Contents
       workflow    : none
       description : Another AI image generator.
 
+   stability_ai
+      name        : stability ai
+      categories  : ai, design
+      workflow    : none
+      description : Stability AI develops open image and video generation
+                    models including Stable Diffusion.
+
+   suno
+      name        : suno
+      categories  : ai, media
+      workflow    : none
+      description : Suno is an AI service that generates complete songs with
+                    vocals from text prompts.
+
+   together_ai
+      name        : together ai
+      categories  : ai, web
+      workflow    : none
+      description : Together AI provides hosted inference and fine-tuning for
+                    open large language models.
+
+   udio
+      name        : udio
+      categories  : ai, media
+      workflow    : none
+      description : Udio is an AI service that generates music and songs from
+                    text prompts.
+
    wan
       name        : wan
       categories  : ai
@@ -12577,6 +12865,13 @@ Table of Contents
                     environment (IDE) designed to help developers code more
                     efficiently by providing advanced features like code
                     generation, debugging, and project-wide context awareness.
+
+   xai
+      name        : xai
+      categories  : ai
+      workflow    : none
+      description : Grok is a large language model and AI assistant developed
+                    by xAI.
 
 
    airline [10 items]
@@ -12648,7 +12943,7 @@ Table of Contents
                     flights, especially in Western Siberia.
 
 
-   api [1 items]
+   api [2 items]
    ──────────────────────────────────────────────────────────────────────────
 
    google_api
@@ -12659,8 +12954,15 @@ Table of Contents
                     developed by Google which allow communication with Google
                     Services and their integration to other services.
 
+   twilio
+      name        : twilio
+      categories  : api, code
+      workflow    : none
+      description : Twilio is a cloud communications platform providing
+                    programmable SMS, voice, and video APIs.
 
-   application store [5 items]
+
+   application store [7 items]
    ──────────────────────────────────────────────────────────────────────────
 
    appgallery
@@ -12689,12 +12991,26 @@ Table of Contents
                     Galaxy devices like smartphones, tablets, and
                     smartwatches.
 
+   gog_galaxy
+      name        : gog galaxy
+      categories  : application store, gaming
+      workflow    : none
+      description : GOG Galaxy is CD Projekt's DRM-free game store and library
+                    client.
+
    google_play
       name        : google play
       categories  : application store
       workflow    : none
       description : Google Play is a digital distribution service operated by
                     Google.
+
+   itch_io
+      name        : itch io
+      categories  : application store, gaming
+      workflow    : none
+      description : itch.io is a marketplace and hosting platform for
+                    independent video games.
 
    rustore
       name        : rustore
@@ -12704,8 +13020,15 @@ Table of Contents
                     devices.
 
 
-   assistant [1 items]
+   assistant [2 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   alice
+      name        : alice
+      categories  : assistant, ai
+      workflow    : none
+      description : Alice is Yandex's voice assistant, used in Yandex Station
+                    smart speakers.
 
    apple_siri
       name        : apple siri
@@ -12717,7 +13040,7 @@ Table of Contents
                     devices like iPhones, iPads, and Macs.
 
 
-   banking [7 items]
+   banking [12 items]
    ──────────────────────────────────────────────────────────────────────────
 
    alfabank
@@ -12733,6 +13056,25 @@ Table of Contents
       workflow    : none
       description : American Express is a financial services company offering
                     credit cards and payment solutions.
+
+   monzo
+      name        : monzo
+      categories  : banking, payment
+      workflow    : none
+      description : Monzo is a British digital challenger bank.
+
+   n26
+      name        : n26
+      categories  : banking, payment
+      workflow    : none
+      description : N26 is a German digital bank operating across Europe.
+
+   nubank
+      name        : nubank
+      categories  : banking, payment
+      workflow    : none
+      description : Nubank is a Brazilian digital bank and one of the largest
+                    neobanks in the world.
 
    raiffeisenbank
       name        : raiffeisenbank
@@ -12759,12 +13101,25 @@ Table of Contents
       description : Sberbank is a large Russian banking and financial services
                     company.
 
+   swift
+      name        : swift
+      categories  : banking, payment
+      workflow    : none
+      description : SWIFT is the interbank financial messaging network used
+                    for international transfers.
+
    tbank
       name        : tbank
       categories  : banking
       workflow    : none
       description : TBank, formerly known as Tinkoff Bank is a Russian
                     commercial bank.
+
+   vtb
+      name        : vtb
+      categories  : banking, payment
+      workflow    : none
+      description : VTB is one of the largest state-owned banks in Russia.
 
    wells_fargo
       name        : wells fargo
@@ -12773,7 +13128,7 @@ Table of Contents
       description : Wells Fargo is a multinational financial services company.
 
 
-   blog [4 items]
+   blog [6 items]
    ──────────────────────────────────────────────────────────────────────────
 
    blogger
@@ -12782,6 +13137,13 @@ Table of Contents
       workflow    : none
       description : Blogger is a free, online service owned by Google that
                     allows users to create and publish blogs.
+
+   habr
+      name        : habr
+      categories  : blog, web
+      workflow    : none
+      description : Habr is a Russian collaborative blog and community for IT
+                    professionals.
 
    livejournal
       name        : livejournal
@@ -12798,6 +13160,13 @@ Table of Contents
       workflow    : none
       description : Medium is an online publishing platform for articles and
                     blogs.
+
+   substack
+      name        : substack
+      categories  : blog, web
+      workflow    : none
+      description : Substack is a publishing platform for paid email
+                    newsletters and subscriptions.
 
    weibo
       name        : weibo
@@ -12862,8 +13231,22 @@ Table of Contents
       description : A major Russian bookmaker and betting company.
 
 
-   books [2 items]
+   books [11 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   ao3
+      name        : ao3
+      categories  : books, media
+      workflow    : none
+      description : Archive of Our Own is a non-profit fan fiction hosting
+                    archive.
+
+   audible
+      name        : audible
+      categories  : books, music
+      workflow    : none
+      description : Audible is an Amazon-owned audiobook and spoken-word
+                    entertainment service.
 
    bookmate
       name        : bookmate
@@ -12871,6 +13254,34 @@ Table of Contents
       workflow    : none
       description : Bookmate is a social ebook subscription service, available
                     primarily on mobile.
+
+   goodreads
+      name        : goodreads
+      categories  : books, web
+      workflow    : none
+      description : Goodreads is an Amazon-owned social cataloguing site for
+                    books and reading.
+
+   libby
+      name        : libby
+      categories  : books, music
+      workflow    : none
+      description : Libby and OverDrive provide digital lending of ebooks and
+                    audiobooks through public libraries.
+
+   line_manga
+      name        : line manga
+      categories  : books, media
+      workflow    : none
+      description : LINE Manga is a Japanese digital comics distribution
+                    service.
+
+   naver_webtoon
+      name        : naver webtoon
+      categories  : books, media
+      workflow    : none
+      description : Naver Webtoon is a South Korean digital comics platform,
+                    published internationally as WEBTOON.
 
    scribd
       name        : scribd
@@ -12880,8 +13291,29 @@ Table of Contents
                     large collection of e-books, audiobooks, magazines,
                     podcasts, and documents.
 
+   shogakukan
+      name        : shogakukan
+      categories  : books, media
+      workflow    : none
+      description : Shonen Jump+ is Shueisha's digital manga publishing and
+                    reading platform.
 
-   cdn [5 items]
+   storytel
+      name        : storytel
+      categories  : books, music
+      workflow    : none
+      description : Storytel is a Swedish audiobook and ebook subscription
+                    service.
+
+   wattpad
+      name        : wattpad
+      categories  : books, media
+      workflow    : none
+      description : Wattpad is a platform for reading and publishing
+                    serialised user-generated fiction.
+
+
+   cdn [10 items]
    ──────────────────────────────────────────────────────────────────────────
 
    amazon_cloudfront
@@ -12891,6 +13323,13 @@ Table of Contents
       description : Amazon CloudFront is a web service that speeds up
                     distribution of your static and dynamic web content, such
                     as .html, .css, .js, and image files, to your users.
+
+   bunny_net
+      name        : bunny net
+      categories  : cdn, cloud
+      workflow    : none
+      description : Bunny.net is a content delivery network and edge storage
+                    provider.
 
    cloudinary
       name        : cloudinary
@@ -12917,6 +13356,33 @@ Table of Contents
       description : Imgix is an image processing and optimization service
                     delivered via CDN.
 
+   jsdelivr
+      name        : jsdelivr
+      categories  : cdn, cloud
+      workflow    : none
+      description : jsDelivr is a free open-source content delivery network
+                    for JavaScript libraries and packages.
+
+   keycdn
+      name        : keycdn
+      categories  : cdn, cloud
+      workflow    : none
+      description : KeyCDN is a content delivery network provider.
+
+   stackpath
+      name        : stackpath
+      categories  : cdn, cloud
+      workflow    : none
+      description : StackPath provides edge computing, content delivery, and
+                    web security services.
+
+   unpkg
+      name        : unpkg
+      categories  : cdn, cloud
+      workflow    : none
+      description : unpkg is a content delivery network serving packages
+                    published to the npm registry.
+
    yandex_cdn
       name        : yandex cdn
       categories  : cdn
@@ -12927,8 +13393,21 @@ Table of Contents
                     loyalty, and improve your SEO ranking.
 
 
-   clothes [3 items]
+   clothes [5 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   asos
+      name        : asos
+      categories  : clothes, ecommerce
+      workflow    : none
+      description : ASOS is a British online fashion and cosmetics retailer.
+
+   farfetch
+      name        : farfetch
+      categories  : clothes, ecommerce
+      workflow    : none
+      description : Farfetch is an online marketplace for luxury fashion
+                    brands and boutiques.
 
    nike
       name        : nike
@@ -12950,7 +13429,7 @@ Table of Contents
       description : Zalando is an online fashion retail platform.
 
 
-   cloud [19 items]
+   cloud [21 items]
    ──────────────────────────────────────────────────────────────────────────
 
    akamai
@@ -13046,6 +13525,13 @@ Table of Contents
                     company that is known for its office suite, WPS Office,
                     and its cloud computing services, Kingsoft Cloud.
 
+   linode
+      name        : linode
+      categories  : cloud, cloud
+      workflow    : none
+      description : Linode, now Akamai Cloud Computing, is a virtual private
+                    server and cloud infrastructure provider.
+
    ms_azure
       name        : ms azure
       categories  : cloud
@@ -13067,6 +13553,13 @@ Table of Contents
       categories  : cloud, enterprise
       workflow    : none
       description : Rackspace provides managed cloud and hosting services.
+
+   scaleway
+      name        : scaleway
+      categories  : cloud, cloud
+      workflow    : none
+      description : Scaleway is a French cloud infrastructure and bare metal
+                    hosting provider.
 
    tencent_cloud
       name        : tencent cloud
@@ -13100,8 +13593,15 @@ Table of Contents
                     and applications.
 
 
-   code [17 items]
+   code [39 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   bitbucket
+      name        : bitbucket
+      categories  : code, social network
+      workflow    : none
+      description : Bitbucket is Atlassian's Git repository hosting and
+                    continuous integration service.
 
    bootstrap
       name        : bootstrap
@@ -13110,12 +13610,33 @@ Table of Contents
       description : Bootstrap is a front-end framework for building responsive
                     web interfaces.
 
+   circleci
+      name        : circleci
+      categories  : code, enterprise
+      workflow    : none
+      description : CircleCI is a hosted continuous integration and delivery
+                    platform.
+
+   codesandbox
+      name        : codesandbox
+      categories  : code, web
+      workflow    : none
+      description : CodeSandbox is a browser-based development environment for
+                    web projects.
+
    codility
       name        : codility
       categories  : code
       workflow    : none
       description : A platform used by companies to test the coding skills of
                     potential hires.
+
+   crates_io
+      name        : crates io
+      categories  : code, network service
+      workflow    : none
+      description : crates.io is the official package registry for the Rust
+                    programming language.
 
    docker
       name        : docker
@@ -13138,6 +13659,13 @@ Table of Contents
       description : A modern documentation platform powered by Git, where
                     teams can document knowledge and products.
 
+   gitee
+      name        : gitee
+      categories  : code, social network
+      workflow    : none
+      description : Gitee is a Chinese Git repository hosting and DevOps
+                    platform.
+
    github
       name        : github
       categories  : code, social network
@@ -13152,6 +13680,20 @@ Table of Contents
       description : GitLab is a web-based DevOps platform that provides Git
                     repository management, CI/CD, and other tools for software
                     development and project management.
+
+   go_module_proxy
+      name        : go module proxy
+      categories  : code, network service
+      workflow    : none
+      description : The Go module proxy serves versioned Go package modules to
+                    the toolchain.
+
+   helm_charts
+      name        : helm charts
+      categories  : code, cloud
+      workflow    : none
+      description : Helm chart repositories distribute packaged Kubernetes
+                    application definitions.
 
    jfrog
       name        : jfrog
@@ -13181,6 +13723,68 @@ Table of Contents
       description : A global platform for practicing coding problems and
                     preparing for technical interviews.
 
+   maven_central
+      name        : maven central
+      categories  : code, network service
+      workflow    : none
+      description : Maven Central is the primary public repository for Java
+                    and JVM build artifacts.
+
+   npm_registry
+      name        : npm registry
+      categories  : code, network service
+      workflow    : none
+      description : The npm registry is the primary package repository for
+                    Node.js and JavaScript.
+
+   nuget
+      name        : nuget
+      categories  : code, network service
+      workflow    : none
+      description : NuGet is the package repository for .NET libraries and
+                    tooling.
+
+   packagist
+      name        : packagist
+      categories  : code, network service
+      workflow    : none
+      description : Packagist is the primary package repository for PHP
+                    dependencies installed via Composer.
+
+   pagerduty
+      name        : pagerduty
+      categories  : code, enterprise
+      workflow    : none
+      description : PagerDuty is an incident response and on-call alerting
+                    platform.
+
+   planetscale
+      name        : planetscale
+      categories  : code, cloud
+      workflow    : none
+      description : PlanetScale and Neon are serverless managed database
+                    platforms for MySQL and PostgreSQL.
+
+   postman
+      name        : postman
+      categories  : code, web
+      workflow    : none
+      description : Postman is an API development, testing, and collaboration
+                    platform.
+
+   pypi
+      name        : pypi
+      categories  : code, network service
+      workflow    : none
+      description : The Python Package Index is the official third-party
+                    package repository for Python.
+
+   quay_io
+      name        : quay io
+      categories  : code, cloud
+      workflow    : none
+      description : Quay is a Red Hat container image registry service.
+
    redis_cloud
       name        : redis cloud
       categories  : code
@@ -13189,6 +13793,26 @@ Table of Contents
                     brings the speed and reliability of Redis to the cloud,
                     offering seamless scalability.
 
+   replit
+      name        : replit
+      categories  : code, web
+      workflow    : none
+      description : Replit is a browser-based collaborative development and
+                    hosting environment.
+
+   rubygems
+      name        : rubygems
+      categories  : code, network service
+      workflow    : none
+      description : RubyGems is the package repository for Ruby libraries.
+
+   sentry
+      name        : sentry
+      categories  : code, enterprise
+      workflow    : none
+      description : Sentry is an application error monitoring and performance
+                    tracing platform.
+
    sourceforge
       name        : sourceforge
       categories  : code
@@ -13196,12 +13820,33 @@ Table of Contents
       description : A long-established web service for software developers to
                     manage and distribute open-source software.
 
+   supabase
+      name        : supabase
+      categories  : code, cloud
+      workflow    : none
+      description : Supabase is an open-source backend platform providing
+                    PostgreSQL, authentication, and storage.
+
+   terraform_registry
+      name        : terraform registry
+      categories  : code, cloud
+      workflow    : none
+      description : The Terraform Registry distributes infrastructure-as-code
+                    providers and modules.
+
    tilda
       name        : tilda
       categories  : code
       workflow    : none
       description : A popular Russian no-code website builder focused on
                     creating beautiful landing pages and websites.
+
+   travis_ci
+      name        : travis ci
+      categories  : code, enterprise
+      workflow    : none
+      description : Travis CI is a hosted continuous integration service for
+                    software projects.
 
    ubuntu
       name        : ubuntu
@@ -13223,7 +13868,7 @@ Table of Contents
       description : Weebly is a website builder and hosting service.
 
 
-   crowdfunding [2 items]
+   crowdfunding [3 items]
    ──────────────────────────────────────────────────────────────────────────
 
    boosty
@@ -13240,8 +13885,15 @@ Table of Contents
       description : A globally renowned American crowdfunding platform for
                     creative projects.
 
+   ko_fi
+      name        : ko fi
+      categories  : crowdfunding, ecommerce
+      workflow    : none
+      description : Ko-fi is a creator funding platform for tips, memberships,
+                    and commissions.
 
-   crypto [5 items]
+
+   crypto [22 items]
    ──────────────────────────────────────────────────────────────────────────
 
    binance
@@ -13252,12 +13904,47 @@ Table of Contents
                     where users can buy, sell, and trade a wide variety of
                     digital currencies like Bitcoin and Ethereum.
 
+   bitfinex
+      name        : bitfinex
+      categories  : crypto, payment
+      workflow    : none
+      description : Bitfinex is a cryptocurrency exchange offering spot and
+                    margin trading.
+
+   bitget
+      name        : bitget
+      categories  : crypto, payment
+      workflow    : none
+      description : Bitget is a cryptocurrency exchange known for copy trading
+                    and derivatives.
+
+   bybit
+      name        : bybit
+      categories  : crypto, payment
+      workflow    : none
+      description : Bybit is a cryptocurrency exchange focused on derivatives
+                    and spot trading.
+
+   chainalysis
+      name        : chainalysis
+      categories  : crypto, code
+      workflow    : none
+      description : Hosted blockchain node RPC providers such as Alchemy and
+                    QuickNode used by wallets and dapps.
+
    coinbase
       name        : coinbase
       categories  : crypto
       workflow    : none
       description : Coinbase is a cryptocurrency exchange and digital asset
                     platform.
+
+   crypto_com
+      name        : crypto com
+      categories  : crypto, payment
+      workflow    : none
+      description : Crypto.com is a cryptocurrency exchange, wallet, and
+                    payment card provider.
 
    ethereum
       name        : ethereum
@@ -13266,12 +13953,94 @@ Table of Contents
       description : Ethereum is a decentralized blockchain platform supporting
                     smart contracts.
 
+   ethermine
+      name        : ethermine
+      categories  : crypto, code
+      workflow    : none
+      description : Ethermine and F2Pool are large cryptocurrency mining
+                    pools.
+
+   gate_io
+      name        : gate io
+      categories  : crypto, payment
+      workflow    : none
+      description : Gate.io is a cryptocurrency exchange listing a wide range
+                    of digital assets.
+
+   kraken
+      name        : kraken
+      categories  : crypto, payment
+      workflow    : none
+      description : Kraken is a United States based cryptocurrency exchange.
+
+   kucoin
+      name        : kucoin
+      categories  : crypto, payment
+      workflow    : none
+      description : KuCoin is a global cryptocurrency exchange.
+
+   ledger_live
+      name        : ledger live
+      categories  : crypto, security
+      workflow    : none
+      description : Ledger Live is the companion application for Ledger
+                    hardware cryptocurrency wallets.
+
+   metamask
+      name        : metamask
+      categories  : crypto, security
+      workflow    : none
+      description : MetaMask is a browser and mobile cryptocurrency wallet for
+                    Ethereum and EVM chains.
+
    monero
       name        : monero
       categories  : crypto
       workflow    : none
       description : Monero is a privacy-focused cryptocurrency designed for
                     anonymous payments.
+
+   nicehash
+      name        : nicehash
+      categories  : crypto, code
+      workflow    : none
+      description : NiceHash is a marketplace for buying and selling
+                    cryptocurrency mining hash power.
+
+   okx
+      name        : okx
+      categories  : crypto, payment
+      workflow    : none
+      description : OKX is a global cryptocurrency exchange and Web3 wallet
+                    provider.
+
+   opensea
+      name        : opensea
+      categories  : crypto, marketplace
+      workflow    : none
+      description : OpenSea is a marketplace for non-fungible tokens and
+                    digital collectibles.
+
+   phantom
+      name        : phantom
+      categories  : crypto, security
+      workflow    : none
+      description : Phantom is a cryptocurrency wallet for Solana and other
+                    blockchains.
+
+   trust_wallet
+      name        : trust wallet
+      categories  : crypto, security
+      workflow    : none
+      description : Trust Wallet is a multi-chain mobile cryptocurrency wallet
+                    owned by Binance.
+
+   uniswap
+      name        : uniswap
+      categories  : crypto, marketplace
+      workflow    : none
+      description : Uniswap and similar decentralised exchange web interfaces
+                    for on-chain token trading.
 
    z_cash
       name        : z cash
@@ -13281,8 +14050,43 @@ Table of Contents
                     transactions.
 
 
-   delivery [3 items]
+   delivery [8 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   bigbasket
+      name        : bigbasket
+      categories  : delivery, food
+      workflow    : none
+      description : BigBasket is an Indian online grocery delivery service
+                    owned by Tata.
+
+   cornershop
+      name        : cornershop
+      categories  : delivery, food
+      workflow    : none
+      description : Cornershop is a Latin American on-demand grocery delivery
+                    service.
+
+   getir
+      name        : getir
+      categories  : delivery, food
+      workflow    : none
+      description : Getir is a Turkish rapid grocery delivery service
+                    operating in several countries.
+
+   meituan
+      name        : meituan
+      categories  : delivery, food
+      workflow    : none
+      description : Meituan is a Chinese super-app for food delivery, local
+                    services, and travel booking.
+
+   rappi
+      name        : rappi
+      categories  : delivery, food
+      workflow    : none
+      description : Rappi is a Latin American on-demand delivery platform for
+                    food, groceries, and pharmacy items.
 
    samokat
       name        : samokat
@@ -13353,7 +14157,7 @@ Table of Contents
                     video content.
 
 
-   dns [3 items]
+   dns [4 items]
    ──────────────────────────────────────────────────────────────────────────
 
    cloudflare_dns
@@ -13363,6 +14167,13 @@ Table of Contents
       description : Cloudflare DNS is a service that provides both
                     authoritative DNS and a public DNS resolver for faster and
                     more private internet browsing.
+
+   doh_resolvers
+      name        : doh resolvers
+      categories  : dns, protocol
+      workflow    : none
+      description : Public DNS over HTTPS resolvers operated by Cloudflare,
+                    Google, Quad9, and others.
 
    nextdns
       name        : nextdns
@@ -13378,8 +14189,14 @@ Table of Contents
       description : Yandex DNS service.
 
 
-   drive [9 items]
+   drive [16 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   99
+      name        : 99
+      categories  : drive, travel
+      workflow    : none
+      description : 99 is a Brazilian ride-hailing platform owned by DiDi.
 
    belkacar
       name        : belkacar
@@ -13387,6 +14204,13 @@ Table of Contents
       workflow    : none
       description : Russian car-sharing service offering access to a fleet of
                     vehicles for short- and medium-term use.
+
+   bolt
+      name        : bolt
+      categories  : drive, travel
+      workflow    : none
+      description : Bolt is an Estonian ride-hailing, scooter, and food
+                    delivery platform.
 
    citydrive
       name        : citydrive
@@ -13409,12 +14233,46 @@ Table of Contents
       description : Car-sharing platform in Russia that enables users to rent
                     vehicles for short trips using a smartphone app.
 
+   didi
+      name        : didi
+      categories  : drive, travel
+      workflow    : none
+      description : DiDi is a Chinese ride-hailing and mobility platform
+                    operating internationally.
+
+   free_now
+      name        : free now
+      categories  : drive, travel
+      workflow    : none
+      description : FREE NOW is a European taxi and ride-hailing aggregation
+                    application.
+
+   gojek
+      name        : gojek
+      categories  : drive, travel
+      workflow    : none
+      description : Gojek is an Indonesian super-app for ride-hailing,
+                    delivery, and payments.
+
+   grab
+      name        : grab
+      categories  : drive, travel
+      workflow    : none
+      description : Grab is a Southeast Asian super-app for ride-hailing,
+                    delivery, and digital payments.
+
    lyft
       name        : lyft
       categories  : drive
       workflow    : none
       description : Lyft is a ride-hailing and transportation services
                     platform.
+
+   ola
+      name        : ola
+      categories  : drive, travel
+      workflow    : none
+      description : Ola is an Indian ride-hailing and mobility platform.
 
    uber
       name        : uber
@@ -13583,7 +14441,7 @@ Table of Contents
                     and a ridesharing company.
 
 
-   enterprise [27 items]
+   enterprise [34 items]
    ──────────────────────────────────────────────────────────────────────────
 
    amd
@@ -13608,6 +14466,13 @@ Table of Contents
       description : Atlassian develops collaboration and project management
                     software such as Jira and Confluence.
 
+   databricks
+      name        : databricks
+      categories  : enterprise, cloud
+      workflow    : none
+      description : Databricks is a cloud data engineering, analytics, and
+                    machine learning platform.
+
    datadog
       name        : datadog
       categories  : enterprise
@@ -13621,6 +14486,13 @@ Table of Contents
       workflow    : none
       description : Dell is a technology company producing computers, servers,
                     and IT infrastructure.
+
+   freshworks
+      name        : freshworks
+      categories  : enterprise
+      workflow    : none
+      description : Freshworks provides cloud customer support, sales, and IT
+                    service management software.
 
    grafana
       name        : grafana
@@ -13650,6 +14522,13 @@ Table of Contents
       description : Intel is a semiconductor company producing processors and
                     computing technologies.
 
+   intercom
+      name        : intercom
+      categories  : enterprise
+      workflow    : none
+      description : Intercom is a customer messaging and support platform
+                    embedded in websites and applications.
+
    jetbrains
       name        : jetbrains
       categories  : enterprise, it
@@ -13677,6 +14556,13 @@ Table of Contents
       description : Oracle is an enterprise software company specializing in
                     databases and cloud solutions.
 
+   oracle_netsuite
+      name        : oracle netsuite
+      categories  : enterprise, cloud
+      workflow    : none
+      description : NetSuite is Oracle's cloud enterprise resource planning
+                    and financial management suite.
+
    pendo
       name        : pendo
       categories  : enterprise
@@ -13698,6 +14584,13 @@ Table of Contents
       description : Red Hat provides enterprise open-source software
                     solutions.
 
+   refinitiv
+      name        : refinitiv
+      categories  : enterprise, cloud
+      workflow    : none
+      description : Refinitiv, part of the London Stock Exchange Group,
+                    provides financial market data and terminals.
+
    salesforce
       name        : salesforce
       categories  : enterprise
@@ -13713,12 +14606,26 @@ Table of Contents
       description : SAP provides enterprise software for business operations
                     and analytics.
 
+   sap_successfactors
+      name        : sap successfactors
+      categories  : enterprise, cloud
+      workflow    : none
+      description : SuccessFactors is SAP's cloud human capital management
+                    platform.
+
    servicenow
       name        : servicenow
       categories  : enterprise
       workflow    : none
       description : ServiceNow is a cloud platform for IT service management
                     and automation.
+
+   snowflake
+      name        : snowflake
+      categories  : enterprise, cloud
+      workflow    : none
+      description : Snowflake is a cloud data warehouse and analytics
+                    platform.
 
    sony
       name        : sony
@@ -13780,8 +14687,50 @@ Table of Contents
                     media, and voice calls.
 
 
-   file storage [6 items]
+   file storage [25 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   1fichier
+      name        : 1fichier
+      categories  : file storage, web
+      workflow    : none
+      description : 1fichier is a French file hosting and one-click download
+                    service.
+
+   anonfiles
+      name        : anonfiles
+      categories  : file storage, web
+      workflow    : none
+      description : Gofile and similar services provide anonymous file hosting
+                    without registration.
+
+   backblaze
+      name        : backblaze
+      categories  : file storage, enterprise
+      workflow    : none
+      description : Backblaze provides cloud backup and B2 object storage
+                    services.
+
+   baidu_netdisk
+      name        : baidu netdisk
+      categories  : file storage
+      workflow    : none
+      description : Baidu Netdisk is a Chinese cloud file storage and sharing
+                    service.
+
+   box
+      name        : box
+      categories  : file storage, enterprise
+      workflow    : none
+      description : Box is an enterprise cloud content management and file
+                    sharing platform.
+
+   carbonite
+      name        : carbonite
+      categories  : file storage, enterprise
+      workflow    : none
+      description : Carbonite provides cloud backup services for consumers and
+                    businesses.
 
    dropbox
       name        : dropbox
@@ -13789,6 +14738,19 @@ Table of Contents
       workflow    : none
       description : Dropbox is a cloud storage service that allows users to
                     store, share, and sync files across multiple devices.
+
+   egnyte
+      name        : egnyte
+      categories  : file storage, enterprise
+      workflow    : none
+      description : Egnyte is an enterprise content collaboration and file
+                    governance platform.
+
+   filemail
+      name        : filemail
+      categories  : file storage, web
+      workflow    : none
+      description : Filemail is a service for transferring large files.
 
    google_drive
       name        : google drive
@@ -13805,12 +14767,51 @@ Table of Contents
       description : iCloud is Apple's cloud service that securely stores your
                     data and keeps it synchronized across your Apple devices.
 
+   idrive
+      name        : idrive
+      categories  : file storage, enterprise
+      workflow    : none
+      description : IDrive provides cloud backup and file synchronisation
+                    services.
+
+   mediafire
+      name        : mediafire
+      categories  : file storage, web
+      workflow    : none
+      description : MediaFire is a file hosting and one-click sharing service.
+
    mega
       name        : mega
       categories  : file storage
       workflow    : none
       description : MEGA is a cloud storage service that provides secure,
                     encrypted file storage, sharing, and collaboration tools.
+
+   netdocuments
+      name        : netdocuments
+      categories  : file storage, enterprise
+      workflow    : none
+      description : NetDocuments and iManage are document management systems
+                    used by legal and professional firms.
+
+   pcloud
+      name        : pcloud
+      categories  : file storage, web
+      workflow    : none
+      description : pCloud is a Swiss cloud storage and file sharing service.
+
+   rapidgator
+      name        : rapidgator
+      categories  : file storage, web
+      workflow    : none
+      description : Rapidgator is a file hosting and premium download service.
+
+   send_anywhere
+      name        : send anywhere
+      categories  : file storage, web
+      workflow    : none
+      description : Send Anywhere is a direct file transfer service using
+                    short pairing keys.
 
    sharefile
       name        : sharefile
@@ -13819,15 +14820,55 @@ Table of Contents
       description : ShareFile is a secure file sharing and collaboration
                     platform.
 
+   sync_com
+      name        : sync com
+      categories  : file storage, enterprise
+      workflow    : none
+      description : Sync.com is an end-to-end encrypted cloud storage and file
+                    sharing service.
+
+   tresorit
+      name        : tresorit
+      categories  : file storage, enterprise
+      workflow    : none
+      description : Tresorit is an end-to-end encrypted cloud storage service
+                    for businesses.
+
+   uploaded
+      name        : uploaded
+      categories  : file storage, web
+      workflow    : none
+      description : Turbobit is a file hosting and premium download service.
+
    wasabi
       name        : wasabi
       categories  : file storage
       workflow    : none
       description : Wasabi provides cloud-based object storage services.
 
+   wetransfer
+      name        : wetransfer
+      categories  : file storage, web
+      workflow    : none
+      description : WeTransfer is a service for sending large files without
+                    account registration.
 
-   food [3 items]
+   zippyshare
+      name        : zippyshare
+      categories  : file storage, web
+      workflow    : none
+      description : Zippyshare was a free file hosting and sharing service.
+
+
+   food [13 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   deliveroo
+      name        : deliveroo
+      categories  : food, delivery
+      workflow    : none
+      description : Deliveroo is a British online food delivery platform
+                    operating across Europe and Asia.
 
    doordash
       name        : doordash
@@ -13835,12 +14876,75 @@ Table of Contents
       workflow    : none
       description : DoorDash is an online food ordering and delivery platform.
 
+   ele_me
+      name        : ele me
+      categories  : food, delivery
+      workflow    : none
+      description : Ele.me is a Chinese online food ordering and delivery
+                    platform owned by Alibaba.
+
+   ifood
+      name        : ifood
+      categories  : food, delivery
+      workflow    : none
+      description : iFood is the dominant online food delivery platform in
+                    Brazil and Latin America.
+
    instacart
       name        : instacart
       categories  : food, delivery
       workflow    : none
       description : Instacart is an online grocery delivery and pickup
                     service.
+
+   just_eat_takeaway
+      name        : just eat takeaway
+      categories  : food, delivery
+      workflow    : none
+      description : Just Eat Takeaway is a European online food ordering and
+                    delivery group, trading as Lieferando in Germany.
+
+   swiggy
+      name        : swiggy
+      categories  : food, delivery
+      workflow    : none
+      description : Swiggy is an Indian online food ordering and delivery
+                    platform.
+
+   talabat
+      name        : talabat
+      categories  : food, delivery
+      workflow    : none
+      description : Talabat is a food delivery platform operating across the
+                    Middle East.
+
+   uber_eats
+      name        : uber eats
+      categories  : food, delivery
+      workflow    : none
+      description : Uber Eats is Uber's online food ordering and delivery
+                    platform.
+
+   wolt
+      name        : wolt
+      categories  : food, delivery
+      workflow    : none
+      description : Wolt is a Finnish food and retail delivery platform owned
+                    by DoorDash.
+
+   yandex_eda
+      name        : yandex eda
+      categories  : food, delivery
+      workflow    : none
+      description : Yandex Eda is a Russian restaurant food ordering and
+                    delivery service.
+
+   yemeksepeti
+      name        : yemeksepeti
+      categories  : food, delivery
+      workflow    : none
+      description : Yemeksepeti is the leading online food delivery service in
+                    Turkey.
 
    zomato
       name        : zomato
@@ -13860,21 +14964,56 @@ Table of Contents
       description : Discourse is an open-source discussion and forum platform.
 
 
-   gaming [16 items]
+   gaming [39 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   amazon_luna
+      name        : amazon luna
+      categories  : gaming, cloud
+      workflow    : none
+      description : Amazon Luna is a cloud gaming service streaming titles
+                    from Amazon data centres.
 
    among_us
       name        : among us
       categories  : gaming
       workflow    : none
-      description : Amazon Web Services (AWS) is a comprehensive and widely
-                    adopted cloud computing platform offered by Amazon.
+      description : Among Us is an online multiplayer social deduction game
+                    developed by American studio Innersloth.
+
+   battle_net
+      name        : battle net
+      categories  : gaming, application store
+      workflow    : none
+      description : Battle.net is Blizzard Entertainment's online gaming
+                    platform and game distribution client.
+
+   brawl_stars
+      name        : brawl stars
+      categories  : gaming
+      workflow    : none
+      description : Brawl Stars is a mobile multiplayer arena game developed
+                    by Supercell.
+
+   call_of_duty_warzone
+      name        : call of duty warzone
+      categories  : gaming
+      workflow    : none
+      description : Call of Duty Warzone is a free-to-play battle royale
+                    shooter published by Activision.
 
    chess_com
       name        : chess com
       categories  : gaming
       workflow    : none
       description : Chess.com is the world's largest online chess platform.
+
+   clash_of_clans
+      name        : clash of clans
+      categories  : gaming
+      workflow    : none
+      description : Clash of Clans and Clash Royale are mobile strategy games
+                    developed by Supercell.
 
    epic_games
       name        : epic games
@@ -13883,11 +15022,67 @@ Table of Contents
       description : Epic Games is a video game company known for Fortnite and
                     Unreal Engine.
 
+   escape_from_tarkov
+      name        : escape from tarkov
+      categories  : gaming
+      workflow    : none
+      description : Escape from Tarkov is a hardcore tactical first-person
+                    shooter developed by Battlestate Games.
+
+   fifa
+      name        : fifa
+      categories  : gaming
+      workflow    : none
+      description : EA Sports FC, formerly FIFA, is a football simulation
+                    series with online Ultimate Team modes.
+
+   free_fire
+      name        : free fire
+      categories  : gaming
+      workflow    : none
+      description : Free Fire is a mobile battle royale game developed by
+                    Garena, popular across Asia and Latin America.
+
+   genshin_impact
+      name        : genshin impact
+      categories  : gaming
+      workflow    : none
+      description : Genshin Impact is an open-world action role-playing game
+                    developed by HoYoverse.
+
+   honkai_star_rail
+      name        : honkai star rail
+      categories  : gaming
+      workflow    : none
+      description : Honkai Star Rail is a turn-based role-playing game
+                    developed by HoYoverse.
+
+   hoyolab
+      name        : hoyolab
+      categories  : gaming
+      workflow    : none
+      description : HoYoLAB is the community platform and companion service
+                    for HoYoverse games.
+
+   krafton
+      name        : krafton
+      categories  : gaming, application store
+      workflow    : none
+      description : Krafton is a South Korean game publisher best known for
+                    PUBG.
+
    minecraft
       name        : minecraft
       categories  : gaming
       workflow    : none
       description : Minecraft is a sandbox video game developed by Mojang.
+
+   mobile_legends
+      name        : mobile legends
+      categories  : gaming
+      workflow    : none
+      description : Mobile Legends Bang Bang is a mobile MOBA popular across
+                    Southeast Asia.
 
    moonton
       name        : moonton
@@ -13896,12 +15091,33 @@ Table of Contents
       description : Moonton is a video game developer best known for mobile
                     games.
 
+   ncsoft
+      name        : ncsoft
+      categories  : gaming, application store
+      workflow    : none
+      description : NCSoft is a South Korean developer and publisher of online
+                    role-playing games.
+
+   nexon
+      name        : nexon
+      categories  : gaming, application store
+      workflow    : none
+      description : Nexon is a South Korean and Japanese online game developer
+                    and publisher.
+
    nintendo
       name        : nintendo
       categories  : gaming
       workflow    : none
       description : Nintendo is a multinational consumer electronics and video
                     game company.
+
+   nvidia_geforce_now
+      name        : nvidia geforce now
+      categories  : gaming, cloud
+      workflow    : none
+      description : GeForce NOW is NVIDIA's cloud gaming service streaming
+                    games from remote GPUs.
 
    origin_ea
       name        : origin ea
@@ -13917,6 +15133,13 @@ Table of Contents
       description : PlayStation is Sony’s gaming platform and console
                     ecosystem.
 
+   pubg
+      name        : pubg
+      categories  : gaming
+      workflow    : none
+      description : PUBG is a battle royale shooter available on PC, console,
+                    and mobile platforms.
+
    roblox
       name        : roblox
       categories  : gaming
@@ -13925,6 +15148,27 @@ Table of Contents
                     developed by Roblox Corporation that allows users to
                     program and play games created by themselves or other
                     users.
+
+   rocket_league
+      name        : rocket league
+      categories  : gaming
+      workflow    : none
+      description : Rocket League is a vehicular football game developed by
+                    Psyonix.
+
+   rockstar_games_launcher
+      name        : rockstar games launcher
+      categories  : gaming, application store
+      workflow    : none
+      description : The Rockstar Games Launcher distributes and authenticates
+                    Rockstar titles.
+
+   shadow_pc
+      name        : shadow pc
+      categories  : gaming, cloud
+      workflow    : none
+      description : Shadow is a cloud computing service providing a full
+                    remote Windows desktop with GPU.
 
    steam
       name        : steam
@@ -13951,6 +15195,13 @@ Table of Contents
       description : Valorant is an online tactical shooter game developed by
                     Riot Games.
 
+   war_thunder
+      name        : war thunder
+      categories  : gaming
+      workflow    : none
+      description : War Thunder is a vehicular combat multiplayer game
+                    developed by Gaijin Entertainment.
+
    wargaming
       name        : wargaming
       categories  : gaming
@@ -13958,12 +15209,26 @@ Table of Contents
       description : Wargaming is a video game developer focused on online
                     multiplayer games.
 
+   world_of_tanks
+      name        : world of tanks
+      categories  : gaming
+      workflow    : none
+      description : World of Tanks is a multiplayer armoured warfare game
+                    developed by Wargaming.
+
    xbox
       name        : xbox
       categories  : gaming
       workflow    : none
       description : Xbox is Microsoft’s gaming console and online gaming
                     platform.
+
+   xbox_cloud_gaming
+      name        : xbox cloud gaming
+      categories  : gaming, cloud
+      workflow    : none
+      description : Xbox Cloud Gaming streams Xbox titles from Microsoft data
+                    centres to client devices.
 
    zynga
       name        : zynga
@@ -13992,8 +15257,29 @@ Table of Contents
                     (FTS).
 
 
-   health [2 items]
+   health [8 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   23andme
+      name        : 23andme
+      categories  : health, web
+      workflow    : none
+      description : 23andMe provides consumer genetic testing and ancestry
+                    reporting.
+
+   calm
+      name        : calm
+      categories  : health, productivity
+      workflow    : none
+      description : Calm is a meditation, sleep, and mental wellness
+                    application.
+
+   doctolib
+      name        : doctolib
+      categories  : health, web
+      workflow    : none
+      description : Doctolib is a European medical appointment booking and
+                    teleconsultation platform.
 
    fatsecret
       name        : fatsecret
@@ -14001,16 +15287,65 @@ Table of Contents
       workflow    : none
       description : FatSecret is a global health tool.
 
+   headspace
+      name        : headspace
+      categories  : health, productivity
+      workflow    : none
+      description : Headspace is a guided meditation and mindfulness
+                    application.
+
+   myfitnesspal
+      name        : myfitnesspal
+      categories  : health, productivity
+      workflow    : none
+      description : MyFitnessPal is a nutrition tracking and calorie counting
+                    application.
+
+   teladoc
+      name        : teladoc
+      categories  : health, web
+      workflow    : none
+      description : Teladoc Health provides virtual healthcare and
+                    telemedicine consultations.
+
    webmd
-      name        : webm
+      name        : webmd
       categories  : health, knowledge, news
       workflow    : none
       description : WebMD provides health information and medical resources
                     online.
 
 
-   hosting [2 items]
+   hosting [7 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   hetzner
+      name        : hetzner
+      categories  : hosting, cloud
+      workflow    : none
+      description : Hetzner is a German hosting provider offering dedicated
+                    servers and cloud infrastructure.
+
+   netlify
+      name        : netlify
+      categories  : hosting, cloud
+      workflow    : none
+      description : Netlify is a hosting and continuous deployment platform
+                    for static sites and serverless functions.
+
+   ovh
+      name        : ovh
+      categories  : hosting, cloud
+      workflow    : none
+      description : OVHcloud is a European hosting and cloud infrastructure
+                    provider.
+
+   railway
+      name        : railway
+      categories  : hosting, cloud
+      workflow    : none
+      description : Railway, Render, and Fly.io are application hosting
+                    platforms for containerised workloads.
 
    regru
       name        : reg ru
@@ -14026,9 +15361,23 @@ Table of Contents
       description : One of Russia's largest and oldest domain registrars and
                     hosting providers.
 
+   vercel
+      name        : vercel
+      categories  : hosting, cloud
+      workflow    : none
+      description : Vercel is a hosting and deployment platform optimised for
+                    frontend and serverless applications.
 
-   im [16 items]
+
+   im [26 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   bip_messenger
+      name        : bip messenger
+      categories  : im, social network
+      workflow    : none
+      description : BiP is a Turkish messaging and voice call application
+                    operated by Turkcell.
 
    douyin
       name        : douyin
@@ -14046,6 +15395,20 @@ Table of Contents
                     integrated with other Google Workspace products like
                     Gmail, Drive, and Meet.
 
+   groupme
+      name        : groupme
+      categories  : im, social network
+      workflow    : none
+      description : GroupMe is a group messaging application owned by
+                    Microsoft.
+
+   icq
+      name        : icq
+      categories  : im, social network
+      workflow    : none
+      description : ICQ was an early instant messaging service, latterly
+                    operated by VK.
+
    kakaotalk
       name        : kakaotalk
       categories  : im
@@ -14054,6 +15417,13 @@ Table of Contents
                     functioning as a "super-app" that goes beyond simple
                     messaging to include a wide range of services like mobile
                     payments, banking, and e-commerce.
+
+   keybase
+      name        : keybase
+      categories  : im, security
+      workflow    : none
+      description : Keybase provides encrypted messaging and file sharing tied
+                    to public key identity proofs.
 
    kik
       name        : kik
@@ -14067,6 +15437,20 @@ Table of Contents
       workflow    : none
       description : LINE is a free communication and instant messaging (IM)
                     application developed by Japan's LY Corporation.
+
+   mattermost
+      name        : mattermost
+      categories  : im, office
+      workflow    : none
+      description : Mattermost is a self-hostable open-source team messaging
+                    and collaboration platform.
+
+   max_messenger
+      name        : max messenger
+      categories  : im, social network
+      workflow    : none
+      description : MAX is a Russian state-backed messaging and services
+                    application.
 
    messenger
       name        : messenger
@@ -14089,6 +15473,13 @@ Table of Contents
       categories  : im
       workflow    : none
       description : QQ is an instant messaging platform operated by Tencent.
+
+   rocket_chat
+      name        : rocket chat
+      categories  : im, office
+      workflow    : none
+      description : Rocket.Chat is an open-source team communication platform,
+                    commonly self-hosted.
 
    signal
       name        : signal
@@ -14152,6 +15543,108 @@ Table of Contents
       description : WhatsApp is an instant messaging (IM) and voice-over-IP
                     (VoIP) service owned by technology conglomerate Meta.
 
+   wire
+      name        : wire
+      categories  : im, security
+      workflow    : none
+      description : Wire is an end-to-end encrypted collaboration and
+                    messaging platform.
+
+   zalo
+      name        : zalo
+      categories  : im, social network
+      workflow    : none
+      description : Zalo is the dominant messaging and social platform in
+                    Vietnam.
+
+   zulip
+      name        : zulip
+      categories  : im, office
+      workflow    : none
+      description : Zulip is an open-source team chat application organised
+                    around threaded topics.
+
+
+   iot [11 items]
+   ──────────────────────────────────────────────────────────────────────────
+
+   arlo
+      name        : arlo
+      categories  : iot, security
+      workflow    : none
+      description : Arlo produces cloud-connected wireless security cameras
+                    and doorbells.
+
+   bmw_connecteddrive
+      name        : bmw connecteddrive
+      categories  : iot, drive
+      workflow    : none
+      description : ConnectedDrive is BMW's connected vehicle telematics and
+                    infotainment service.
+
+   eufy
+      name        : eufy
+      categories  : iot, security
+      workflow    : none
+      description : Eufy is Anker's brand of smart home cameras, doorbells,
+                    and robot vacuums.
+
+   fitbit
+      name        : fitbit
+      categories  : iot, health
+      workflow    : none
+      description : Fitbit is a Google-owned brand of fitness trackers and its
+                    companion cloud service.
+
+   garmin_connect
+      name        : garmin connect
+      categories  : iot, health
+      workflow    : none
+      description : Garmin Connect is the cloud platform for Garmin wearables
+                    and GPS devices.
+
+   mercedes_me
+      name        : mercedes me
+      categories  : iot, drive
+      workflow    : none
+      description : Mercedes me is the connected vehicle services platform of
+                    Mercedes-Benz.
+
+   sonoff
+      name        : sonoff
+      categories  : iot, network service
+      workflow    : none
+      description : Sonoff smart devices connect through the eWeLink cloud
+                    platform operated by CoolKit.
+
+   toyota_connected
+      name        : toyota connected
+      categories  : iot, drive
+      workflow    : none
+      description : Toyota Connected provides telematics and connected
+                    services for Toyota vehicles.
+
+   vw_we_connect
+      name        : vw we connect
+      categories  : iot, drive
+      workflow    : none
+      description : We Connect is the Volkswagen Group connected vehicle
+                    services platform.
+
+   whoop
+      name        : whoop
+      categories  : iot, health
+      workflow    : none
+      description : Whoop and Oura are wearable health and recovery trackers
+                    with companion cloud services.
+
+   wyze
+      name        : wyze
+      categories  : iot, security
+      workflow    : none
+      description : Wyze produces low-cost smart home cameras and sensors with
+                    a cloud service.
+
 
    job [1 items]
    ──────────────────────────────────────────────────────────────────────────
@@ -14165,7 +15658,7 @@ Table of Contents
                     tutoring, events, etc.).
 
 
-   mail [5 items]
+   mail [10 items]
    ──────────────────────────────────────────────────────────────────────────
 
    apple_mail
@@ -14176,12 +15669,47 @@ Table of Contents
                     operating systems like macOS, iOS, iPadOS, watchOS, and
                     visionOS.
 
+   braze
+      name        : braze
+      categories  : mail, advertisement
+      workflow    : none
+      description : Braze is a customer engagement platform for cross-channel
+                    marketing messages.
+
    gmail
       name        : gmail
       categories  : mail
       workflow    : none
       description : Gmail is a free, web-based email service provided by
                     Google.
+
+   iterable
+      name        : iterable
+      categories  : mail, advertisement
+      workflow    : none
+      description : Iterable is a cross-channel marketing automation and
+                    messaging platform.
+
+   klaviyo
+      name        : klaviyo
+      categories  : mail, advertisement
+      workflow    : none
+      description : Klaviyo is a marketing automation platform focused on
+                    e-commerce email and SMS.
+
+   mail_ru
+      name        : mail ru
+      categories  : mail, web
+      workflow    : none
+      description : Mail.ru is a Russian web portal and free email service
+                    operated by VK.
+
+   mailchimp
+      name        : mailchimp
+      categories  : mail, advertisement
+      workflow    : none
+      description : Mailchimp is an email marketing and campaign automation
+                    platform.
 
    protonmail
       name        : protonmail
@@ -14204,7 +15732,7 @@ Table of Contents
                     the company Yahoo! Inc..
 
 
-   maps [8 items]
+   maps [14 items]
    ──────────────────────────────────────────────────────────────────────────
 
    2gis
@@ -14222,6 +15750,20 @@ Table of Contents
                     developed by Apple, pre-installed on Apple devices like
                     iPhones, iPads, Apple Watches, and Macs.
 
+   baidu_maps
+      name        : baidu maps
+      categories  : maps, travel
+      workflow    : none
+      description : Baidu Maps is a Chinese web mapping and navigation
+                    service.
+
+   citymapper
+      name        : citymapper
+      categories  : maps, travel
+      workflow    : none
+      description : Citymapper is an urban public transport routing and
+                    journey planning application.
+
    flightradar24
       name        : flightradar24
       categories  : maps, travel
@@ -14235,6 +15777,13 @@ Table of Contents
       description : Google Maps is a web mapping service developed by Google,
                     providing detailed geographical information and navigation
                     tools.
+
+   here_maps
+      name        : here maps
+      categories  : maps, travel
+      workflow    : none
+      description : HERE is a mapping and location data provider used in
+                    automotive and enterprise navigation.
 
    mapbox
       name        : mapbox
@@ -14251,12 +15800,32 @@ Table of Contents
       description : Mapy is an online mapping and navigation service,
                     originally known as Mapy.cz.
 
+   marinetraffic
+      name        : marinetraffic
+      categories  : maps, travel
+      workflow    : none
+      description : MarineTraffic provides live vessel tracking based on AIS
+                    data.
+
    openstreetmap
       name        : openstreetmap
       categories  : maps
       workflow    : none
       description : OpenStreetMap (OSM) is a collaborative, free, and
                     open-source project to create a detailed map of the world.
+
+   tomtom
+      name        : tomtom
+      categories  : maps, travel
+      workflow    : none
+      description : TomTom is a navigation, mapping, and traffic data company.
+
+   waze
+      name        : waze
+      categories  : maps, travel
+      workflow    : none
+      description : Waze is a Google-owned community-driven navigation and
+                    traffic reporting application.
 
    yandex_maps
       name        : yandex maps
@@ -14266,7 +15835,7 @@ Table of Contents
                     developed by Yandex.
 
 
-   marketplace [14 items]
+   marketplace [39 items]
    ──────────────────────────────────────────────────────────────────────────
 
    aliexpress
@@ -14276,6 +15845,12 @@ Table of Contents
       description : AliExpress is an online retail marketplace connecting
                     global buyers and sellers.
 
+   allegro
+      name        : allegro
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Allegro is the largest online marketplace in Poland.
+
    amazon_com
       name        : amazon com
       categories  : marketplace
@@ -14284,6 +15859,13 @@ Table of Contents
                     American multinational technology company, Amazon, Inc., a
                     global leader in online retail, cloud computing, and
                     digital streaming.
+
+   americanas
+      name        : americanas
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Americanas and Submarino are Brazilian online retail
+                    marketplaces.
 
    avito
       name        : avito
@@ -14300,6 +15882,33 @@ Table of Contents
       description : A Russian online retailer specializing in gadgets,
                     electronics, and novelty tech items.
 
+   bol_com
+      name        : bol com
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Bol is the largest online retail marketplace in the
+                    Netherlands and Belgium.
+
+   bukalapak
+      name        : bukalapak
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Bukalapak is an Indonesian online marketplace serving
+                    small merchants.
+
+   cdiscount
+      name        : cdiscount
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Cdiscount is a French online retail marketplace.
+
+   coupang
+      name        : coupang
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Coupang is the dominant e-commerce and delivery platform
+                    in South Korea.
+
    ebay
       name        : ebay
       categories  : marketplace
@@ -14315,11 +15924,87 @@ Table of Contents
       description : Etsy is an online marketplace for handmade and vintage
                     goods.
 
+   flipkart
+      name        : flipkart
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Flipkart is a major Indian e-commerce marketplace owned by
+                    Walmart.
+
    gumtree
       name        : gumtree
       categories  : marketplace, web
       workflow    : none
       description : Gumtree is an online classifieds platform.
+
+   hepsiburada
+      name        : hepsiburada
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Hepsiburada is a major Turkish e-commerce marketplace.
+
+   jd_com
+      name        : jd com
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : JD.com is a large Chinese e-commerce retailer known for
+                    first-party logistics.
+
+   jumia
+      name        : jumia
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Jumia is a pan-African e-commerce marketplace and
+                    logistics platform.
+
+   lazada
+      name        : lazada
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Lazada is a Southeast Asian e-commerce marketplace owned
+                    by Alibaba.
+
+   magazine_luiza
+      name        : magazine luiza
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Magazine Luiza is a large Brazilian retail and e-commerce
+                    group.
+
+   meesho
+      name        : meesho
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Meesho is an Indian social commerce and reseller
+                    marketplace.
+
+   mercadolibre
+      name        : mercadolibre
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : MercadoLibre is the largest e-commerce marketplace in
+                    Latin America.
+
+   mercari
+      name        : mercari
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Mercari is a Japanese consumer-to-consumer marketplace
+                    application.
+
+   noon
+      name        : noon
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Noon is an e-commerce marketplace operating in the United
+                    Arab Emirates and Saudi Arabia.
+
+   olx_brasil
+      name        : olx brasil
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : OLX is a classified advertisements marketplace, dominant
+                    in Brazil.
 
    ozon
       name        : ozon
@@ -14328,12 +16013,54 @@ Table of Contents
       description : Ozon is a leading multi-category e-commerce platform and
                     one of the largest internet companies in Russia.
 
+   pinduoduo
+      name        : pinduoduo
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Pinduoduo is a Chinese social commerce marketplace built
+                    around group buying.
+
+   rakuten
+      name        : rakuten
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Rakuten is a Japanese e-commerce, fintech, and digital
+                    services conglomerate.
+
+   sahibinden
+      name        : sahibinden
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Sahibinden is the leading classified advertisements site
+                    in Turkey.
+
    shopee
       name        : shopee
       categories  : marketplace, ecommerce, online shop
       workflow    : none
       description : Shopee is an e-commerce marketplace operating primarily in
                     Asia.
+
+   souq
+      name        : souq
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Souq, now trading as Amazon.ae, is an e-commerce
+                    marketplace in the Middle East.
+
+   stockx
+      name        : stockx
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : StockX and GOAT are marketplaces for sneakers, streetwear,
+                    and collectibles.
+
+   taobao
+      name        : taobao
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Taobao is Alibaba's consumer-to-consumer online
+                    marketplace in China.
 
    temu
       name        : temu
@@ -14348,6 +16075,18 @@ Table of Contents
       workflow    : none
       description : Ticketmaster is an online ticketing platform for events
                     and entertainment.
+
+   tokopedia
+      name        : tokopedia
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Tokopedia is a major Indonesian e-commerce marketplace.
+
+   trendyol
+      name        : trendyol
+      categories  : marketplace, ecommerce
+      workflow    : none
+      description : Trendyol is the leading e-commerce marketplace in Turkey.
 
    wildberries
       name        : wildberries
@@ -14373,8 +16112,22 @@ Table of Contents
                     stores and sellers.
 
 
-   media [27 items]
+   media [105 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   abematv
+      name        : abematv
+      categories  : media
+      workflow    : none
+      description : ABEMA is a Japanese free and subscription internet
+                    television service.
+
+   aha
+      name        : aha
+      categories  : media
+      workflow    : none
+      description : Aha is an Indian regional-language subscription streaming
+                    service.
 
    amazon_video
       name        : amazon video
@@ -14383,6 +16136,13 @@ Table of Contents
       description : Amazon Video, more formally known as Amazon Prime Video,
                     is a subscription streaming service that offers a vast
                     library of movies, TV shows, and live sports.
+
+   amcplus
+      name        : amcplus
+      categories  : media
+      workflow    : none
+      description : AMC+ is a subscription streaming service operated by AMC
+                    Networks.
 
    amediateka
       name        : amediateka
@@ -14399,6 +16159,89 @@ Table of Contents
       description : Apple TV is a digital media player and microconsole
                     developed and sold by Apple Inc..
 
+   ard_mediathek
+      name        : ard mediathek
+      categories  : media, news
+      workflow    : none
+      description : ARD Mediathek is the on-demand streaming service of the
+                    German public broadcaster ARD.
+
+   atresplayer
+      name        : atresplayer
+      categories  : media, news
+      workflow    : none
+      description : Atresplayer is the streaming platform of the Spanish
+                    broadcaster Atresmedia.
+
+   bbc_iplayer
+      name        : bbc iplayer
+      categories  : media, news
+      workflow    : none
+      description : BBC iPlayer is the British Broadcasting Corporation's
+                    streaming and catch-up television service.
+
+   bilibili
+      name        : bilibili
+      categories  : media, social network
+      workflow    : none
+      description : Bilibili is a Chinese video sharing platform focused on
+                    animation, gaming, and user-generated content.
+
+   bluetv
+      name        : bluetv
+      categories  : media
+      workflow    : none
+      description : BluTV is a Turkish subscription video on demand service.
+
+   britbox
+      name        : britbox
+      categories  : media
+      workflow    : none
+      description : BritBox is a subscription streaming service for British
+                    television programming.
+
+   canalplus
+      name        : canalplus
+      categories  : media
+      workflow    : none
+      description : Canal+ is a French premium pay television and streaming
+                    service.
+
+   channel_4
+      name        : channel 4
+      categories  : media, news
+      workflow    : none
+      description : Channel 4 is a British public service broadcaster with an
+                    on-demand streaming platform.
+
+   claro_video
+      name        : claro video
+      categories  : media
+      workflow    : none
+      description : Claro Video is a Latin American streaming service operated
+                    by America Movil.
+
+   coupang_play
+      name        : coupang play
+      categories  : media
+      workflow    : none
+      description : Coupang Play is the streaming service bundled with Coupang
+                    membership in South Korea.
+
+   criterion_channel
+      name        : criterion channel
+      categories  : media
+      workflow    : none
+      description : The Criterion Channel is a subscription streaming service
+                    for classic and arthouse cinema.
+
+   curiosity_stream
+      name        : curiosity stream
+      categories  : media
+      workflow    : none
+      description : CuriosityStream is a subscription streaming service for
+                    documentary programming.
+
    dailymotion
       name        : dailymotion
       categories  : media
@@ -14408,6 +16251,13 @@ Table of Contents
                     videos on various topics like news, entertainment, and
                     sports.
 
+   discoveryplus
+      name        : discoveryplus
+      categories  : media
+      workflow    : none
+      description : Discovery+ is a subscription streaming service for factual
+                    and lifestyle programming.
+
    disney_plus
       name        : disney plus
       categories  : media
@@ -14416,11 +16266,65 @@ Table of Contents
                     series, and documentaries from Disney, Pixar, Marvel, Star
                     Wars, and National Geographic.
 
+   dlive
+      name        : dlive
+      categories  : media, advertisement
+      workflow    : none
+      description : DLive is a blockchain-based live video streaming platform.
+
+   dtv
+      name        : dtv
+      categories  : media
+      workflow    : none
+      description : Lemino, formerly dTV, is a Japanese streaming service
+                    operated by NTT Docomo.
+
+   emby
+      name        : emby
+      categories  : media, protocol
+      workflow    : none
+      description : Emby is a personal media server for organising and
+                    streaming local libraries.
+
+   exxen
+      name        : exxen
+      categories  : media
+      workflow    : none
+      description : Exxen is a Turkish subscription streaming service.
+
+   f1_tv
+      name        : f1 tv
+      categories  : media
+      workflow    : none
+      description : F1 TV is the official Formula 1 live and on-demand
+                    motorsport streaming service.
+
    flickr
       name        : flickr
       categories  : media, design, social network
       workflow    : none
       description : Flickr is an online photo sharing and hosting platform.
+
+   france_tv
+      name        : france tv
+      categories  : media, news
+      workflow    : none
+      description : France.tv is the streaming platform of the French public
+                    broadcaster France Televisions.
+
+   fubo_tv
+      name        : fubo tv
+      categories  : media
+      workflow    : none
+      description : Fubo is a sports-oriented live television streaming
+                    service.
+
+   globoplay
+      name        : globoplay
+      categories  : media, news
+      workflow    : none
+      description : Globoplay is the streaming service of Brazilian media
+                    group Globo.
 
    hbo
       name        : hbo
@@ -14439,12 +16343,32 @@ Table of Contents
                     including popular TV shows, movies, and exclusive Hulu
                     Originals.
 
+   iflix
+      name        : iflix
+      categories  : media
+      workflow    : none
+      description : iflix is a Southeast Asian streaming service, now part of
+                    Prime Video.
+
+   iqiyi
+      name        : iqiyi
+      categories  : media
+      workflow    : none
+      description : iQIYI is a major Chinese online video streaming platform.
+
    itunes
       name        : itunes
       categories  : media
       workflow    : none
       description : iTunes is a media player, media library, and mobile device
                     management (MDM) utility developed by Apple.
+
+   itvx
+      name        : itvx
+      categories  : media, news
+      workflow    : none
+      description : ITVX is the streaming service of the British commercial
+                    broadcaster ITV.
 
    ivi
       name        : ivi
@@ -14455,12 +16379,138 @@ Table of Contents
                     videos, and other content, including its own original
                     productions.
 
+   jiocinema
+      name        : jiocinema
+      categories  : media
+      workflow    : none
+      description : JioHotstar is India's largest streaming service, formed
+                    from JioCinema and Disney+ Hotstar.
+
+   joyn
+      name        : joyn
+      categories  : media
+      workflow    : none
+      description : Joyn is a German streaming platform aggregating free and
+                    paid television content.
+
+   kick
+      name        : kick
+      categories  : media, social network
+      workflow    : none
+      description : Kick is a live streaming platform focused on gaming and
+                    creator content.
+
+   kinopoisk
+      name        : kinopoisk
+      categories  : media
+      workflow    : none
+      description : Kinopoisk is a Russian film database and streaming service
+                    operated by Yandex.
+
+   loom
+      name        : loom
+      categories  : media, productivity
+      workflow    : none
+      description : Loom is a screen and video recording service for
+                    asynchronous workplace communication.
+
+   mango_tv
+      name        : mango tv
+      categories  : media
+      workflow    : none
+      description : Mango TV is a Chinese streaming platform operated by Hunan
+                    Broadcasting System.
+
+   max
+      name        : max
+      categories  : media
+      workflow    : none
+      description : Max is Warner Bros. Discovery's subscription streaming
+                    service, formerly HBO Max.
+
+   mediaset_infinity
+      name        : mediaset infinity
+      categories  : media
+      workflow    : none
+      description : Mediaset Infinity is the streaming service of the Italian
+                    broadcaster Mediaset.
+
+   molotov_tv
+      name        : molotov tv
+      categories  : media
+      workflow    : none
+      description : Molotov is a French live television streaming and cloud
+                    recording service.
+
+   movistarplus
+      name        : movistarplus
+      categories  : media
+      workflow    : none
+      description : Movistar Plus is the pay television and streaming service
+                    of Telefonica in Spain.
+
+   mubi
+      name        : mubi
+      categories  : media
+      workflow    : none
+      description : MUBI is a curated subscription streaming service for
+                    arthouse and independent film.
+
+   mx_player
+      name        : mx player
+      categories  : media, advertisement
+      workflow    : none
+      description : MX Player is an Indian video player and free ad-supported
+                    streaming service.
+
+   nba_league_pass
+      name        : nba league pass
+      categories  : media
+      workflow    : none
+      description : NBA League Pass provides live and on-demand streaming of
+                    National Basketball Association games.
+
    netflix
       name        : netflix
       categories  : media
       workflow    : none
       description : Netflix is an American subscription video on-demand
                     over-the-top streaming service.
+
+   nfl_game_pass
+      name        : nfl game pass
+      categories  : media
+      workflow    : none
+      description : NFL Game Pass provides streaming access to National
+                    Football League games and replays.
+
+   niconico
+      name        : niconico
+      categories  : media, social network
+      workflow    : none
+      description : Niconico is a Japanese video sharing platform known for
+                    overlaid viewer comments.
+
+   npo_start
+      name        : npo start
+      categories  : media, news
+      workflow    : none
+      description : NPO Start is the on-demand service of the Dutch public
+                    broadcaster NPO.
+
+   nrk_tv
+      name        : nrk tv
+      categories  : media, news
+      workflow    : none
+      description : NRK TV is the streaming service of the Norwegian public
+                    broadcaster NRK.
+
+   odysee
+      name        : odysee
+      categories  : media
+      workflow    : none
+      description : Odysee is a video sharing platform built on the
+                    decentralised LBRY protocol.
 
    okko
       name        : okko
@@ -14470,6 +16520,48 @@ Table of Contents
                     offers a large library of movies, TV series, cartoons, and
                     live TV channels.
 
+   osnplus
+      name        : osnplus
+      categories  : media
+      workflow    : none
+      description : OSN+ is a subscription streaming service operating across
+                    the Middle East and North Africa.
+
+   paramountplus
+      name        : paramountplus
+      categories  : media
+      workflow    : none
+      description : Paramount+ is a subscription streaming service operated by
+                    Paramount Global.
+
+   peacock
+      name        : peacock
+      categories  : media
+      workflow    : none
+      description : Peacock is NBCUniversal's subscription and ad-supported
+                    streaming service.
+
+   philo
+      name        : philo
+      categories  : media, advertisement
+      workflow    : none
+      description : Philo is a low-cost American live television streaming
+                    service.
+
+   plex
+      name        : plex
+      categories  : media, protocol
+      workflow    : none
+      description : Plex is a media server and streaming platform for personal
+                    and ad-supported content.
+
+   pluto_tv
+      name        : pluto tv
+      categories  : media, advertisement
+      workflow    : none
+      description : Pluto TV is a free ad-supported streaming television
+                    service owned by Paramount.
+
    premier
       name        : premier
       categories  : media
@@ -14478,12 +16570,101 @@ Table of Contents
                     series, and live TV channels with a focus on Russian
                     content, including exclusive originals.
 
+   prosieben
+      name        : prosieben
+      categories  : media
+      workflow    : none
+      description : ProSiebenSat.1 operates German television streaming
+                    services including the former Maxdome.
+
+   puhutv
+      name        : puhutv
+      categories  : media, advertisement
+      workflow    : none
+      description : puhutv is a Turkish free ad-supported video streaming
+                    service.
+
+   raiplay
+      name        : raiplay
+      categories  : media, news
+      workflow    : none
+      description : RaiPlay is the streaming platform of the Italian public
+                    broadcaster Rai.
+
+   redbox
+      name        : redbox
+      categories  : media
+      workflow    : none
+      description : Redbox was an American video rental and streaming service.
+
    roku
       name        : roku
       categories  : media
       workflow    : none
       description : Roku provides streaming devices and a digital media
                     platform.
+
+   roku_channel
+      name        : roku channel
+      categories  : media, advertisement
+      workflow    : none
+      description : The Roku Channel is a free ad-supported streaming service
+                    on Roku devices and the web.
+
+   rtlplus
+      name        : rtlplus
+      categories  : media, news
+      workflow    : none
+      description : RTL+ is the streaming service of the German broadcaster
+                    RTL Deutschland.
+
+   rumble
+      name        : rumble
+      categories  : media, advertisement
+      workflow    : none
+      description : Rumble is a video sharing and live streaming platform.
+
+   rutube
+      name        : rutube
+      categories  : media
+      workflow    : none
+      description : RuTube is a Russian video hosting and streaming platform
+                    owned by Gazprom-Media.
+
+   shahid
+      name        : shahid
+      categories  : media, news
+      workflow    : none
+      description : Shahid is the streaming service of the Middle Eastern
+                    broadcaster MBC Group.
+
+   showtime
+      name        : showtime
+      categories  : media
+      workflow    : none
+      description : Showtime is an American premium television network and
+                    streaming service.
+
+   shudder
+      name        : shudder
+      categories  : media
+      workflow    : none
+      description : Shudder is a subscription streaming service specialising
+                    in horror and thriller films.
+
+   sling_tv
+      name        : sling tv
+      categories  : media
+      workflow    : none
+      description : Sling TV is an American live television streaming service
+                    operated by Dish Network.
+
+   sonyliv
+      name        : sonyliv
+      categories  : media
+      workflow    : none
+      description : SonyLIV is an Indian subscription streaming service
+                    operated by Sony Pictures Networks.
 
    start
       name        : start
@@ -14494,10 +16675,31 @@ Table of Contents
 
    starz
       name        : starz
-      categories  : media, music
+      categories  : media
       workflow    : none
       description : Starz is a premium television network and streaming
                     service.
+
+   svt_play
+      name        : svt play
+      categories  : media, news
+      workflow    : none
+      description : SVT Play is the streaming service of the Swedish public
+                    broadcaster SVT.
+
+   tencent_video
+      name        : tencent video
+      categories  : media
+      workflow    : none
+      description : Tencent Video is one of the largest online video streaming
+                    platforms in China.
+
+   trovo
+      name        : trovo
+      categories  : media, advertisement
+      workflow    : none
+      description : Trovo is a live streaming platform focused on gaming,
+                    operated by Tencent.
 
    tubi
       name        : tubi
@@ -14505,12 +16707,39 @@ Table of Contents
       workflow    : none
       description : Tubi is a free ad-supported streaming television service.
 
+   tver
+      name        : tver
+      categories  : media, advertisement
+      workflow    : none
+      description : TVer is a Japanese free catch-up television streaming
+                    service run by commercial broadcasters.
+
+   tving
+      name        : tving
+      categories  : media
+      workflow    : none
+      description : TVING is a South Korean subscription streaming platform.
+
+   u_next
+      name        : u next
+      categories  : media
+      workflow    : none
+      description : U-NEXT is a Japanese subscription video and ebook
+                    streaming service.
+
    uplynk
       name        : uplynk
       categories  : media, cloud
       workflow    : none
       description : Uplynk provides cloud-based video streaming and
                     monetization services.
+
+   videoland
+      name        : videoland
+      categories  : media
+      workflow    : none
+      description : Videoland is a Dutch subscription streaming service
+                    operated by RTL.
 
    vimeo
       name        : vimeo
@@ -14522,15 +16751,43 @@ Table of Contents
 
    viu
       name        : viu
-      categories  : media, news
+      categories  : media
       workflow    : none
       description : Viu is a video streaming service focused on Asian content.
 
    vix
       name        : vix
-      categories  : media, news
+      categories  : media
       workflow    : none
       description : ViX is a Spanish-language streaming service.
+
+   voot
+      name        : voot
+      categories  : media
+      workflow    : none
+      description : Voot was an Indian streaming service operated by Viacom18,
+                    later folded into JioCinema.
+
+   vudu
+      name        : vudu
+      categories  : media
+      workflow    : none
+      description : Fandango at Home, formerly Vudu, is a transactional video
+                    on demand service.
+
+   watcha
+      name        : watcha
+      categories  : media
+      workflow    : none
+      description : Watcha is a South Korean film recommendation and
+                    subscription streaming service.
+
+   wavve
+      name        : wavve
+      categories  : media
+      workflow    : none
+      description : Wavve is a South Korean streaming service operated by SK
+                    Telecom and terrestrial broadcasters.
 
    wink
       name        : wink
@@ -14560,9 +16817,16 @@ Table of Contents
       workflow    : none
       description : Xumo is a free ad-supported streaming television platform.
 
+   yle_areena
+      name        : yle areena
+      categories  : media, news
+      workflow    : none
+      description : Yle Areena is the streaming service of the Finnish public
+                    broadcaster Yle.
+
    youku
       name        : youku
-      categories  : media, music
+      categories  : media
       workflow    : none
       description : Youku is a Chinese video streaming service.
 
@@ -14572,9 +16836,30 @@ Table of Contents
       workflow    : none
       description : Zattoo is a live TV streaming service.
 
+   zdf_mediathek
+      name        : zdf mediathek
+      categories  : media, news
+      workflow    : none
+      description : ZDF Mediathek is the on-demand streaming service of the
+                    German public broadcaster ZDF.
 
-   meetings [5 items]
+   zee5
+      name        : zee5
+      categories  : media
+      workflow    : none
+      description : ZEE5 is an Indian subscription streaming service operated
+                    by Zee Entertainment.
+
+
+   meetings [15 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   8x8
+      name        : 8x8
+      categories  : meetings, enterprise
+      workflow    : none
+      description : 8x8 provides cloud telephony, contact centre, and video
+                    meeting services.
 
    adobe_connect
       name        : adobe connect
@@ -14583,12 +16868,40 @@ Table of Contents
       description : Adobe Connect is a web conferencing and virtual classroom
                     platform.
 
+   around
+      name        : around
+      categories  : meetings, web
+      workflow    : none
+      description : Around was a lightweight video meeting application for
+                    small teams.
+
+   daily_co
+      name        : daily co
+      categories  : meetings, code
+      workflow    : none
+      description : Daily provides real-time video and audio APIs for
+                    embedding calls into applications.
+
+   dialpad
+      name        : dialpad
+      categories  : meetings, enterprise
+      workflow    : none
+      description : Dialpad is a cloud communications platform with
+                    AI-assisted voice and meetings.
+
    facetime
       name        : facetime
       categories  : meetings
       workflow    : none
       description : FaceTime is a video and audio call service developed by
                     Apple.
+
+   gather
+      name        : gather
+      categories  : meetings, web
+      workflow    : none
+      description : Gather is a virtual workspace combining a two-dimensional
+                    map with proximity video chat.
 
    google_meet
       name        : google meet
@@ -14598,12 +16911,47 @@ Table of Contents
                     Google that provides virtual meetings and calls through
                     video, audio, and chat.
 
+   goto_meeting
+      name        : goto meeting
+      categories  : meetings, enterprise
+      workflow    : none
+      description : GoTo Meeting is a web conferencing and online meeting
+                    service.
+
+   ringcentral
+      name        : ringcentral
+      categories  : meetings, enterprise
+      workflow    : none
+      description : RingCentral provides cloud telephony, messaging, and video
+                    conferencing for businesses.
+
+   vonage
+      name        : vonage
+      categories  : meetings, enterprise
+      workflow    : none
+      description : Vonage provides cloud communications APIs and business
+                    telephony, including the TokBox video platform.
+
    webex
       name        : webex
       categories  : meetings
       workflow    : none
       description : Webex is a comprehensive collaboration platform developed
                     by Cisco.
+
+   whereby
+      name        : whereby
+      categories  : meetings, web
+      workflow    : none
+      description : Whereby is a browser-based video meeting service requiring
+                    no client installation.
+
+   zoho_meeting
+      name        : zoho meeting
+      categories  : meetings, enterprise
+      workflow    : none
+      description : Zoho Meeting is the web conferencing and webinar product
+                    in the Zoho suite.
 
    zoom
       name        : zoom
@@ -14614,7 +16962,7 @@ Table of Contents
                     live chats.
 
 
-   metadata [6 items]
+   metadata [5 items]
    ──────────────────────────────────────────────────────────────────────────
 
    audio
@@ -14628,13 +16976,6 @@ Table of Contents
       categories  : metadata, workflow
       workflow    : none
       description : Audio/Video call.
-
-   ech
-      name        : ech
-      categories  : metadata
-      workflow    : none
-      description : Encrypted Client Hello. The tag is presented only when ECH
-                    exists, but SNI doesn't exist.
 
    ftp_data
       name        : ftp data
@@ -14658,8 +16999,15 @@ Table of Contents
                     communication directly between peers (P2P).
 
 
-   music [12 items]
+   music [34 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   anghami
+      name        : anghami
+      categories  : music, media
+      workflow    : none
+      description : Anghami is a music streaming service popular across the
+                    Middle East and North Africa.
 
    apple_music
       name        : apple music
@@ -14668,12 +17016,45 @@ Table of Contents
       description : Apple Music is a subscription-based music and video
                     streaming service offered by Apple Inc.
 
+   audiomack
+      name        : audiomack
+      categories  : music, media
+      workflow    : none
+      description : Audiomack is a music and audio streaming platform popular
+                    with independent artists.
+
+   bandcamp
+      name        : bandcamp
+      categories  : music, media
+      workflow    : none
+      description : Bandcamp is an online music store and platform for
+                    independent artists.
+
+   castbox
+      name        : castbox
+      categories  : music, media
+      workflow    : none
+      description : Castbox is a podcast discovery and listening application.
+
    deezer
       name        : deezer
       categories  : music, media
       workflow    : none
       description : Deezer is a French music and podcast streaming service
                     that offers access to over 90 million tracks.
+
+   gaana
+      name        : gaana
+      categories  : music, media
+      workflow    : none
+      description : Gaana is an Indian music streaming service.
+
+   genie_music
+      name        : genie music
+      categories  : music, media
+      workflow    : none
+      description : Genie Music is a South Korean music streaming service
+                    operated by KT.
 
    genius
       name        : genius
@@ -14684,6 +17065,20 @@ Table of Contents
                     insights, allowing users to annotate songs, share stories,
                     and get verified explanations directly from musicians.
 
+   iheartradio
+      name        : iheartradio
+      categories  : music, media
+      workflow    : none
+      description : iHeartRadio is an American broadcast radio, podcast, and
+                    streaming platform.
+
+   jiosaavn
+      name        : jiosaavn
+      categories  : music, media
+      workflow    : none
+      description : JioSaavn is an Indian music streaming and digital audio
+                    service.
+
    lastfm
       name        : last.fm
       categories  : music, media
@@ -14692,12 +17087,72 @@ Table of Contents
                     tracks and records your listening habits through a feature
                     called "scrobbling".
 
+   melon
+      name        : melon
+      categories  : music, media
+      workflow    : none
+      description : Melon is the leading music streaming service in South
+                    Korea.
+
+   mixcloud
+      name        : mixcloud
+      categories  : music, media
+      workflow    : none
+      description : Mixcloud is a streaming platform for DJ mixes, radio
+                    shows, and podcasts.
+
    mtv
       name        : mtv
       categories  : music, media
       workflow    : none
       description : MTV is a media brand focused on music and entertainment
                     content.
+
+   napster
+      name        : napster
+      categories  : music, media
+      workflow    : none
+      description : Napster is a music streaming service, formerly Rhapsody.
+
+   netease_cloud_music
+      name        : netease cloud music
+      categories  : music, media
+      workflow    : none
+      description : NetEase Cloud Music is a major Chinese music streaming and
+                    social listening platform.
+
+   overcast
+      name        : overcast
+      categories  : music, media
+      workflow    : none
+      description : Overcast is an iOS podcast player with its own sync
+                    service.
+
+   pocket_casts
+      name        : pocket casts
+      categories  : music, media
+      workflow    : none
+      description : Pocket Casts is a podcast player and subscription service.
+
+   qobuz
+      name        : qobuz
+      categories  : music, media
+      workflow    : none
+      description : Qobuz is a French high-resolution music streaming and
+                    download store.
+
+   qq_music
+      name        : qq music
+      categories  : music, media
+      workflow    : none
+      description : QQ Music is Tencent's music streaming service in China.
+
+   radio_garden
+      name        : radio garden
+      categories  : music, media
+      workflow    : none
+      description : Radio Garden is a service for browsing live radio stations
+                    on a globe interface.
 
    shazam
       name        : shazam
@@ -14724,6 +17179,13 @@ Table of Contents
                     access to millions of songs, podcasts, and other audio
                     content.
 
+   stitcher
+      name        : stitcher
+      categories  : music, media
+      workflow    : none
+      description : Stitcher was a podcast listening and distribution
+                    platform.
+
    tidal
       name        : tidal
       categories  : music, media
@@ -14731,11 +17193,32 @@ Table of Contents
       description : Tidal is a music streaming service offering high-fidelity
                     audio.
 
+   tunein
+      name        : tunein
+      categories  : music, media
+      workflow    : none
+      description : TuneIn is an internet radio aggregation and streaming
+                    service.
+
    vevo
       name        : vevo
       categories  : music, media
       workflow    : none
       description : Vevo is a music video hosting and distribution platform.
+
+   wynk_music
+      name        : wynk music
+      categories  : music, media
+      workflow    : none
+      description : Wynk Music is an Indian music streaming service operated
+                    by Bharti Airtel.
+
+   ximalaya
+      name        : ximalaya
+      categories  : music, media
+      workflow    : none
+      description : Ximalaya is the largest Chinese audio, podcast, and
+                    audiobook platform.
 
    yandex_music
       name        : yandex music
@@ -14743,6 +17226,13 @@ Table of Contents
       workflow    : none
       description : Yandex Music is a Russian music streaming service
                     developed by Yandex.
+
+   zing
+      name        : zing
+      categories  : music, media
+      workflow    : none
+      description : Zing MP3 is the leading music streaming service in
+                    Vietnam.
 
    zvooq
       name        : zvooq
@@ -14752,7 +17242,7 @@ Table of Contents
                     that offers a vast library of music and podcasts.
 
 
-   news [38 items]
+   news [53 items]
    ──────────────────────────────────────────────────────────────────────────
 
    360ru
@@ -14767,6 +17257,20 @@ Table of Contents
       workflow    : none
       description : A widely circulated Russian weekly newspaper known for its
                     societal and political commentary.
+
+   al_jazeera
+      name        : al jazeera
+      categories  : news, media
+      workflow    : none
+      description : Al Jazeera is a Qatari international news broadcaster and
+                    website.
+
+   ap_news
+      name        : ap news
+      categories  : news, media
+      workflow    : none
+      description : The Associated Press is an American news agency and wire
+                    service.
 
    axios
       name        : axios
@@ -14788,6 +17292,13 @@ Table of Contents
       workflow    : none
       description : The BBC is the world's leading public service broadcaster.
 
+   bild
+      name        : bild
+      categories  : news, media
+      workflow    : none
+      description : Bild is the largest German tabloid newspaper and news
+                    website.
+
    bloomberg
       name        : bloomberg
       categories  : news
@@ -14795,6 +17306,13 @@ Table of Contents
       description : Bloomberg is a global provider of financial news and
                     information, including real-time and historical price
                     data, trading news, and analyst coverage.
+
+   brave_search
+      name        : brave search
+      categories  : news, web
+      workflow    : none
+      description : Brave Search is a privacy-focused search engine with its
+                    own independent index.
 
    championat
       name        : championat
@@ -14830,6 +17348,27 @@ Table of Contents
       categories  : news
       workflow    : none
       description : Digg is a content aggregation platform for news discovery.
+
+   ecosia
+      name        : ecosia
+      categories  : news, web
+      workflow    : none
+      description : Ecosia is a search engine that directs advertising revenue
+                    toward tree planting.
+
+   el_pais
+      name        : el pais
+      categories  : news, media
+      workflow    : none
+      description : El Pais is a Spanish daily newspaper and international
+                    news website.
+
+   financial_times
+      name        : financial times
+      categories  : news, media
+      workflow    : none
+      description : The Financial Times is a British international business
+                    and financial newspaper.
 
    fontanka
       name        : fontanka
@@ -14888,6 +17427,12 @@ Table of Contents
       workflow    : none
       description : One of Russia's most popular daily tabloid newspapers.
 
+   le_monde
+      name        : le monde
+      categories  : news, media
+      workflow    : none
+      description : Le Monde is a French daily newspaper of record.
+
    lenta
       name        : lenta
       categories  : news
@@ -14924,6 +17469,13 @@ Table of Contents
       description : A major Russian daily newspaper, known for its
                     investigative journalism.
 
+   new_york_times
+      name        : new york times
+      categories  : news, media
+      workflow    : none
+      description : The New York Times is an American daily newspaper and
+                    digital news publisher.
+
    newsru
       name        : newsru
       categories  : news
@@ -14938,6 +17490,13 @@ Table of Contents
       description : People is an American weekly magazine that specializes in
                     celebrity news and human-interest stories.
 
+   pocket
+      name        : pocket
+      categories  : news, web
+      workflow    : none
+      description : Pocket and Instapaper are read-it-later services for
+                    saving web articles.
+
    pravda
       name        : pravda
       categories  : news
@@ -14951,6 +17510,13 @@ Table of Contents
       workflow    : none
       description : A leading Russian media group focusing on business,
                     financial, and political news.
+
+   reuters
+      name        : reuters
+      categories  : news, media
+      workflow    : none
+      description : Reuters is an international news agency and financial
+                    information provider.
 
    russia_today
       name        : russia today
@@ -14974,6 +17540,26 @@ Table of Contents
                     founded in 1998, that provides news, broadcasts, analysis,
                     and runs a social community for fans.
 
+   startpage
+      name        : startpage
+      categories  : news, web
+      workflow    : none
+      description : Startpage is a privacy-focused search engine proxying
+                    results from Google.
+
+   terra
+      name        : terra
+      categories  : news, media
+      workflow    : none
+      description : Terra is a large Brazilian web portal and news publisher.
+
+   the_guardian
+      name        : the guardian
+      categories  : news, media
+      workflow    : none
+      description : The Guardian is a British daily newspaper and
+                    international news website.
+
    tjournal
       name        : tjournal
       categories  : news, blog
@@ -14995,6 +17581,13 @@ Table of Contents
       workflow    : none
       description : Toutiao is a Chinese news and content aggregation
                     platform.
+
+   uol
+      name        : uol
+      categories  : news, media
+      workflow    : none
+      description : UOL is one of the largest Brazilian web portals and news
+                    publishers.
 
    ura_news
       name        : ura news
@@ -15027,8 +17620,29 @@ Table of Contents
                     capital.
 
 
-   office [8 items]
+   office [17 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   concur
+      name        : concur
+      categories  : office, enterprise
+      workflow    : none
+      description : SAP Concur is a corporate travel and expense management
+                    platform.
+
+   coupa
+      name        : coupa
+      categories  : office, enterprise
+      workflow    : none
+      description : Coupa is a business spend management and procurement
+                    platform.
+
+   dingtalk
+      name        : dingtalk
+      categories  : office, enterprise
+      workflow    : none
+      description : DingTalk is Alibaba's enterprise communication and
+                    collaboration platform.
 
    docusign
       name        : docusign
@@ -15036,6 +17650,27 @@ Table of Contents
       workflow    : none
       description : DocuSign enables electronic signatures and digital
                     agreement workflows.
+
+   expensify
+      name        : expensify
+      categories  : office, enterprise
+      workflow    : none
+      description : Expensify is an expense reporting and reimbursement
+                    application.
+
+   feishu
+      name        : feishu
+      categories  : office, enterprise
+      workflow    : none
+      description : Feishu, known internationally as Lark, is ByteDance's
+                    enterprise collaboration suite.
+
+   gusto
+      name        : gusto
+      categories  : office, enterprise
+      workflow    : none
+      description : Gusto and ADP provide cloud payroll, benefits, and human
+                    resources administration.
 
    ms365
       name        : ms365
@@ -15077,6 +17712,27 @@ Table of Contents
       description : A Russian developer of office software suites, including
                     word processing and spreadsheets.
 
+   quickbooks
+      name        : quickbooks
+      categories  : office, enterprise
+      workflow    : none
+      description : QuickBooks is Intuit's accounting and bookkeeping software
+                    for small businesses.
+
+   wps_office
+      name        : wps office
+      categories  : office, enterprise
+      workflow    : none
+      description : WPS Office is a Chinese office productivity suite
+                    developed by Kingsoft.
+
+   xero
+      name        : xero
+      categories  : office, enterprise
+      workflow    : none
+      description : Xero is a cloud accounting platform for small and medium
+                    businesses.
+
    yandex360
       name        : yandex360
       categories  : office
@@ -15092,8 +17748,15 @@ Table of Contents
                     applications.
 
 
-   online shop [8 items]
+   online shop [13 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   beatport
+      name        : beatport
+      categories  : online shop, ecommerce
+      workflow    : none
+      description : Beatport is an online store for electronic dance music
+                    aimed at DJs.
 
    bestbuy
       name        : bestbuy
@@ -15114,6 +17777,35 @@ Table of Contents
       workflow    : none
       description : IKEA is a global furniture retailer offering home
                     furnishings and accessories.
+
+   lamoda
+      name        : lamoda
+      categories  : online shop, clothes
+      workflow    : none
+      description : Lamoda is a major online fashion retailer and marketplace
+                    in Russia and the CIS, selling a wide range of clothing,
+                    shoes, accessories, cosmetics, and household goods from
+                    global brands.
+
+   myntra
+      name        : myntra
+      categories  : online shop, ecommerce
+      workflow    : none
+      description : Myntra is an Indian online fashion and lifestyle retailer
+                    owned by Flipkart.
+
+   nykaa
+      name        : nykaa
+      categories  : online shop, ecommerce
+      workflow    : none
+      description : Nykaa is an Indian online retailer of beauty and personal
+                    care products.
+
+   otto
+      name        : otto
+      categories  : online shop, ecommerce
+      workflow    : none
+      description : Otto is a large German online retailer and marketplace.
 
    shutterfly
       name        : shutterfly
@@ -15150,20 +17842,7 @@ Table of Contents
       description : Wayfair is an online retailer specializing in home goods.
 
 
-   onlineshop [1 items]
-   ──────────────────────────────────────────────────────────────────────────
-
-   lamoda
-      name        : lamoda
-      categories  : onlineshop, clothes
-      workflow    : none
-      description : Lamoda is a major online fashion retailer and marketplace
-                    in Russia and the CIS, selling a wide range of clothing,
-                    shoes, accessories, cosmetics, and household goods from
-                    global brands.
-
-
-   payment [11 items]
+   payment [29 items]
    ──────────────────────────────────────────────────────────────────────────
 
    adyen
@@ -15198,12 +17877,74 @@ Table of Contents
                     payments using their Apple devices like iPhones, Apple
                     Watches, iPads, and Macs.
 
+   cash_app
+      name        : cash app
+      categories  : payment, ecommerce
+      workflow    : none
+      description : Cash App is a mobile payment and personal finance service
+                    operated by Block.
+
+   flutterwave
+      name        : flutterwave
+      categories  : payment, ecommerce
+      workflow    : none
+      description : Flutterwave and Paystack are African online payment
+                    processing platforms.
+
+   google_pay_india
+      name        : google pay india
+      categories  : payment, ecommerce
+      workflow    : none
+      description : Google Pay in India operates over the NPCI Unified
+                    Payments Interface rails.
+
+   kakaopay
+      name        : kakaopay
+      categories  : payment, ecommerce
+      workflow    : none
+      description : KakaoPay is a South Korean mobile payment and digital
+                    wallet service.
+
+   klarna
+      name        : klarna
+      categories  : payment, ecommerce
+      workflow    : none
+      description : Klarna is a Swedish buy-now-pay-later and payment services
+                    provider.
+
+   m_pesa
+      name        : m pesa
+      categories  : payment, ecommerce
+      workflow    : none
+      description : M-Pesa is a mobile money transfer and financing service
+                    operated by Safaricom in Africa.
+
    mastercard
       name        : mastercard
       categories  : payment, banking
       workflow    : none
       description : Mastercard is a global payment network enabling electronic
                     transactions.
+
+   mercado_pago
+      name        : mercado pago
+      categories  : payment, ecommerce
+      workflow    : none
+      description : Mercado Pago is the payment and digital wallet arm of
+                    MercadoLibre.
+
+   pagseguro
+      name        : pagseguro
+      categories  : payment, ecommerce
+      workflow    : none
+      description : PagSeguro is a Brazilian payment processing and digital
+                    banking provider.
+
+   paypay
+      name        : paypay
+      categories  : payment, ecommerce
+      workflow    : none
+      description : PayPay is a Japanese QR-code based mobile payment service.
 
    paytm
       name        : paytm
@@ -15212,12 +17953,39 @@ Table of Contents
       description : Paytm is a digital payments and financial services
                     platform.
 
+   phonepe
+      name        : phonepe
+      categories  : payment, ecommerce
+      workflow    : none
+      description : PhonePe is a leading Indian digital payments and UPI
+                    application.
+
+   pix
+      name        : pix
+      categories  : payment, ecommerce
+      workflow    : none
+      description : PIX is the instant payment system operated by the Central
+                    Bank of Brazil.
+
+   plaid
+      name        : plaid
+      categories  : payment, ecommerce
+      workflow    : none
+      description : Plaid provides bank account connectivity APIs used by
+                    fintech applications.
+
    razorpay
       name        : razorpay
       categories  : payment, ecommerce
       workflow    : none
       description : Razorpay is a payment gateway and financial services
                     platform.
+
+   remitly
+      name        : remitly
+      categories  : payment, ecommerce
+      workflow    : none
+      description : Remitly is a digital international remittance service.
 
    square
       name        : square
@@ -15234,12 +18002,33 @@ Table of Contents
                     allows businesses to accept payments online, send payouts,
                     and manage their finances.
 
+   toss
+      name        : toss
+      categories  : payment, ecommerce
+      workflow    : none
+      description : Toss is a South Korean fintech application for payments,
+                    banking, and investing.
+
+   venmo
+      name        : venmo
+      categories  : payment, ecommerce
+      workflow    : none
+      description : Venmo is a PayPal-owned peer-to-peer mobile payment
+                    service popular in the United States.
+
    visa
       name        : visa
       categories  : payment, banking
       workflow    : none
       description : Visa is a global payments technology company facilitating
                     digital payments.
+
+   western_union
+      name        : western union
+      categories  : payment, ecommerce
+      workflow    : none
+      description : Western Union is an international money transfer and
+                    remittance company.
 
    wise
       name        : wise
@@ -15248,9 +18037,58 @@ Table of Contents
       description : Wise is a financial technology company offering
                     international money transfers.
 
+   xsolla
+      name        : xsolla
+      categories  : payment, gaming
+      workflow    : none
+      description : Xsolla provides payment processing and monetization
+                    services for video game publishers.
 
-   productivity [4 items]
+   zelle
+      name        : zelle
+      categories  : payment, ecommerce
+      workflow    : none
+      description : Zelle is a bank-operated instant peer-to-peer payment
+                    network in the United States.
+
+
+   productivity [12 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   airtable
+      name        : airtable
+      categories  : productivity, enterprise
+      workflow    : none
+      description : Airtable is a collaborative database and low-code
+                    application platform.
+
+   asana
+      name        : asana
+      categories  : productivity, enterprise
+      workflow    : none
+      description : Asana is a work management and project tracking platform
+                    for teams.
+
+   basecamp
+      name        : basecamp
+      categories  : productivity, enterprise
+      workflow    : none
+      description : Basecamp is a project management and team communication
+                    tool.
+
+   calendly
+      name        : calendly
+      categories  : productivity, enterprise
+      workflow    : none
+      description : Calendly is a scheduling automation service for booking
+                    meetings.
+
+   clickup
+      name        : clickup
+      categories  : productivity, enterprise
+      workflow    : none
+      description : ClickUp is a work management platform combining tasks,
+                    documents, and goals.
 
    lifehacker
       name        : lifehacker
@@ -15265,6 +18103,27 @@ Table of Contents
       workflow    : none
       description : A leading online collaborative whiteboarding platform for
                     remote and distributed teams.
+
+   monday_com
+      name        : monday com
+      categories  : productivity, enterprise
+      workflow    : none
+      description : Monday.com is a work operating system for project and
+                    workflow management.
+
+   mural
+      name        : mural
+      categories  : productivity, enterprise
+      workflow    : none
+      description : Mural is a collaborative digital whiteboard for
+                    distributed teams.
+
+   smartsheet
+      name        : smartsheet
+      categories  : productivity, enterprise
+      workflow    : none
+      description : Smartsheet is a spreadsheet-style work and project
+                    management platform.
 
    trello
       name        : trello
@@ -15366,8 +18225,15 @@ Table of Contents
                     notification services.
 
 
-   railways [1 items]
+   railways [2 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   deutsche_bahn
+      name        : deutsche bahn
+      categories  : railways, travel
+      workflow    : none
+      description : Deutsche Bahn is the German national railway operator,
+                    offering online ticketing and travel information.
 
    rzd
       name        : rzd
@@ -15395,7 +18261,81 @@ Table of Contents
       description : Zillow is an online real estate marketplace.
 
 
-   search engine [5 items]
+   remote access [10 items]
+   ──────────────────────────────────────────────────────────────────────────
+
+   action1
+      name        : action1
+      categories  : remote access, enterprise
+      workflow    : none
+      description : Action1 is a cloud-based remote monitoring and patch
+                    management platform.
+
+   atera
+      name        : atera
+      categories  : remote access, enterprise
+      workflow    : none
+      description : Atera is a remote monitoring and management platform for
+                    managed service providers.
+
+   chrome_remote_desktop
+      name        : chrome remote desktop
+      categories  : remote access, protocol
+      workflow    : none
+      description : Chrome Remote Desktop is Google's browser-based remote
+                    desktop access service.
+
+   datto_rmm
+      name        : datto rmm
+      categories  : remote access, enterprise
+      workflow    : none
+      description : Datto RMM is a remote monitoring and management platform
+                    for managed service providers.
+
+   kaseya_vsa
+      name        : kaseya vsa
+      categories  : remote access, enterprise
+      workflow    : none
+      description : Kaseya VSA is a remote monitoring and endpoint management
+                    platform.
+
+   logmein
+      name        : logmein
+      categories  : remote access, enterprise
+      workflow    : none
+      description : LogMeIn and GoTo Resolve provide remote access and IT
+                    support tooling.
+
+   ninjaone
+      name        : ninjaone
+      categories  : remote access, enterprise
+      workflow    : none
+      description : NinjaOne is a unified endpoint monitoring and management
+                    platform.
+
+   parallels_ras
+      name        : parallels ras
+      categories  : remote access, enterprise
+      workflow    : none
+      description : Parallels Remote Application Server delivers virtualised
+                    applications and desktops.
+
+   splashtop
+      name        : splashtop
+      categories  : remote access, protocol
+      workflow    : none
+      description : Splashtop provides remote desktop and remote support
+                    software.
+
+   supremo
+      name        : supremo
+      categories  : remote access
+      workflow    : none
+      description : Supremo and Ammyy Admin are lightweight remote desktop
+                    tools, frequently abused in support scams.
+
+
+   search engine [7 items]
    ──────────────────────────────────────────────────────────────────────────
 
    baidu
@@ -15410,6 +18350,13 @@ Table of Contents
       categories  : search engine
       workflow    : none
       description : Bing is a web search engine developed by Microsoft.
+
+   daum
+      name        : daum
+      categories  : search engine, web
+      workflow    : none
+      description : Daum is a South Korean web portal and search service
+                    operated by Kakao.
 
    duckduckgo
       name        : duckduckgo
@@ -15426,6 +18373,13 @@ Table of Contents
       description : Naver is a South Korean technology company operating
                     search and digital platforms.
 
+   rambler
+      name        : rambler
+      categories  : search engine, web
+      workflow    : none
+      description : Rambler is a Russian web portal, search service, and media
+                    group.
+
    shodan
       name        : shodan
       categories  : search engine
@@ -15435,8 +18389,15 @@ Table of Contents
                     systems, that scans and collects data about them.
 
 
-   security [21 items]
+   security [42 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   360_security
+      name        : 360 security
+      categories  : security, enterprise
+      workflow    : none
+      description : 360 Total Security is a Chinese antivirus and system
+                    utility suite by Qihoo 360.
 
    acronis
       name        : acronis
@@ -15466,6 +18427,20 @@ Table of Contents
       description : Bitdefender provides cybersecurity solutions including
                     antivirus and endpoint protection.
 
+   carbon_black
+      name        : carbon black
+      categories  : security, enterprise
+      workflow    : none
+      description : VMware Carbon Black is an endpoint detection and response
+                    platform.
+
+   cato_networks
+      name        : cato networks
+      categories  : security, enterprise
+      workflow    : none
+      description : Cato Networks provides a cloud-delivered secure access
+                    service edge platform.
+
    checkpoint
       name        : checkpoint
       categories  : security
@@ -15480,12 +18455,40 @@ Table of Contents
       description : Cisco is a networking technology company providing
                     hardware, software, and security solutions.
 
+   crowdstrike_falcon
+      name        : crowdstrike falcon
+      categories  : security, enterprise
+      workflow    : none
+      description : CrowdStrike Falcon is a cloud-delivered endpoint detection
+                    and response platform.
+
+   cybereason
+      name        : cybereason
+      categories  : security, enterprise
+      workflow    : none
+      description : Cybereason is an endpoint detection and response security
+                    platform.
+
+   dashlane
+      name        : dashlane
+      categories  : security, web
+      workflow    : none
+      description : Dashlane is a password manager and credential security
+                    service.
+
    digicert
       name        : digicert
       categories  : security
       workflow    : none
       description : DigiCert provides digital certificates and public key
                     infrastructure services.
+
+   duo_security
+      name        : duo security
+      categories  : security, web
+      workflow    : none
+      description : Duo Security, part of Cisco, provides multi-factor
+                    authentication and device trust.
 
    eset
       name        : eset
@@ -15500,6 +18503,20 @@ Table of Contents
       workflow    : none
       description : Fortinet provides cybersecurity solutions including
                     firewalls and network protection.
+
+   have_i_been_pwned_api
+      name        : have i been pwned api
+      categories  : security, web
+      workflow    : none
+      description : Have I Been Pwned provides an API for checking credentials
+                    against known data breaches.
+
+   imperva
+      name        : imperva
+      categories  : security, web
+      workflow    : none
+      description : Imperva provides web application firewall and DDoS
+                    mitigation delivered through its edge network.
 
    kaspersky
       name        : kaspersky
@@ -15530,12 +18547,68 @@ Table of Contents
       description : Microsoft Authentication provides identity and access
                     management services.
 
+   microsoft_defender_atp
+      name        : microsoft defender atp
+      categories  : security, enterprise
+      workflow    : none
+      description : Microsoft Defender for Endpoint is an enterprise endpoint
+                    detection and response service.
+
+   netskope
+      name        : netskope
+      categories  : security, enterprise
+      workflow    : none
+      description : Netskope is a cloud access security broker and secure web
+                    gateway provider.
+
+   norton
+      name        : norton
+      categories  : security, enterprise
+      workflow    : none
+      description : Norton is a consumer antivirus and identity protection
+                    brand operated by Gen Digital.
+
    okta
       name        : okta
       categories  : security, enterprise
       workflow    : none
       description : Okta is an identity and access management platform for
                     enterprises.
+
+   onelogin
+      name        : onelogin
+      categories  : security, web
+      workflow    : none
+      description : OneLogin is an identity and access management platform for
+                    single sign-on.
+
+   palo_alto_cortex
+      name        : palo alto cortex
+      categories  : security, enterprise
+      workflow    : none
+      description : Cortex XDR is Palo Alto Networks' endpoint detection and
+                    response platform.
+
+   perimeter_81
+      name        : perimeter 81
+      categories  : security, enterprise
+      workflow    : none
+      description : Perimeter 81 provides zero-trust network access and cloud
+                    VPN services.
+
+   ping_identity
+      name        : ping identity
+      categories  : security, web
+      workflow    : none
+      description : Ping Identity provides enterprise identity, single
+                    sign-on, and access management.
+
+   rapid7
+      name        : rapid7
+      categories  : security
+      workflow    : none
+      description : Rapid7, Tenable, and Qualys provide vulnerability scanning
+                    and management platforms.
 
    ring
       name        : ring
@@ -15544,12 +18617,26 @@ Table of Contents
       description : Ring develops smart home security and video doorbell
                     products.
 
+   sentinelone
+      name        : sentinelone
+      categories  : security, enterprise
+      workflow    : none
+      description : SentinelOne is an autonomous endpoint protection and
+                    detection platform.
+
    sophos
       name        : sophos
       categories  : security
       workflow    : none
       description : Sophos provides cybersecurity solutions for networks and
                     endpoints.
+
+   sucuri
+      name        : sucuri
+      categories  : security, web
+      workflow    : none
+      description : Sucuri provides website security monitoring, firewalling,
+                    and malware cleanup.
 
    symantec
       name        : symantec
@@ -15572,12 +18659,26 @@ Table of Contents
       description : Trend Micro provides cybersecurity solutions for consumers
                     and enterprises.
 
+   twingate
+      name        : twingate
+      categories  : security, enterprise
+      workflow    : none
+      description : Twingate provides zero-trust remote access as a
+                    replacement for corporate VPN.
+
    veeam
       name        : veeam
       categories  : security, file storage, enterprise
       workflow    : none
       description : Veeam provides backup, recovery, and data protection
                     solutions.
+
+   virustotal
+      name        : virustotal
+      categories  : security, web
+      workflow    : none
+      description : VirusTotal is a Google-owned service for analysing files
+                    and URLs against many antivirus engines.
 
    zscaler
       name        : zscaler
@@ -15587,8 +18688,36 @@ Table of Contents
                     access services.
 
 
-   social network [20 items]
+   social network [50 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   500px
+      name        : 500px
+      categories  : social network, design
+      workflow    : none
+      description : 500px is a photography community and image licensing
+                    platform.
+
+   9gag
+      name        : 9gag
+      categories  : social network, media
+      workflow    : none
+      description : 9GAG is a social platform for sharing humorous images and
+                    short videos.
+
+   afreecatv
+      name        : afreecatv
+      categories  : social network, social network
+      workflow    : none
+      description : SOOP, formerly AfreecaTV, is a South Korean live streaming
+                    platform.
+
+   artstation
+      name        : artstation
+      categories  : social network, design
+      workflow    : none
+      description : ArtStation is a portfolio platform for digital artists in
+                    games, film, and entertainment.
 
    badoo
       name        : badoo
@@ -15597,12 +18726,47 @@ Table of Contents
       description : Badoo is an online dating-focused and social networking
                     application.
 
+   bereal
+      name        : bereal
+      categories  : social network, media
+      workflow    : none
+      description : BeReal is a social application prompting users to post one
+                    unedited photo daily.
+
+   bluesky
+      name        : bluesky
+      categories  : social network, web
+      workflow    : none
+      description : Bluesky is a decentralised social network built on the AT
+                    Protocol.
+
+   bumble
+      name        : bumble
+      categories  : social network, web
+      workflow    : none
+      description : Bumble is a dating and social networking application where
+                    women initiate contact.
+
    bytedance
       name        : bytedance
       categories  : social network, media
       workflow    : none
       description : ByteDance is a technology company operating global content
                     platforms including TikTok and Toutiao.
+
+   clubhouse
+      name        : clubhouse
+      categories  : social network, media
+      workflow    : none
+      description : Clubhouse is a drop-in audio conversation and social
+                    networking application.
+
+   deviantart
+      name        : deviantart
+      categories  : social network, design
+      workflow    : none
+      description : DeviantArt is an online community for sharing user-created
+                    art.
 
    discord
       name        : discord
@@ -15612,12 +18776,40 @@ Table of Contents
                     millions of people to talk and hang out with their
                     favorite creators, communities and friends.
 
+   douban
+      name        : douban
+      categories  : social network, web
+      workflow    : none
+      description : Douban is a Chinese social networking service for books,
+                    film, and music reviews.
+
    facebook
       name        : facebook
       categories  : social network
       workflow    : none
       description : Facebook is a social media and social networking service
                     owned by the American technology conglomerate Meta.
+
+   gab
+      name        : gab
+      categories  : social network, web
+      workflow    : none
+      description : Gab is a social networking service marketed around minimal
+                    content moderation.
+
+   grindr
+      name        : grindr
+      categories  : social network, web
+      workflow    : none
+      description : Grindr is a location-based dating and social networking
+                    application for LGBTQ people.
+
+   hinge
+      name        : hinge
+      categories  : social network, web
+      workflow    : none
+      description : Hinge is a relationship-oriented dating application owned
+                    by Match Group.
 
    hootsuite
       name        : hootsuite
@@ -15633,6 +18825,33 @@ Table of Contents
       description : Instagram is a photo and video sharing social networking
                     service owned by Meta Platforms.
 
+   josh
+      name        : josh
+      categories  : social network, media
+      workflow    : none
+      description : Josh is an Indian short-form video application.
+
+   kuaishou
+      name        : kuaishou
+      categories  : social network, social network
+      workflow    : none
+      description : Kuaishou is a Chinese short-form video and live streaming
+                    platform.
+
+   kwai_latam
+      name        : kwai latam
+      categories  : social network, media
+      workflow    : none
+      description : Kwai is a short-form video application by Kuaishou, widely
+                    used in Latin America.
+
+   letterboxd
+      name        : letterboxd
+      categories  : social network, web
+      workflow    : none
+      description : Letterboxd is a social network for logging, rating, and
+                    reviewing films.
+
    likee
       name        : likee
       categories  : social network
@@ -15646,6 +18865,20 @@ Table of Contents
       workflow    : none
       description : LinkedIn is the world's largest professional network on
                     the internet.
+
+   match_com
+      name        : match com
+      categories  : social network, web
+      workflow    : none
+      description : Match.com is an online dating service operated by Match
+                    Group.
+
+   meetup
+      name        : meetup
+      categories  : social network, web
+      workflow    : none
+      description : Meetup is a platform for organising local in-person
+                    interest groups and events.
 
    mewe
       name        : mewe
@@ -15661,12 +18894,39 @@ Table of Contents
                     that connects people in a specific geographical area, such
                     as a town or a city.
 
+   odnoklassniki
+      name        : odnoklassniki
+      categories  : social network, web
+      workflow    : none
+      description : Odnoklassniki is a Russian social network operated by VK.
+
+   okcupid
+      name        : okcupid
+      categories  : social network, web
+      workflow    : none
+      description : OkCupid is a question-based online dating service owned by
+                    Match Group.
+
+   parler
+      name        : parler
+      categories  : social network, web
+      workflow    : none
+      description : Parler is a social networking service marketed around
+                    minimal content moderation.
+
    pinterest
       name        : pinterest
       categories  : social network
       workflow    : none
       description : Pinterest is a visual discovery engine for finding ideas
                     like recipes, home and style inspiration, and more.
+
+   pixiv
+      name        : pixiv
+      categories  : social network, design
+      workflow    : none
+      description : Pixiv is a Japanese online community for artists and
+                    illustration sharing.
 
    reddit
       name        : reddit
@@ -15675,12 +18935,40 @@ Table of Contents
       description : Reddit is an American proprietary social news aggregation
                     and forum social media platform.
 
+   rumble_social
+      name        : rumble social
+      categories  : social network
+      workflow    : none
+      description : Rumble's social and community features surrounding its
+                    video platform.
+
+   sharechat
+      name        : sharechat
+      categories  : social network, media
+      workflow    : none
+      description : ShareChat and Moj are Indian regional-language social and
+                    short-video platforms.
+
    sharethis
       name        : sharethis
       categories  : social network
       workflow    : none
       description : ShareThis provides social sharing and audience data
                     services.
+
+   strava
+      name        : strava
+      categories  : social network, web
+      workflow    : none
+      description : Strava is a social fitness network for tracking cycling,
+                    running, and other activities.
+
+   tenor
+      name        : tenor
+      categories  : social network, media
+      workflow    : none
+      description : Tenor is a Google-owned GIF search and sharing service
+                    embedded in messaging keyboards.
 
    threads
       name        : threads
@@ -15707,6 +18995,13 @@ Table of Contents
                     application that connects users with potential matches
                     based on their profile and proximity.
 
+   truth_social
+      name        : truth social
+      categories  : social network, web
+      workflow    : none
+      description : Truth Social is a social networking service built on a
+                    Mastodon fork.
+
    twitch
       name        : twitch
       categories  : social network
@@ -15721,12 +19016,26 @@ Table of Contents
       description : Twitter is a social networking service that was rebranded
                     in 2023 to create the social networking service X.
 
+   untappd
+      name        : untappd
+      categories  : social network, web
+      workflow    : none
+      description : Untappd is a social network for discovering and rating
+                    beers.
+
    vkontakte
       name        : vkontakte
       categories  : social network
       workflow    : none
       description : VK (VKontakte) is a Russian online social media and social
                     networking service based in Saint Petersburg.
+
+   xiaohongshu
+      name        : xiaohongshu
+      categories  : social network
+      workflow    : none
+      description : Xiaohongshu, known as RED, is a Chinese lifestyle sharing
+                    and social commerce platform.
 
    youtube
       name        : youtube
@@ -15756,8 +19065,42 @@ Table of Contents
                     tennis, cycling's Grand Tours, and the Olympics.
 
 
-   study [7 items]
+   study [19 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   anki
+      name        : anki
+      categories  : study, productivity
+      workflow    : none
+      description : Anki is a spaced repetition flashcard application; AnkiWeb
+                    provides deck synchronisation.
+
+   babbel
+      name        : babbel
+      categories  : study, web
+      workflow    : none
+      description : Babbel is a subscription language learning application.
+
+   blackboard
+      name        : blackboard
+      categories  : study, web
+      workflow    : none
+      description : Blackboard is a learning management system used by
+                    universities and schools.
+
+   canvas_lms
+      name        : canvas lms
+      categories  : study, web
+      workflow    : none
+      description : Canvas is a learning management system developed by
+                    Instructure for schools and universities.
+
+   chegg
+      name        : chegg
+      categories  : study, web
+      workflow    : none
+      description : Chegg provides textbook rental, homework help, and study
+                    services.
 
    coursera
       name        : coursera
@@ -15784,12 +19127,54 @@ Table of Contents
       description : A massive open online course (MOOC) provider created by
                     Harvard and MIT, hosting university-level courses.
 
+   google_classroom
+      name        : google classroom
+      categories  : study, web
+      workflow    : none
+      description : Google Classroom is a free learning management tool
+                    integrated with Google Workspace for Education.
+
+   kahoot
+      name        : kahoot
+      categories  : study, productivity
+      workflow    : none
+      description : Kahoot is a game-based learning and classroom quiz
+                    platform.
+
+   khan_academy
+      name        : khan academy
+      categories  : study, web
+      workflow    : none
+      description : Khan Academy is a non-profit provider of free online
+                    educational courses and exercises.
+
    lingualeo
       name        : lingualeo
       categories  : study
       workflow    : none
       description : A popular Russian online platform and app for learning
                     English.
+
+   pluralsight
+      name        : pluralsight
+      categories  : study, web
+      workflow    : none
+      description : Pluralsight is a technology skills and professional
+                    development learning platform.
+
+   quizlet
+      name        : quizlet
+      categories  : study, productivity
+      workflow    : none
+      description : Quizlet is an online study platform based on flashcards
+                    and practice tests.
+
+   skillshare
+      name        : skillshare
+      categories  : study, web
+      workflow    : none
+      description : Skillshare is a subscription platform for creative and
+                    professional online classes.
 
    skyeng
       name        : skyeng
@@ -15806,6 +19191,13 @@ Table of Contents
                     courses, especially strong in programming and data
                     science.
 
+   turnitin
+      name        : turnitin
+      categories  : study, web
+      workflow    : none
+      description : Turnitin provides plagiarism detection and academic
+                    integrity checking.
+
    udemy
       name        : udemy
       categories  : study
@@ -15814,7 +19206,7 @@ Table of Contents
                     as a marketplace for e-learning.
 
 
-   telecom [17 items]
+   telecom [19 items]
    ──────────────────────────────────────────────────────────────────────────
 
    at_and_t
@@ -15858,6 +19250,13 @@ Table of Contents
       workflow    : none
       description : Optus is an Australian telecommunications provider.
 
+   rakuten_mobile
+      name        : rakuten mobile
+      categories  : telecom, mobile
+      workflow    : none
+      description : Rakuten Mobile is a Japanese mobile network operator;
+                    Rakuten Link is its calling application.
+
    sber_mobile
       name        : sber mobile
       categories  : telecom, mobile, mvno
@@ -15879,6 +19278,13 @@ Table of Contents
       workflow    : none
       description : StarHub is a telecommunications provider based in
                     Singapore.
+
+   starlink
+      name        : starlink
+      categories  : telecom, network service
+      workflow    : none
+      description : Starlink is SpaceX's low Earth orbit satellite internet
+                    service.
 
    t_mobile
       name        : t mobile
@@ -15954,7 +19360,7 @@ Table of Contents
                     sharing.
 
 
-   travel [11 items]
+   travel [16 items]
    ──────────────────────────────────────────────────────────────────────────
 
    airbnb
@@ -15988,6 +19394,26 @@ Table of Contents
       description : Booking.com is a leading online travel platform that
                     connects travelers with accommodations, flights, car
                     rentals, and tours and activities worldwide.
+
+   ctrip
+      name        : ctrip
+      categories  : travel, marketplace
+      workflow    : none
+      description : Trip.com Group, known as Ctrip in China, is a large online
+                    travel agency.
+
+   despegar
+      name        : despegar
+      categories  : travel, marketplace
+      workflow    : none
+      description : Despegar is a Latin American online travel agency.
+
+   expedia
+      name        : expedia
+      categories  : travel, marketplace
+      workflow    : none
+      description : Expedia is an online travel agency for flights, hotels,
+                    and car rentals.
 
    kayak
       name        : kayak
@@ -16035,6 +19461,13 @@ Table of Contents
                     apartments, houses, cottages, and rooms in Russia and
                     other countries.
 
+   traveloka
+      name        : traveloka
+      categories  : travel, marketplace
+      workflow    : none
+      description : Traveloka is a Southeast Asian online travel and lifestyle
+                    booking platform.
+
    tripadvisor
       name        : tripadvisor
       categories  : travel
@@ -16044,9 +19477,23 @@ Table of Contents
                     share reviews for accommodations, restaurants, and
                     activities.
 
+   trivago
+      name        : trivago
+      categories  : travel, marketplace
+      workflow    : none
+      description : Trivago is a hotel price comparison and metasearch
+                    platform.
 
-   update [1 items]
+
+   update [8 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   android_system_update
+      name        : android system update
+      categories  : update, network service
+      workflow    : none
+      description : Android system and security update distribution channel
+                    operated by Google.
 
    apple_updates
       name        : apple updates
@@ -16056,8 +19503,50 @@ Table of Contents
                     restoring, and updating software on Apple devices: iOS,
                     iPadOS, macOS, watchOS, and tvOS.
 
+   chrome_update
+      name        : chrome update
+      categories  : update, network service
+      workflow    : none
+      description : Omaha is the update service used by Google Chrome and
+                    other Google desktop software.
 
-   vpn [11 items]
+   debian
+      name        : debian
+      categories  : update, network service
+      workflow    : none
+      description : Package repository mirrors distributing Debian and Fedora
+                    Linux software and updates.
+
+   google_play_services
+      name        : google play services
+      categories  : update, advertisement
+      workflow    : none
+      description : Google Play Services provides core APIs, push, and
+                    telemetry for Android applications.
+
+   microsoft_telemetry
+      name        : microsoft telemetry
+      categories  : update, advertisement
+      workflow    : none
+      description : Microsoft diagnostic and telemetry data collection
+                    endpoints used by Windows and Office.
+
+   samsung_telemetry
+      name        : samsung telemetry
+      categories  : update, network service
+      workflow    : none
+      description : Samsung device management, telemetry, and cloud
+                    synchronisation endpoints.
+
+   windows_update
+      name        : windows update
+      categories  : update, network service
+      workflow    : none
+      description : Windows Update is Microsoft's operating system patch and
+                    feature distribution service.
+
+
+   vpn [12 items]
    ──────────────────────────────────────────────────────────────────────────
 
    cyberghostvpn
@@ -16123,6 +19612,12 @@ Table of Contents
       workflow    : none
       description : Surfshark provides VPN and online privacy services.
 
+   tunnelbear
+      name        : tunnelbear
+      categories  : vpn
+      workflow    : none
+      description : TunnelBear is a consumer VPN service owned by McAfee.
+
    urbanvpn
       name        : urbanvpn
       categories  : vpn
@@ -16136,7 +19631,7 @@ Table of Contents
       description : Windscribe provides VPN and privacy protection services.
 
 
-   web [67 items]
+   web [73 items]
    ──────────────────────────────────────────────────────────────────────────
 
    1password
@@ -16214,6 +19709,13 @@ Table of Contents
       description : A globally known online platform for random video chatting
                     with strangers.
 
+   cookpad
+      name        : cookpad
+      categories  : web, web
+      workflow    : none
+      description : Cookpad is a Japanese recipe sharing and cooking community
+                    platform.
+
    crunchbase
       name        : crunchbase
       categories  : web, enterprise
@@ -16236,6 +19738,13 @@ Table of Contents
                     originally an acronym for Entertainment and Sports
                     Programming Network.
 
+   etoro
+      name        : etoro
+      categories  : web, payment
+      workflow    : none
+      description : eToro is a social trading and multi-asset investment
+                    platform.
+
    evernote
       name        : evernote
       categories  : web, productivity
@@ -16243,6 +19752,13 @@ Table of Contents
       description : Evernote is a note-taking and organization app that allows
                     users to capture, organize, and find information across
                     devices.
+
+   fast_com
+      name        : fast com
+      categories  : web, network service
+      workflow    : none
+      description : Fast.com is Netflix's connection speed measurement
+                    service, served from its own CDN.
 
    firefox
       name        : firefox
@@ -16383,6 +19899,13 @@ Table of Contents
       description : An international cloud-based intelligent diagramming and
                     visualization application.
 
+   m_lab
+      name        : m lab
+      categories  : web, network service
+      workflow    : none
+      description : Measurement Lab provides open internet performance
+                    measurement, including the NDT speed test.
+
    mozilla
       name        : mozilla
       categories  : web
@@ -16441,6 +19964,13 @@ Table of Contents
       description : A translation tool providing translations in context with
                     real-life example sentences.
 
+   robinhood
+      name        : robinhood
+      categories  : web, payment
+      workflow    : none
+      description : Robinhood is a commission-free stock, options, and
+                    cryptocurrency trading application.
+
    roboform
       name        : roboform
       categories  : web, security
@@ -16492,6 +20022,13 @@ Table of Contents
       description : An exclusive global network that connects businesses with
                     the top 3% of freelance talent in software development,
                     design, and finance.
+
+   trading_212
+      name        : trading 212
+      categories  : web, payment
+      workflow    : none
+      description : Trading 212 is a European commission-free stock and CFD
+                    trading application.
 
    tradingview
       name        : tradingview
@@ -16773,7 +20310,7 @@ Table of Contents
    test: traffic — no encapsulation
    ··········································································
    flow count                : 1,488,948
-   duration                  : 120 s  (120,221 ms)
+   duration                  : 117 s  (117,892 ms)
    packet count              : 40,000,666
    error traces              : 0
    critical traces           : 0
@@ -16787,31 +20324,31 @@ Table of Contents
    max sip cache usage       : 0
 
    engine performance
-      packets / sec  :     332,723.478  pps
-      throughput     :         847.186  mbps
-      throughput     :        0.847186  gbps
+      packets / sec  :     339,298.724  pps
+      throughput     :         863.928  mbps
+      throughput     :        0.863928  gbps
       total packets  :      40,000,666
       total bytes    :  12,731,295,704
 
    top 10 tags (by bytes)
       name                              packets        bytes
       ---------------------------- ------------ ------------
-      apple                           4,952,509 2,413,427,397
+      apple                           8,921,446 3,267,964,896
+      facetime                        7,674,254 2,347,627,722
       wikipedia                       2,212,760 1,913,574,732
-      facetime                        3,705,521 1,493,104,044
-      yandex_cloud                    4,225,616 1,403,186,600
-      google                          2,919,232 1,110,412,089
-      youtube                           965,103  437,521,555
+      yandex_cloud                    4,234,418 1,406,752,112
+      google                          2,987,226 1,116,317,304
+      apple_push_notification         4,455,694  998,336,964
+      youtube                           965,568  437,754,334
       google_cloud                      864,988  304,153,920
+      disney_plus                       392,262  270,982,636
       apple_updates                     331,914  223,076,382
-      telegram                        1,046,032  217,715,468
-      dropbox                           140,812  179,957,736
 
    top 10 protocols (by bytes)
       name                              packets        bytes
       ---------------------------- ------------ ------------
       tls                            14,594,158 6,642,685,404
-      payload                         5,834,714 2,307,956,688
+      payload                         5,844,772 2,308,389,182
       wireguard                       4,234,418 1,406,752,112
       openvpn                         8,830,924 1,221,051,258
       rtp                             4,234,418  837,760,994
