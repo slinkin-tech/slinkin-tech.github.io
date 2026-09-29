@@ -5,7 +5,108 @@ DC Engine - Changelog
 2026
 ================================================================================
 
-v1.13.17 [06.08.2026]
+v1.13.20 [29.09.2026]
+--------------------------------------------------------------------------------
+* Performance improvements
+* Update signatures: amazon_aws, apple, digital_ocean, baidu, github,
+  google_cloud, hetzner, alibaba_cloud, icloud_private_relay, kingsoft, linode,
+  meta, tencen_cloud, akamai, douyin, bytedance, vk, ms365, ms_exchange,
+  ms_teams, netflix, ovh, roblox, scaleway, starlink, tor, twitter, webex
+* Fix default ports for pop3 and smtp
+* Change description: among_us
+* Improve classification: hubspot, claude
+* Update service categories: lamoda, starz, viu, vix, youku
+* New services (511): 1fichier, 23andme, 360_security, 500px, 8x8, 99, 9gag,
+  abematv, action1, adcolony, adjust, afreecatv, aha, airtable,
+  al_jazeera, alice, allegro, amazon_luna, amcplus, americanas, amplitude,
+  android_system_update, anghami, anki, ao3, ap_news, applovin, appsflyer,
+  ard_mediathek, arlo, around, artstation, asana, asos, atera, atresplayer,
+  audible, audiomack, babbel, backblaze, baidu_maps, baidu_netdisk, bandcamp,
+  basecamp, battle_net, bbc_iplayer, beatport, bereal, bigbasket, bild,
+  bilibili, bip_messenger, bitbucket, bitfinex, bitget, blackboard, bluesky,
+  bluetv, bmw_connecteddrive bol_com, bolt, bongacams, box, branch,
+  brave_search, brawl_stars, braze, brazzers, britbox, bukalapak, bumble,
+  bunny_net, bybit, calendly, call_of_duty_warzone, calm, canalplus, canvas_lms,
+  carbon_black, carbonite, cash_app, castbox, cato_networks, cdiscount,
+  chainalysis, channel_4, character_ai, chaturbate, chegg,
+  chrome_remote_desktop, chrome_update, circleci, citymapper, claro_video,
+  clash_of_clans, clickup, clubhouse, codesandbox, cohere, concur, cookpad,
+  cornershop, coupa, coupang, coupang_play, crates_io, criterion_channel,
+  crowdstrike_falcon, crunchyroll, crypto_com, ctrip, curiosity_stream,
+  cybereason, daily_co, dashlane, databricks, datto_rmm, daum, debian,
+  deliveroo, despegar, deutsche_bahn, deviantart, dialpad, didi, dingtalk,
+  discoveryplus, dlive, doctolib, doh_resolvers, douban, dtv, duo_security,
+  ecosia, egnyte, el_pais, ele_me, elevenlabs, emby, escape_from_tarkov,
+  ethermine, etoro, eufy, expedia, expensify, exxen, f1_tv, fansly, farfetch,
+  fast_com, feishu, fifa, filemail, financial_times, fitbit, flipkart,
+  flutterwave, france_tv, free_fire, free_now, freshworks, fubo_tv, fullstory,
+  gaana, gab, garmin_connect, gate_io, gather, genie_music, genshin_impact,
+  getir, gitee, github_copilot, globoplay, go_module_proxy, gog_galaxy, gojek,
+  goodreads, google_classroom, google_pay_india, google_play_services,
+  goto_meeting, grab, grindr, groq, groupme, gusto, habr, have_i_been_pwned_api,
+  headspace, helm_charts, hepsiburada, here_maps, hetzner, hinge,
+  honkai_star_rail, hoyolab, hugging_face, icq, idrive, iflix, ifood,
+  iheartradio, imperva, index_exchange, intercom, iqiyi, ironsource, itch_io,
+  iterable, itvx, jd_com, jiocinema, jiosaavn, josh, joyn, jsdelivr, jumia,
+  just_eat_takeaway, kahoot, kakaopay, kaseya_vsa, keybase, keycdn,
+  khan_academy, kick, kinopoisk, klarna, klaviyo, ko_fi, koo, krafton, kraken,
+  kuaishou, kucoin, kwai_latam, lazada, le_monde, ledger_live, letterboxd,
+  libby, line_manga, linode, livejasmin, lm_studio, logmein, loom, m_lab,
+  m_pesa, magazine_luiza, mail_ru, mailchimp, mango_tv, marinetraffic,
+  match_com, mattermost, maven_central, max, max_messenger, mediafire,
+  mediaset_infinity, meesho, meetup, meituan, melon, mercado_pago,
+  mercadolibre, mercari, mercedes_me, meta_pixel, metamask, microsoft_copilot,
+  microsoft_defender_atp, microsoft_telemetry, mistral, mixcloud, mixpanel,
+  mobile_legends, molotov_tv, monday_com, monzo, movistarplus, mubi, mural,
+  mx_player, myfitnesspal, myntra, n26, napster, naver_webtoon,
+  nba_league_pass, ncsoft, netdocuments, netease_cloud_music, netlify, netskope,
+  new_york_times, nexon, nfl_game_pass, nhentai, nicehash, niconico, ninjaone,
+  noon, norton, npm_registry, npo_start, nrk_tv, nubank, nuget,
+  nvidia_geforce_now, nykaa, odnoklassniki, odysee, okcupid, okx, ola,
+  olx_brasil, onelogin, opensea, openx, oracle_netsuite, osnplus, otto,
+  overcast, ovh, packagist, pagerduty, pagseguro, palo_alto_cortex,
+  parallels_ras, paramountplus, parler, paypay, pcloud, peacock, perimeter_81,
+  perplexity, phantom, philo, phonepe, pinduoduo, ping_identity, pix, pixiv,
+  plaid, planetscale, plausible, plex, pluralsight, pluto_tv, pocket,
+  pocket_casts, postman, prosieben, pubg, pubmatic, puhutv, pypi, qobuz,
+  qq_music, quay_io, quickbooks, quizlet, radio_garden, railway, raiplay,
+  rakuten, rakuten_mobile, rambler, rapid7, rapidgator, rappi, redbox,
+  refinitiv, remitly, replicate, replit, reuters, ringcentral, robinhood,
+  rocket_chat, rocket_league, rockstar_games_launcher, roku_channel, rtlplus,
+  rubicon, rubygems, rule34, rumble, rumble_social, rutube, sahibinden,
+  samsung_telemetry, sap_successfactors, scaleway, segment, send_anywhere,
+  sentinelone, sentry, shadow_pc, shahid, sharechat, shogakukan, showtime,
+  shudder, skillshare, sling_tv, smartsheet, snowflake, sonoff, sonyliv, souq,
+  splashtop, stability_ai, stackpath, starlink, startpage, stitcher, stockx,
+  storytel, strava, stripchat, substack, sucuri, suno, supabase, supremo,
+  svt_play, swift, swiggy, sync_com, talabat, taobao, teladoc, tencent_video,
+  tenor, terra, terraform_registry, the_guardian, together_ai, tokopedia,
+  tomtom, toss, toyota_connected, trading_212, traveloka, travis_ci, trendyol,
+  tresorit, trivago, trovo, trust_wallet, truth_social, tunein, tunnelbear,
+  turnitin, tver, tving, twilio, twingate, u_next, uber_eats, udio, uniswap,
+  unpkg, untappd, uol, uploaded, venmo, vercel, videoland, virustotal, vonage,
+  voot, vtb, vudu, vw_we_connect, war_thunder, watcha, wattpad, wavve, waze,
+  western_union, wetransfer, whereby, whoop, windows_update, wire, wolt,
+  world_of_tanks, wps_office, wynk_music, wyze, xai, xbox_cloud_gaming,
+  xero, xiaohongshu, ximalaya, xsolla, yandex_eda, yemeksepeti, yle_areena,
+  zalo, zdf_mediathek, zee5, zelle, zing, zippyshare, zoho_meeting, zulip
+* Improve service domain matching functionality: decrease
+  the amount of domains with saving classification quality
+* Memory management refactoring: using static types/structures
+  for tag containers and cache tables
+* Remove PCRE2 as a default regex engine from the release builds
+* ECH is moved to tls_metadata extension
+* Fix payload layer detection
+* Fix header include for API files
+
+v1.13.18 [31.08.2026]
+--------------------------------------------------------------------------------
+* Update service signatures: amazon_aws, apple, google_cloud, netflix, tor,
+  vultr, disney_plus, facebook, github, icloud_private_relay, line, meta,
+  roblox, teamviewer, webex, zoom
+* New service: anthropic, claude
+
+v1.13.17 [07.08.2026]
 --------------------------------------------------------------------------------
 * Update service signatures: amazon_aws, apple, disney_plus, dropbox, facebook,
   github, icloud_private_relay, kingsoft, google, meta, netflix, telegram, tor,
