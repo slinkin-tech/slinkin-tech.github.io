@@ -1,7 +1,7 @@
 ================================================================================
                                    DC Engine
                               Technical Reference
-                             Version v2.0.0+b46ac94
+                             Version v2.0.1+59cf64e
                                    14.10.2026
 ================================================================================
 
@@ -107,7 +107,7 @@ Table of Contents
 ────────────────────────────────────────────────────────────────────────────────
 
    product  : dc engine
-   release  : v2.0.0+b46ac94
+   release  : v2.0.1+59cf64e
 
    dependencies
 
@@ -20489,7 +20489,7 @@ Table of Contents
    test: traffic — no encapsulation
    ··········································································
    flow count                : 1,488,948
-   duration                  : 44 s  (44,179 ms)
+   duration                  : 44 s  (44,419 ms)
    packet count              : 40,000,666
    error traces              : 0
    critical traces           : 0
@@ -20503,9 +20503,9 @@ Table of Contents
    max sip cache usage       : 0
 
    engine performance
-      packets / sec  :     905,417.366  pps
-      throughput     :       2,305.389  mbps
-      throughput     :        2.305389  gbps
+      packets / sec  :     900,523.942  pps
+      throughput     :       2,292.929  mbps
+      throughput     :        2.292929  gbps
       total packets  :      40,000,666
       total bytes    :  12,731,295,704
 
