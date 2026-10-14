@@ -5,6 +5,28 @@ DC Engine - Changelog
 2026
 ================================================================================
 
+v2.0.0 [14.10.2026]
+--------------------------------------------------------------------------------
+* 1 new protocol: COAP Over TLS
+* Service update: amazon_aws, apple, icloud_private_relay, kingsoft, vultr,
+  digital_ocean, fastly, facebook, github, google_cloud, linode, meta, netflix,
+  ovh, starlink, teamviewer, tencent_cloud, tor, webex, tbank, zoom
+* New services (23): baishan_cloud, edge_next, yext, volcengine, upyun,
+      sparkpost, skilljar, china_telecom, wangsu, cdnnetworks, zenlayer,
+      gcore, cdn77, cachefly, qiniu, medianova, azion, arvancloud, ddos_guard,
+      qrator, selectel, ngenix, cdnvideo
+* API is updated: DcEngine, LayerFabric
+* StaticArray and TagContainer refactoring (std like style)
+* Add functionality to add user protocols (detection, dissection)
+* Span and StringView refactoring and doxygen doc
+* Performance improvements (~1.5x)
+  * Improve HTTP dissection performance
+  * IP and domain lookup optimization
+  * Use static arrays for layer fields
+  * Fix expression loop bug
+  * IP Table lookup refactoring
+  * TCP State mechanism refactoring
+
 v1.13.20 [29.09.2026]
 --------------------------------------------------------------------------------
 * Performance improvements

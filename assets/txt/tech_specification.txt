@@ -1,8 +1,8 @@
 ================================================================================
                                    DC Engine
                               Technical Reference
-                            Version v1.13.20+a2c996c
-                                   29.09.2026
+                             Version v2.0.0+b46ac94
+                                   14.10.2026
 ================================================================================
 
 Table of Contents
@@ -107,7 +107,7 @@ Table of Contents
 ────────────────────────────────────────────────────────────────────────────────
 
    product  : dc engine
-   release  : v1.13.20+a2c996c
+   release  : v2.0.0+b46ac94
 
    dependencies
 
@@ -124,14 +124,14 @@ Table of Contents
 
    parameter                                  value
    ----------------------------------- ------------
-   active tags                                1,081
+   active tags                                1,105
    inactive tags                                  2
-   expressions                                   24
-   classifier tags                            1,067
+   expressions                                   25
+   classifier tags                            1,090
    no-offload protocols                           6
-   domains                                    6,886
-   ipv4 cidr entries                        110,653
-   ipv6 cidr entries                        266,638
+   domains                                    6,939
+   ipv4 cidr entries                        116,668
+   ipv6 cidr entries                        267,168
    ipv4 socket entries                            0
    ipv6 socket entries                            0
    dns cache tags                                 1
@@ -156,7 +156,7 @@ Table of Contents
 
    bittorrent
       osi layer : application
-      ports     : tcp: 6889, 6888, 6884, 6883, 6885, 6887, 6886, 6882, 6881
+      ports     : tcp: 6889, 6888, 6884, 6883, 6885, 6887, 6881, 6886, 6882
       patterns  : -
 
    bittorrent_dht
@@ -211,17 +211,17 @@ Table of Contents
 
    gtp
       osi layer : transport
-      ports     : udp: 2152, 2123
+      ports     : udp: 2123, 2152
       patterns  : -
 
    http
       osi layer : application
       ports     : tcp: 80
-      patterns  : HTTP/1.1, HTTP/1.0, GET, POST, HEAD, PUT, DELETE, CONNECT,
-                  OPTIONS, TRACE, COPY, LOCK, MKCOL, MOVE, PROPFIND,
-                  PROPPATCH, SEARCH, UNLOCK, BIND, REBIND, UNBIND, ACL,
-                  REPORT, MKACTIVITY, CHECKOUT, MERGE, PATCH, PURGE,
-                  MKCALENDAR, LINK, UNLINK, SOURCE
+      patterns  : GET, POST, HEAD, PUT, DELETE, CONNECT, OPTIONS, TRACE, COPY,
+                  LOCK, MKCOL, MOVE, PROPFIND, PROPPATCH, SEARCH, UNLOCK,
+                  BIND, REBIND, UNBIND, ACL, REPORT, MKACTIVITY, CHECKOUT,
+                  MERGE, PATCH, PURGE, MKCALENDAR, LINK, UNLINK, SOURCE,
+                  HTTP/1.1, HTTP/1.0
 
    http2
       osi layer : application
@@ -372,7 +372,7 @@ Table of Contents
    ssdp
       osi layer : application
       ports     : udp: 1900
-      patterns  : HTTP/1.1, HTTP/1.0, M-SEARCH, NOTIFY, SUBSCRIBE, SSDPC
+      patterns  : M-SEARCH, NOTIFY, SUBSCRIBE, SSDPC, HTTP/1.1, HTTP/1.0
 
    ssh
       osi layer : application
@@ -401,7 +401,7 @@ Table of Contents
 
    tls
       osi layer : session
-      ports     : tcp: 995, 993, 443
+      ports     : tcp: 443, 993, 995
       patterns  : -
 
    udp
@@ -13313,7 +13313,7 @@ Table of Contents
                     serialised user-generated fiction.
 
 
-   cdn [10 items]
+   cdn [16 items]
    ──────────────────────────────────────────────────────────────────────────
 
    amazon_cloudfront
@@ -13330,6 +13330,41 @@ Table of Contents
       workflow    : none
       description : Bunny.net is a content delivery network and edge storage
                     provider.
+
+   cachefly
+      name        : cachefly
+      categories  : cdn
+      workflow    : none
+      description : CacheFly is a US CDN specialising in low-latency software
+                    and game-patch distribution.
+
+   cdn77
+      name        : cdn77
+      categories  : cdn
+      workflow    : none
+      description : CDN77 is a Czech content delivery network operated by
+                    DataCamp, popular with video and software-distribution
+                    customers.
+
+   cdnetworks
+      name        : cdnetworks
+      categories  : cdn, cloud, security
+      workflow    : none
+      description : CDNetworks is a content delivery and edge security
+                    provider with its strongest presence in South Korea, Japan
+                    and wider APAC, offering web acceleration, streaming
+                    delivery, WAF and DDoS protection; it is majority-owned by
+                    Wangsu Science & Technology but operates its own network
+                    and customer base.
+
+   cdnvideo
+      name        : cdnvideo
+      categories  : cdn, media
+      workflow    : none
+      description : CDNvideo is a Russian content delivery network
+                    specialising in live and on-demand video streaming,
+                    serving broadcasters and media platforms across Russia and
+                    the CIS.
 
    cloudinary
       name        : cloudinary
@@ -13368,6 +13403,21 @@ Table of Contents
       categories  : cdn, cloud
       workflow    : none
       description : KeyCDN is a content delivery network provider.
+
+   medianova
+      name        : medianova
+      categories  : cdn
+      workflow    : none
+      description : Medianova is a Turkish CDN and edge security provider
+                    serving Turkey, the Middle East and North Africa.
+
+   ngenix
+      name        : ngenix
+      categories  : cdn, security, cloud
+      workflow    : none
+      description : NGENIX is a Russian content delivery and web security
+                    provider offering CDN, DDoS protection and WAF to
+                    enterprise and media customers, owned by Rostelecom.
 
    stackpath
       name        : stackpath
@@ -13429,7 +13479,7 @@ Table of Contents
       description : Zalando is an online fashion retail platform.
 
 
-   cloud [21 items]
+   cloud [32 items]
    ──────────────────────────────────────────────────────────────────────────
 
    akamai
@@ -13453,6 +13503,31 @@ Table of Contents
       description : Amazon Web Services (AWS) is a comprehensive and widely
                     adopted cloud computing platform offered by Amazon.
 
+   arvancloud
+      name        : arvancloud
+      categories  : cloud, cdn
+      workflow    : none
+      description : ArvanCloud is Iran's largest cloud and CDN provider,
+                    offering content delivery, DNS and DDoS protection inside
+                    a heavily filtered network.
+
+   azion
+      name        : azion
+      categories  : cloud, cdn
+      workflow    : none
+      description : Azion is a Brazilian edge computing and CDN platform, the
+                    main domestic alternative to global CDNs in Latin America.
+
+   baishan_cloud
+      name        : baishan cloud
+      categories  : cloud, cdn
+      workflow    : none
+      description : Baishan Cloud (BaishanCloud) is a leading independent edge
+                    cloud service provider founded in China. It specializes in
+                    integrating network services, edge security, and
+                    intelligent computing into a globally distributed edge
+                    platform.
+
    cloudflare
       name        : cloudflare
       categories  : cloud, cdn
@@ -13472,6 +13547,14 @@ Table of Contents
                     to offer developers, startups, and small to medium-sized
                     businesses (SMBs) simple and affordable cloud solutions.
 
+   edge_next
+      name        : edge next
+      categories  : cloud, cdn
+      workflow    : none
+      description : EdgeNext is a global edge cloud and content delivery
+                    network (CDN) service provider that was spun off as an
+                    independent brand by Baishan Cloud.
+
    fastly
       name        : fastly
       categories  : cloud, cdn
@@ -13479,6 +13562,15 @@ Table of Contents
       description : Fastly is an American company that provides content
                     delivery network services, image optimization, and load
                     balancing services.
+
+   gcore
+      name        : gcore
+      categories  : cloud, cdn
+      workflow    : none
+      description : G-Core Labs, a Luxembourg-based edge cloud offering CDN,
+                    hosting, streaming and DDoS protection, with unusually
+                    strong coverage in CIS, Eastern Europe and the Middle
+                    East.
 
    google_cloud
       name        : google cloud
@@ -13548,6 +13640,14 @@ Table of Contents
       description : Oracle Cloud provides cloud infrastructure and enterprise
                     applications.
 
+   qiniu
+      name        : qiniu
+      categories  : cloud, cdn
+      workflow    : none
+      description : Qiniu Cloud is a Chinese object storage and CDN provider
+                    widely used by domestic app developers for image and video
+                    delivery.
+
    rackspace
       name        : rackspace
       categories  : cloud, enterprise
@@ -13561,6 +13661,15 @@ Table of Contents
       description : Scaleway is a French cloud infrastructure and bare metal
                     hosting provider.
 
+   selectel
+      name        : selectel
+      categories  : cloud, hosting, file storage
+      workflow    : none
+      description : Selectel is a Russian cloud infrastructure provider
+                    offering dedicated servers, virtual private cloud, object
+                    storage and CDN, operating its own data centres in Moscow
+                    and Saint Petersburg.
+
    tencent_cloud
       name        : tencent cloud
       categories  : cloud
@@ -13568,12 +13677,27 @@ Table of Contents
       description : Tencent Cloud delivers cloud computing, big data, and AI
                     services from Tencent.
 
+   upyun
+      name        : upyun
+      categories  : cloud, cdn
+      workflow    : none
+      description : UPYUN is a Chinese CDN and cloud storage provider focused
+                    on image processing and media acceleration.
+
    vmware
       name        : vmware
       categories  : cloud, enterprise
       workflow    : none
       description : VMware develops virtualization and cloud infrastructure
                     software.
+
+   volcengine
+      name        : volcengine
+      categories  : cloud, cdn
+      workflow    : none
+      description : Volcengine is ByteDance's public cloud platform, providing
+                    CDN, compute, storage and the infrastructure behind Douyin
+                    and other ByteDance properties.
 
    vultr
       name        : vultr
@@ -13583,6 +13707,14 @@ Table of Contents
                     infrastructure services, including cloud servers, cloud
                     storage, and bare metal solutions.
 
+   wangsu
+      name        : wangsu
+      categories  : cloud, cdn, dns
+      workflow    : none
+      description : Wangsu Science & Technology (ChinaNetCenter) is China's
+                    largest independent CDN operator, providing content
+                    delivery, GSLB and DNS services domestically and overseas.
+
    yandex_cloud
       name        : yandex cloud
       categories  : cloud
@@ -13591,6 +13723,14 @@ Table of Contents
                     scalable infrastructure, storage, machine learning and
                     development tools to build and enhance digital services
                     and applications.
+
+   zenlayer
+      name        : zenlayer
+      categories  : cloud, cdn, hosting
+      workflow    : none
+      description : Zenlayer is an edge cloud provider specialising in bare
+                    metal, CDN and global accelerated networking for emerging
+                    markets in Asia, Latin America and Africa.
 
 
    code [39 items]
@@ -14441,7 +14581,7 @@ Table of Contents
                     and a ridesharing company.
 
 
-   enterprise [34 items]
+   enterprise [35 items]
    ──────────────────────────────────────────────────────────────────────────
 
    amd
@@ -14676,6 +14816,14 @@ Table of Contents
       workflow    : none
       description : Xiaomi is a consumer electronics company producing
                     smartphones and smart devices.
+
+   yext
+      name        : yext
+      categories  : enterprise, web, cdn
+      workflow    : none
+      description : Yext is a digital presence platform that publishes
+                    business listings and landing pages, delivering them
+                    through its own CDN.
 
    zendesk
       name        : zendesk
@@ -15658,7 +15806,7 @@ Table of Contents
                     tutoring, events, etc.).
 
 
-   mail [10 items]
+   mail [11 items]
    ──────────────────────────────────────────────────────────────────────────
 
    apple_mail
@@ -15723,6 +15871,14 @@ Table of Contents
       categories  : mail
       workflow    : none
       description : SendGrid is an email delivery and marketing platform.
+
+   sparkpost
+      name        : sparkpost
+      categories  : mail, enterprise
+      workflow    : none
+      description : SparkPost is an infrastructure-focused, API-driven cloud
+                    email delivery and analytics platform designed for sending
+                    high-volume transactional and marketing emails.
 
    yahoo_mail
       name        : yahoo mail
@@ -18139,8 +18295,15 @@ Table of Contents
       description : Wondershare develops multimedia and productivity software.
 
 
-   protocol [10 items]
+   protocol [11 items]
    ──────────────────────────────────────────────────────────────────────────
+
+   coap_over_tls
+      name        : coap over tls
+      categories  : protocol
+      workflow    : none
+      description : Port based and ALPN signature classification for COAP Over
+                    TLS.
 
    dns_over_quic
       name        : dns over quic
@@ -18389,7 +18552,7 @@ Table of Contents
                     systems, that scans and collects data about them.
 
 
-   security [42 items]
+   security [44 items]
    ──────────────────────────────────────────────────────────────────────────
 
    360_security
@@ -18475,6 +18638,14 @@ Table of Contents
       workflow    : none
       description : Dashlane is a password manager and credential security
                     service.
+
+   ddos_guard
+      name        : ddos guard
+      categories  : security, cdn
+      workflow    : none
+      description : DDoS-Guard is a Russian DDoS mitigation and content
+                    delivery provider, notable for hosting services that other
+                    providers decline.
 
    digicert
       name        : digicert
@@ -18602,6 +18773,13 @@ Table of Contents
       workflow    : none
       description : Ping Identity provides enterprise identity, single
                     sign-on, and access management.
+
+   qrator
+      name        : qrator
+      categories  : security, cdn
+      workflow    : none
+      description : Qrator Labs is a Russian DDoS mitigation network operating
+                    as a reverse proxy in front of customer origins.
 
    rapid7
       name        : rapid7
@@ -19065,7 +19243,7 @@ Table of Contents
                     tennis, cycling's Grand Tours, and the Olympics.
 
 
-   study [19 items]
+   study [20 items]
    ──────────────────────────────────────────────────────────────────────────
 
    anki
@@ -19169,6 +19347,14 @@ Table of Contents
       description : Quizlet is an online study platform based on flashcards
                     and practice tests.
 
+   skilljar
+      name        : skilljar
+      categories  : study, enterprise
+      workflow    : none
+      description : Skilljar is a customer education and training LMS used by
+                    software vendors to deliver onboarding and certification
+                    courses.
+
    skillshare
       name        : skillshare
       categories  : study, web
@@ -19206,7 +19392,7 @@ Table of Contents
                     as a marketplace for e-learning.
 
 
-   telecom [19 items]
+   telecom [20 items]
    ──────────────────────────────────────────────────────────────────────────
 
    at_and_t
@@ -19222,6 +19408,16 @@ Table of Contents
       workflow    : none
       description : A key brand of VimpelCom, offering mobile, TV, and
                     internet services across Russia.
+
+   china_telecom
+      name        : china telecom
+      categories  : telecom, cdn, dns
+      workflow    : none
+      description : China Telecom is one of the largest state-owned
+                    telecommunications companies in China and a major global
+                    telecommunications service provider, offering fixed-line,
+                    mobile communications, broadband internet, and enterprise
+                    cloud services.
 
    comcast
       name        : comcast
@@ -20231,58 +20427,43 @@ Table of Contents
       lscpu -e=CPU,CORE,SOCKET,NODE,ONLINE
       CPU CORE SOCKET NODE ONLINE
         0    0      0    0    yes
-        1    0      0    0    yes
-        2    1      0    0    yes
-        3    1      0    0    yes
+        1    1      0    0    yes
       
       lscpu
       Architecture:                x86_64
         CPU op-mode(s):            32-bit, 64-bit
-        Address sizes:             40 bits physical, 57 bits virtual
+        Address sizes:             40 bits physical, 48 bits virtual
         Byte Order:                Little Endian
-      CPU(s):                      4
-        On-line CPU(s) list:       0-3
-      Vendor ID:                   GenuineIntel
-        Model name:                Intel Xeon Processor (Icelake)
-          CPU family:              6
-          Model:                   106
-          Thread(s) per core:      2
+      CPU(s):                      2
+        On-line CPU(s) list:       0,1
+      Vendor ID:                   AuthenticAMD
+        Model name:                AMD EPYC-Rome Processor
+          CPU family:              23
+          Model:                   49
+          Thread(s) per core:      1
           Core(s) per socket:      2
           Socket(s):               1
           Stepping:                0
-          BogoMIPS:                5999.99
+          BogoMIPS:                8983.12
           Flags:                   ...
       Virtualization features:
         Hypervisor vendor:         KVM
         Virtualization type:       full
       Caches (sum of all):
-        L1d:                       128 KiB (4 instances)
-        L1i:                       128 KiB (4 instances)
-        L2:                        8 MiB (2 instances)
-        L3:                        16 MiB (1 instance)
+        L1d:                       128 KiB (2 instances)
+        L1i:                       128 KiB (2 instances)
+        L2:                        1 MiB (2 instances)
+        L3:                        32 MiB (2 instances)
       NUMA:
         NUMA node(s):              1
-        NUMA node0 CPU(s):         0-3
-      Vulnerabilities:
-        Gather data sampling:      Not affected
-        Indirect target selection: Vulnerable
-        Itlb multihit:             Not affected
-        L1tf:                      Not affected
-        Mds:                       Not affected
-        Meltdown:                  Not affected
-        Mmio stale data:           ...
-        Reg file data sampling:    Not affected
-        Retbleed:                  Not affected
-        Spec rstack overflow:      Not affected
+        NUMA node0 CPU(s):         0,1
         ...
       
       hwinfo --short
       
       cpu:
-      	Intel Xeon Processor (Icelake), 3000 MHz
-      	Intel Xeon Processor (Icelake), 3000 MHz
-      	Intel Xeon Processor (Icelake), 3000 MHz
-      	Intel Xeon Processor (Icelake), 3000 MHz
+          AMD EPYC-Rome Processor, 4491 MHz
+          AMD EPYC-Rome Processor, 4491 MHz
       
       ...
       
@@ -20300,8 +20481,6 @@ Table of Contents
       * NUMA is not used
       * Trace is turned off
       * One worker thread with CPU affinity (CPU pinning) usage
-      * tcmalloc is not used (https://github.com/google/tcmalloc), but it 
-        might increase performance
 
    benchmark results
    ──────────────────────────────────────────────────────────────────────────
@@ -20310,7 +20489,7 @@ Table of Contents
    test: traffic — no encapsulation
    ··········································································
    flow count                : 1,488,948
-   duration                  : 117 s  (117,892 ms)
+   duration                  : 44 s  (44,179 ms)
    packet count              : 40,000,666
    error traces              : 0
    critical traces           : 0
@@ -20324,9 +20503,9 @@ Table of Contents
    max sip cache usage       : 0
 
    engine performance
-      packets / sec  :     339,298.724  pps
-      throughput     :         863.928  mbps
-      throughput     :        0.863928  gbps
+      packets / sec  :     905,417.366  pps
+      throughput     :       2,305.389  mbps
+      throughput     :        2.305389  gbps
       total packets  :      40,000,666
       total bytes    :  12,731,295,704
 
