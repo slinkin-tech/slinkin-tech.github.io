@@ -85,7 +85,7 @@ permalink: /dc-engine/
 
 <div class="feature">
 <div class="feature-media"><img src="/assets/img/advantages/engine_puzzle.png" alt="engine customization" /></div>
-<div class="feature-body"><p>SL DC Engine allows critical internal functions to be replaced with custom implementations. Users can plug in their own regex engine and memory allocation/deallocation functions, and DC Engine will use them throughout the traffic processing pipeline. This keeps performance-critical and security-sensitive decisions in the hands of the integrator and helps DC Engine fit naturally into existing products.</p></div>
+<div class="feature-body"><p>SL DC Engine allows critical internal functions to be replaced with custom implementations. Users can plug in their own regex engine and memory allocation/deallocation functions, and the engine will use them throughout the traffic processing pipeline. This keeps performance-critical and security-sensitive decisions in the hands of the integrator and helps DC Engine fit naturally into existing products. When no custom implementation is provided, DC Engine uses its built-in, production-ready defaults.</p></div>
 </div>
 
 ---
