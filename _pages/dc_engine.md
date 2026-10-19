@@ -81,6 +81,13 @@ permalink: /dc-engine/
 <div class="feature-body"><p>Classification tasks are common across many fields: information security, where data is sorted into malicious and benign; system administration, where faulty network operation is diagnosed; and mobile operators and internet providers, where flows are matched to popular internet services. SL DC Engine handles classification through a tagging mechanism. Users define any tag they need and describe the rule that assigns it to a packet or flow — tethering, fraud, or anything else their use case demands.</p></div>
 </div>
 
+### # engine customization
+
+<div class="feature flip">
+<div class="feature-media"><img src="/assets/img/advantages/engine_puzzle.png" alt="engine customization" /></div>
+<div class="feature-body"><p>SL DC Engine allows critical internal functions to be replaced with custom implementations. Users can plug in their own regex engine and memory allocation/deallocation functions, and DC Engine will use them throughout the traffic processing pipeline. This keeps performance-critical and security-sensitive decisions in the hands of the integrator and helps DC Engine fit naturally into existing products.</p></div>
+</div>
+
 ---
 
 ## > solution
