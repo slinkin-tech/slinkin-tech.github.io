@@ -5,6 +5,31 @@ DC Engine - Changelog
 2026
 ================================================================================
 
+v2.1.0 [03.11.2026]
+--------------------------------------------------------------------------------
+* New classification approach: QUIC cache
+* Add tls session cache protection for QUIC sessions
+* Fix quic decryption error: wrong connection id usage
+* Fix move semantic for Packet data buffers
+* Reassembler buffer optimizations
+* Fix pool object leak on returning stage
+* Fix SIP TTL, reserve flag, configuration setup
+* Remove UNUSED macro usage
+* Fix RTP pointer arthmetic bug
+* Fix TLS (SSL 3.0) pointer arthmetic bug
+* Use FieldId as underlying integer type for entity, protocol, and extension fields
+* Change FieldId underlying type from unit32_t to uint16_t
+* ProtocolId underlying type unification; ProtocolIdType
+* Include clang-tidy file to SDK
+* Rename 'session_cache' to 'tls_cache'
+* Turn on clang-tidy for ALL platforms and refactor the code according
+  to the CppCoreGuidelines
+* Update signatures: amazon_aws, apple, arvancloud, cdn77, cdnvideo,
+  china_telecom, digital_ocean, disney_plus, facebook, gcore, github, google,
+  google_cloud, hetzner, icloud_private_relay, kingsoft, linode, meta, ms365,
+  ms_azure, ms_teams, netflix, ovh, roblox, scaleway, selectel, starlink,
+  tor, vultr, wangsu, webex, zenlayer
+
 v2.0.1 [14.10.2026]
 --------------------------------------------------------------------------------
 * Add missed implementation of 'getTags(...)' utils function

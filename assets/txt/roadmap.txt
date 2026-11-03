@@ -11,5 +11,5 @@ legend
 
 * [x] Change C++ standard: C++20 to C++17
 * [/] Wokflow classification: chat, audio/video call, file transfer fot the most famous services
-* [/] Performance improvements: avoid heap allocation in runtime
+* [x] Performance improvements: reduce heap allocation in runtime; use more flat structures, etc.
 * [x] Extend protocol and service list to 1000 items

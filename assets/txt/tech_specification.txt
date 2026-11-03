@@ -1,8 +1,8 @@
 ================================================================================
                                    DC Engine
                               Technical Reference
-                             Version v2.0.1+59cf64e
-                                   14.10.2026
+                             Version v2.1.0+e53d97a
+                                   03.11.2026
 ================================================================================
 
 Table of Contents
@@ -107,7 +107,7 @@ Table of Contents
 ────────────────────────────────────────────────────────────────────────────────
 
    product  : dc engine
-   release  : v2.0.1+59cf64e
+   release  : v2.1.0+e53d97a
 
    dependencies
 
@@ -129,13 +129,14 @@ Table of Contents
    expressions                                   25
    classifier tags                            1,090
    no-offload protocols                           6
-   domains                                    6,939
-   ipv4 cidr entries                        116,668
-   ipv6 cidr entries                        267,168
+   domains                                    6,927
+   ipv4 cidr entries                        119,555
+   ipv6 cidr entries                        270,565
    ipv4 socket entries                            0
    ipv6 socket entries                            0
    dns cache tags                                 1
-   session cache tags                             0
+   tls cache tags                                 0
+   quic cache tags                                1
    longest domain path                            7
    session storage elements                       0
 
@@ -11757,7 +11758,8 @@ Table of Contents
                                                         ipv4socket (3),
                                                         ipv6socket (4), domain
                                                         (5), dns_cache (6),
-                                                        session_cache (7).
+                                                        tls_cache (7),
+                                                        quic_cache (8).
 
    sip_cache
       The extension extracts additional information from SIP session and then
@@ -20404,7 +20406,7 @@ Table of Contents
       
                            IP increment [per cycle]
       ------------------------------------------------------------------
-          All traffic             DnsCache             SessionCache
+          All traffic             DnsCache               TlsCache
         +--------------+      +---------------+      +--------------+
         | Subscriber   |      |  DNS answer   |      |  TLS Session |
         | IP addresses |      |  IP addresses |      |  ID          |
@@ -20419,8 +20421,8 @@ Table of Contents
    operating system
 
       .uname -a
-      Linux sl-dev 6.8.0-100-generic #100-Ubuntu SMP PREEMPT_DYNAMIC Tue Jan 
-      13 16:40:06 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+      Linux sl-dev-2 7.0.0-42-generic #42-Ubuntu SMP PREEMPT_DYNAMIC Thu Oct 15
+      08:06:44 UTC 2026 x86_64 GNU/Linux
 
    hardware
 
@@ -20430,46 +20432,118 @@ Table of Contents
         1    1      0    0    yes
       
       lscpu
-      Architecture:                x86_64
-        CPU op-mode(s):            32-bit, 64-bit
-        Address sizes:             40 bits physical, 48 bits virtual
-        Byte Order:                Little Endian
-      CPU(s):                      2
-        On-line CPU(s) list:       0,1
-      Vendor ID:                   AuthenticAMD
-        Model name:                AMD EPYC-Rome Processor
-          CPU family:              23
-          Model:                   49
-          Thread(s) per core:      1
-          Core(s) per socket:      2
-          Socket(s):               1
-          Stepping:                0
-          BogoMIPS:                8983.12
-          Flags:                   ...
-      Virtualization features:
-        Hypervisor vendor:         KVM
-        Virtualization type:       full
-      Caches (sum of all):
-        L1d:                       128 KiB (2 instances)
-        L1i:                       128 KiB (2 instances)
-        L2:                        1 MiB (2 instances)
-        L3:                        32 MiB (2 instances)
-      NUMA:
-        NUMA node(s):              1
-        NUMA node0 CPU(s):         0,1
-        ...
+      Architecture:                            x86_64
+      CPU op-mode(s):                          32-bit, 64-bit
+      Address sizes:                           40 bits physical, 48 bits virtual
+      Byte Order:                              Little Endian
+      CPU(s):                                  2
+      On-line CPU(s) list:                     0,1
+      Vendor ID:                               AuthenticAMD
+      Model name:                              AMD EPYC-Rome Processor
+      CPU family:                              23
+      Model:                                   49
+      Thread(s) per core:                      1
+      Core(s) per socket:                      2
+      Socket(s):                               1
+      Stepping:                                0
+      BogoMIPS:                                8983.11
+      Flags:                                   fpu vme de pse tsc msr pae mce
+      cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht
+      syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm rep_good nopl xtopology
+      cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1
+      sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm
+      cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw
+      perfctr_core ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx
+      smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 clzero xsaveerptr
+      wbnoinvd arat umip rdpid
+      Hypervisor vendor:                       KVM
+      Virtualization type:                     full
+      L1d cache:                               128 KiB (2 instances)
+      L1i cache:                               128 KiB (2 instances)
+      L2 cache:                                1 MiB (2 instances)
+      L3 cache:                                32 MiB (2 instances)
+      NUMA node(s):                            1
+      NUMA node0 CPU(s):                       0,1
+      Vulnerability Gather data sampling:      Not affected
+      Vulnerability Ghostwrite:                Not affected
+      Vulnerability Indirect target selection: Not affected
+      Vulnerability Itlb multihit:             Not affected
+      Vulnerability L1tf:                      Not affected
+      Vulnerability Mds:                       Not affected
+      Vulnerability Meltdown:                  Not affected
+      Vulnerability Mmio stale data:           Not affected
+      Vulnerability Old microcode:             Not affected
+      Vulnerability Reg file data sampling:    Not affected
+      Vulnerability Retbleed:                  Mitigation; untrained return
+      thunk; SMT disabled
+      Vulnerability Spec rstack overflow:      Mitigation; SMT disabled
+      Vulnerability Spec store bypass:         Vulnerable
+      Vulnerability Spectre v1:                Mitigation; usercopy/swapgs
+      barriers and __user pointer sanitization
+      Vulnerability Spectre v2:                Mitigation; Retpolines; IBPB
+      conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI
+      Not affected
+      Vulnerability Srbds:                     Not affected
+      Vulnerability Tsa:                       Not affected
+      Vulnerability Tsx async abort:           Not affected
+      Vulnerability Vmscape:                   Not affected
       
       hwinfo --short
-      
       cpu:
-          AMD EPYC-Rome Processor, 4491 MHz
-          AMD EPYC-Rome Processor, 4491 MHz
-      
-      ...
-      
+                             AMD EPYC-Rome Processor, 4491 MHz
+                             AMD EPYC-Rome Processor, 4491 MHz
+      keyboard:
+        /dev/input/event1    AT Translated Set 2 keyboard
+        /dev/ttyS0           serial console
+      mouse:
+        /dev/input/mice      Adomax QEMU USB Tablet
+        /dev/input/mice      VirtualPS/2 VMware VMMouse
+        /dev/input/mice      VirtualPS/2 VMware VMMouse
+      graphics card:
+                             VGA compatible controller
+      storage:
+                             Floppy disk controller
+                             Red Hat Virtio SCSI
+                             Red Hat Qemu virtual machine
+                             Virtio Storage 0
+      network:
+        eth0                 Virtio Ethernet Card 0
+      network interface:
+        eth0                 Ethernet network interface
+        lo                   Loopback network interface
+      disk:
+        /dev/sda             QEMU HARDDISK
+        /dev/vda             Disk
+      partition:
+        /dev/sda1            Partition
+        /dev/sda13           Partition
+        /dev/sda14           Partition
+        /dev/sda15           Partition
+      usb controller:
+                             Red Hat QEMU Virtual Machine
+      bios:
+                             BIOS
+      bridge:
+                             Red Hat Qemu virtual machine
+                             Red Hat Qemu virtual machine
+                             Red Hat Qemu virtual machine
+      hub:
+                             Linux Foundation 1.1 root hub
       memory:
-      	Main Memory
-      ...
+                             Main Memory
+      unknown:
+                             FPU
+                             DMA controller
+                             PIC
+                             Keyboard controller
+                             Red Hat Virtio block device
+                             Red Hat Virtio network device
+                             Red Hat Virtio memory balloon
+                             Red Hat Virtio console
+                             Virtio Unclassified device
+                             Virtio Unclassified device
+                             Virtio Unclassified device
+                             Serial controller
 
    test notes
 
@@ -20488,54 +20562,55 @@ Table of Contents
    benchmarks are based on the configuration summarised in section 3.
    test: traffic — no encapsulation
    ··········································································
-   flow count                : 1,488,948
-   duration                  : 44 s  (44,419 ms)
-   packet count              : 40,000,666
+   flow count                : 1,532,818
+   duration                  : 39 s  (39,652 ms)
+   packet count              : 40,003,020
    error traces              : 0
    critical traces           : 0
    max layer pool usage      : no measurement
-   max reassembler pool usage: 5,572
-   max flow pool usage       : 70,221
-   max session pool usage    : 45,925
-   max dns cache usage       : 27,081
-   max session cache usage   : 0
+   max reassembler pool usage: 5,467
+   max flow pool usage       : 71,862
+   max session pool usage    : 46,543
+   max dns cache usage       : 26,760
+   max tls cache usage       : 0
+   max quic cache usage      : 100,000
    max ftp cache usage       : 0
    max sip cache usage       : 0
 
    engine performance
-      packets / sec  :     900,523.942  pps
-      throughput     :       2,292.929  mbps
-      throughput     :        2.292929  gbps
-      total packets  :      40,000,666
-      total bytes    :  12,731,295,704
+      packets / sec  :   1,008,830.372  pps
+      throughput     :       2,590.684  mbps
+      throughput     :        2.590684  gbps
+      total packets  :      40,003,020
+      total bytes    :  12,841,009,224
 
    top 10 tags (by bytes)
       name                              packets        bytes
       ---------------------------- ------------ ------------
-      apple                           8,921,446 3,267,964,896
-      facetime                        7,674,254 2,347,627,722
-      wikipedia                       2,212,760 1,913,574,732
-      yandex_cloud                    4,234,418 1,406,752,112
-      google                          2,987,226 1,116,317,304
-      apple_push_notification         4,455,694  998,336,964
-      youtube                           965,568  437,754,334
-      google_cloud                      864,988  304,153,920
-      disney_plus                       392,262  270,982,636
-      apple_updates                     331,914  223,076,382
+      apple                           8,826,537 3,233,199,312
+      facetime                        7,592,613 2,322,652,959
+      wikipedia                       2,189,220 1,893,217,554
+      yandex_cloud                    4,189,371 1,391,786,664
+      google                          3,383,340 1,349,594,424
+      apple_push_notification         4,408,293  987,716,358
+      youtube                         1,214,022  571,038,135
+      google_cloud                      855,786  300,918,240
+      disney_plus                       388,089  268,099,842
+      apple_updates                     328,383  220,703,229
 
    top 10 protocols (by bytes)
       name                              packets        bytes
       ---------------------------- ------------ ------------
-      tls                            14,594,158 6,642,685,404
-      payload                         5,844,772 2,308,389,182
-      wireguard                       4,234,418 1,406,752,112
-      openvpn                         8,830,924 1,221,051,258
-      rtp                             4,234,418  837,760,994
-      http                              251,450   87,735,934
-      dns                               804,640   75,937,900
-      stun                              502,900   63,204,472
-      ssh                               241,392   33,664,126
-      dtls                               70,406   13,859,924
+      tls                            14,757,333 6,757,395,717
+      payload                         5,782,605 2,283,834,501
+      wireguard                       4,189,371 1,391,786,664
+      openvpn                         8,736,978 1,208,061,351
+      rtp                             4,189,371  828,848,643
+      http                              248,775   86,802,573
+      dns                               796,080   75,130,050
+      stun                              497,550   62,532,084
+      quic                              109,461   59,775,657
+      ssh                               238,824   33,305,997
 
 
 ================================================================================
