@@ -1,8 +1,8 @@
 ================================================================================
                                    DC Engine
                               Technical Reference
-                             Version v2.1.0+e53d97a
-                                   03.11.2026
+                             Version v2.1.2+9301dd4
+                                   17.11.2026
 ================================================================================
 
 Table of Contents
@@ -107,7 +107,7 @@ Table of Contents
 ────────────────────────────────────────────────────────────────────────────────
 
    product  : dc engine
-   release  : v2.1.0+e53d97a
+   release  : v2.1.2+9301dd4
 
    dependencies
 
@@ -130,8 +130,8 @@ Table of Contents
    classifier tags                            1,090
    no-offload protocols                           6
    domains                                    6,927
-   ipv4 cidr entries                        119,555
-   ipv6 cidr entries                        270,565
+   ipv4 cidr entries                        124,381
+   ipv6 cidr entries                        271,813
    ipv4 socket entries                            0
    ipv6 socket entries                            0
    dns cache tags                                 1
@@ -20421,8 +20421,8 @@ Table of Contents
    operating system
 
       .uname -a
-      Linux sl-dev-2 7.0.0-42-generic #42-Ubuntu SMP PREEMPT_DYNAMIC Thu Oct 15
-      08:06:44 UTC 2026 x86_64 GNU/Linux
+      Linux sl-dev-2 7.0.0-43-generic #43-Ubuntu SMP PREEMPT_DYNAMIC Fri Oct 23
+      13:25:25 UTC 2026 x86_64 GNU/Linux
 
    hardware
 
@@ -20446,7 +20446,7 @@ Table of Contents
       Core(s) per socket:                      2
       Socket(s):                               1
       Stepping:                                0
-      BogoMIPS:                                8983.11
+      BogoMIPS:                                8983.12
       Flags:                                   fpu vme de pse tsc msr pae mce
       cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht
       syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm rep_good nopl xtopology
@@ -20563,7 +20563,7 @@ Table of Contents
    test: traffic — no encapsulation
    ··········································································
    flow count                : 1,532,818
-   duration                  : 39 s  (39,652 ms)
+   duration                  : 47 s  (47,434 ms)
    packet count              : 40,003,020
    error traces              : 0
    critical traces           : 0
@@ -20578,9 +20578,9 @@ Table of Contents
    max sip cache usage       : 0
 
    engine performance
-      packets / sec  :   1,008,830.372  pps
-      throughput     :       2,590.684  mbps
-      throughput     :        2.590684  gbps
+      packets / sec  :     843,324.812  pps
+      throughput     :       2,165.665  mbps
+      throughput     :        2.165665  gbps
       total packets  :      40,003,020
       total bytes    :  12,841,009,224
 

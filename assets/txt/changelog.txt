@@ -5,6 +5,28 @@ DC Engine - Changelog
 2026
 ================================================================================
 
+v2.1.2 [17.11.2026]
+--------------------------------------------------------------------------------
+* Add daily service signature update changelog
+* Fix telegram, fastly, vultr, tor, ms_azure, digital_ocean, amazon_cloudfront
+  daily signature update service
+* Update signatures: apple, ms_azure, ovh, starlink, wangsu, zenlayer, tor,
+  roblox, selectel, netflix, cachefly, amazon_cloudfront, amazon_aws
+* Extend demo to 250 services. New services: hetzner, ovh, linode, scaleway,
+  selectel, regru, ru_center, heroku, rackspace, hostgator, alibaba_cloud,
+  tencent_cloud, oracle_cloud, huawei_cloud, ibm_cloud, gcore, cdn77,
+  cachefly, imgix, ngenix, cdnvideo, ddos_guard, qrator, cdnetworks, wangsu,
+  baishan_cloud, zenlayer, arvancloud, medianova, azion, microsoft, adobe,
+  anthropic, claude, jetbrains
+
+v2.1.1 [13.11.2026]
+--------------------------------------------------------------------------------
+* Daily signature update
+* Update signatures: amazon_aws, apple, cachefly, cdn77, china_telecom,
+  digital_ocean, disney_plus, dropbox, facebook, gcore, github, google_cloud,
+  hetzner, icloud_private_relay, meta, netflix, ovh, roblox, selectel, starlink,
+  teamviewer, tor, vkontakte, wangsu, zenlayer, zoom
+
 v2.1.0 [03.11.2026]
 --------------------------------------------------------------------------------
 * New classification approach: QUIC cache
